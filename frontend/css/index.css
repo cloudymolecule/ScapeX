@@ -9,7 +9,7 @@ body {
     grid-auto-rows: minmax(100px, auto);
 }
 
-div.title {
+div#title {
     border: 2px dotted red;
     text-align: center;
     font-size: 4em;
