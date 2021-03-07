@@ -12,7 +12,7 @@ body {
 div.title {
     border: 2px dotted red;
     text-align: center;
-    font-size: 3em;
+    font-size: 4em;
     line-height: 0em;
 }
 
@@ -34,11 +34,17 @@ div.title {
     margin-right: auto;
     text-align:center;
     font-size: 2em;
+    background-color: rgb(33, 33, 33);
 }
 
 .interface {
-    height: 70vh;
+    height: 60vh;
     overflow: auto;
+    text-align:justify;
+    font-size: 1.5em;
+    text-indent: 50px;
+    line-height: 1.8;
+    
 }
 
 .action-menu {
@@ -51,4 +57,21 @@ div.title {
     padding: 0.5em;
     text-align: center;
     font-size: 20px;
+    background-color: rgb(105, 105, 105);
+}
+
+.context-menu {
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.context-menu > div {
+    padding: 1em;
+    text-align: center;
+    font-size: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(105, 105, 105);
 }
