@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mRegister.addEventListener('click', () => {
         clearElems('interface')
         
-        const div = document.createElement('div')
+        const form = document.createElement('div')
         const p = document.createElement('p')
         const labName = document.createElement('label')
         const inputName = document.createElement('input')
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const br = document.createElement('br')
         const submitButton = document.createElement('input')
 
-        div.setAttribute('class', 'form')
+        form.setAttribute('class', 'form')
         p.innerText = "Create a ScapeX account"
         labName.setAttribute('class', 'input-styles')
         labName.innerText = "Username:"
@@ -66,20 +66,45 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.setAttribute('class', 'input-styles-button')
 
         interface.appendChild(p)
-        div.appendChild(labName)
-        div.appendChild(inputName)
-        div.appendChild(labEmail)
-        div.appendChild(inputEmail)
-        div.appendChild(labPass)
-        div.appendChild(inputPass)
-        div.appendChild(labPassCon)
-        div.appendChild(inputPassCon)
-        div.appendChild(br)
-        div.appendChild(submitButton)
-        interface.appendChild(div)
+        form.appendChild(labName)
+        form.appendChild(inputName)
+        form.appendChild(labEmail)
+        form.appendChild(inputEmail)
+        form.appendChild(labPass)
+        form.appendChild(inputPass)
+        form.appendChild(labPassCon)
+        form.appendChild(inputPassCon)
+        form.appendChild(br)
+        form.appendChild(submitButton)
+        interface.appendChild(form)
 
         submitButton.addEventListener('click', () => {
-            clearElems('interface')
+            let formData = {
+                name: document.getElementById('input-name').value,
+                email: document.getElementById('input-email').value,
+                password: document.getElementById('input-password').value,
+                password_confirmation: document.getElementById('input-password-con').value
+            }
+
+            let configObj = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }
+
+            fetch('http://localhost:3000/users', configObj)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(object) {
+                console.log(object)
+            })
+            .catch(function(error) {
+                console.log(error.message)
+            })
         })
 
     })

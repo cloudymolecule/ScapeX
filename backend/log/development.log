@@ -229,3 +229,45 @@ Processing by UsersController#create as HTML
 Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 135)
 
 
+Started POST "/users" for ::1 at 2021-03-08 13:47:05 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 132)
+
+
+Started POST "/users" for ::1 at 2021-03-08 13:47:44 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 137)
+
+
+Started POST "/users" for ::1 at 2021-03-08 13:47:48 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 132)
+
+
+Started POST "/users" for ::1 at 2021-03-08 13:48:14 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 137)
+
+
+Started POST "/users" for ::1 at 2021-03-08 13:48:22 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 132)
+
+
+Started POST "/users" for ::1 at 2021-03-08 13:49:09 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"dfd", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.3ms | Allocations: 132)
+
+
+Started POST "/users" for ::1 at 2021-03-08 13:49:30 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Dario", "email"=>"hi@hi.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"hi@hi.com", "password"=>"[FILTERED]"}}
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 132)
+
+
