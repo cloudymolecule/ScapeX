@@ -39,7 +39,7 @@ div#title {
 }
 
 .menu-element {
-    opacity: 0.2;
+    opacity: 0.4;
     color: rgb(60, 60, 60);
     cursor: pointer;
     transition: 0.3s;
@@ -53,8 +53,32 @@ div#title {
 .input-styles {
     background: black;
     color: rgb(194, 185, 162);
-    text-align:center;
-    font-size: 0.6em;
+    text-align: right;
+}
+
+.input-styles-inp {
+    background: black;
+    color: rgb(194, 185, 162);
+    text-align:left;
+    border: 3px solid rgb(96, 0, 0);
+    font-size: 1em;
+}
+
+.input-styles-button {
+    color: rgb(194, 185, 162);
+    text-align: center;
+    font-size: 1em;
+    background-color: rgb(96, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+.form {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 .interface {
@@ -76,6 +100,7 @@ div.interface {
 }
 
 .action-menu {
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
