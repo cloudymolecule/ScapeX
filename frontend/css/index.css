@@ -50,9 +50,9 @@ div#title {
     color: red;
 }
 
-.input-color {
+.input-styles {
     background: black;
-    color: rgb(194, 185, 162) ;
+    color: rgb(194, 185, 162);
     text-align:center;
     font-size: 0.6em;
 }

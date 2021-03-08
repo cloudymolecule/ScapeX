@@ -32,28 +32,42 @@ document.addEventListener("DOMContentLoaded", () => {
         f.setAttribute('class', 'interface')
         
         const p = document.createElement('p')
-        p.innerText = "Register"
+        p.innerText = "Create a ScapeX account"
 
-        const lab = document.createElement('label')
-        lab.setAttribute('type', 'label')
-        lab.setAttribute('class', 'input-color')
-        lab.setAttribute('for', 'input-name')
-        lab.innerText = "Please enter your name"
+        const labName = document.createElement('label')
+        labName.setAttribute('type', 'label')
+        labName.setAttribute('class', 'input-styles')
+        labName.setAttribute('for', 'input-name')
+        labName.innerText = "Please enter your name:"
 
-        const i = document.createElement('input')
-        i.setAttribute('type', 'text')
-        i.setAttribute('name', 'username')
-        i.setAttribute('class', 'input-color')
-        i.setAttribute('id', 'input-name')
+        const inputName = document.createElement('input')
+        inputName.setAttribute('type', 'text')
+        inputName.setAttribute('name', 'username')
+        inputName.setAttribute('class', 'input-styles')
+        inputName.setAttribute('id', 'input-name')
+
+        const labEmail = document.createElement('label')
+        labEmail.setAttribute('type', 'label')
+        labEmail.setAttribute('class', 'input-styles')
+        labEmail.setAttribute('for', 'input-email')
+        labEmail.innerText = "Please enter your email:"
+
+        const inputEmail = document.createElement('input')
+        inputEmail.setAttribute('type', 'text')
+        inputEmail.setAttribute('name', 'username')
+        inputEmail.setAttribute('class', 'input-styles')
+        inputEmail.setAttribute('id', 'input-email')
 
         const s = document.createElement('input')
         s.setAttribute('type', 'submit')
-        s.setAttribute('value', 'submit')
-        s.setAttribute('class', 'input-color')
+        s.setAttribute('value', 'Register')
+        s.setAttribute('class', 'input-styles')
 
         interface.appendChild(p)
-        f.appendChild(lab)
-        f.appendChild(i)
+        f.appendChild(labName)
+        f.appendChild(inputName)
+        f.appendChild(labEmail)
+        f.appendChild(inputEmail)
         f.appendChild(s)
 
 
