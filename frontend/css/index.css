@@ -50,16 +50,25 @@ div#title {
     color: red;
 }
 
-
+.input-color {
+    background: black;
+    color: rgb(194, 185, 162) ;
+    text-align:center;
+    font-size: 0.6em;
+}
 
 .interface {
     height: 60vh;
     overflow:auto;
-    text-align:justify;
+    text-align:center;
     font-size: 1.5em;
     text-indent: 50px;
     line-height: 1.8;
     
+}
+
+div.interface {
+    color: rgb(194, 185, 162);
 }
 
 .interface::-webkit-scrollbar {
