@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         submitButton.addEventListener('click', () => {
             let formData = {
-                name: document.getElementById('input-name').value,
+                username: document.getElementById('input-name').value,
                 email: document.getElementById('input-email').value,
                 password: document.getElementById('input-password').value,
                 password_confirmation: document.getElementById('input-password-con').value

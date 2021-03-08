@@ -271,3 +271,428 @@ Processing by UsersController#create as JSON
 Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 132)
 
 
+Started POST "/users" for ::1 at 2021-03-08 13:52:23 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"dario", "email"=>"12", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"12", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms | Allocations: 574)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x00007fb15d077c98>
+Did you mean?  try):
+  
+app/controllers/users_controller.rb:3:in `create'
+Started POST "/users" for ::1 at 2021-03-08 13:53:00 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 5369ms (ActiveRecord: 0.7ms | Allocations: 67920)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:4:in `create'
+Started POST "/users" for ::1 at 2021-03-08 13:53:21 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Dario", "email"=>"1@1.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"email"=>"1@1.com", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 785073ms (ActiveRecord: 0.0ms | Allocations: 475173)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:4:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:06:27 -0500
+Started POST "/users" for ::1 at 2021-03-08 14:06:27 -0500
+Started POST "/users" for ::1 at 2021-03-08 14:06:27 -0500
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+            username: params[:username],
+                    ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+            email: params[:email],
+            ^~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+            password: params[:password]
+            ^~~~~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+        }
+        ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+Started POST "/users" for ::1 at 2021-03-08 14:06:31 -0500
+Started POST "/users" for ::1 at 2021-03-08 14:06:31 -0500
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+            username: params[:username],
+                    ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+            email: params[:email],
+            ^~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+            password: params[:password]
+            ^~~~~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+        }
+        ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+            username: params[:username],
+                    ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+            email: params[:email],
+            ^~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+            password: params[:password]
+            ^~~~~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+        }
+        ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+            username: params[:username],
+                    ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+            email: params[:email],
+            ^~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+            password: params[:password]
+            ^~~~~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+        }
+        ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+            username: params[:username],
+                    ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+            email: params[:email],
+            ^~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+            password: params[:password]
+            ^~~~~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+        }
+        ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+Started POST "/users" for ::1 at 2021-03-08 14:06:59 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+            username: params[:username],
+                    ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+            email: params[:email],
+            ^~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+            password: params[:password]
+            ^~~~~~~~~
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+        }
+        ^
+/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:5: syntax error, unexpected ':', expecting '}'
+app/controllers/users_controller.rb:6: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:7: syntax error, unexpected tLABEL, expecting '='
+app/controllers/users_controller.rb:8: syntax error, unexpected '}', expecting end
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+Started POST "/users" for ::1 at 2021-03-08 14:17:38 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 204 No Content in 11ms (ActiveRecord: 0.7ms | Allocations: 3034)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:17:43 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"fdsds", "email"=>"sdfsdf", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"fdsds", "email"=>"sdfsdf", "password"=>"[FILTERED]"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:17:50 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"fdsds", "email"=>"sdfsdf", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"fdsds", "email"=>"sdfsdf", "password"=>"[FILTERED]"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 28)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:19:19 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+Started POST "/users" for ::1 at 2021-03-08 14:19:59 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"12", "email"=>"12", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"12", "email"=>"12", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms | Allocations: 9401)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fef0e2d2030>):
+  
+app/controllers/users_controller.rb:10:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:26:25 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+Started POST "/users" for ::1 at 2021-03-08 14:26:39 -0500
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:15: syntax error, unexpected tIDENTIFIER, expecting '}'
+Started POST "/users" for ::1 at 2021-03-08 14:27:39 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"34", "email"=>"234324", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"34", "email"=>"234324", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms | Allocations: 3108)
+
+
+  
+ArgumentError (wrong number of arguments (given 3, expected 0..1)):
+  
+app/controllers/users_controller.rb:4:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:34:03 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"234", "email"=>"234", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"234", "email"=>"234", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms | Allocations: 9464)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x00007fc9dbf031e0>):
+  
+app/controllers/users_controller.rb:6:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:35:09 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"234", "email"=>"234", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"234", "email"=>"234", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 39070ms (ActiveRecord: 0.7ms | Allocations: 51208)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:6:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:36:08 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 5479ms (ActiveRecord: 0.5ms | Allocations: 46688)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:6:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:36:52 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms | Allocations: 7087)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password_confirmation' for User.):
+  
+app/controllers/users_controller.rb:4:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:37:22 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 5012ms (ActiveRecord: 0.5ms | Allocations: 46752)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:6:in `create'
+Started POST "/users" for ::1 at 2021-03-08 14:37:57 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password", "123"], ["password_digest", "123"], ["created_at", "2021-03-08 19:37:57.330333"], ["updated_at", "2021-03-08 19:37:57.330333"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 8855)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:42:37 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$5BxF5V9.XLd27uuXnLcA1eM473HMcVkgRSJ5SNSFddbJZzHnHb.z6"], ["created_at", "2021-03-08 19:42:38.190803"], ["updated_at", "2021-03-08 19:42:38.190803"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Completed 200 OK in 222ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 8946)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:42:47 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$Iz/qd2u.hsq17NXWo0RleewwcXw2FWyD0420V4exfJub/BQw0kkHu"], ["created_at", "2021-03-08 19:42:47.392969"], ["updated_at", "2021-03-08 19:42:47.392969"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 1816)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:43:12 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$6ipNtpobU.wT24cTcHw5K.HwCRRVZjRCyWPbKkmP4wE0kwBUbLELm"], ["created_at", "2021-03-08 19:43:13.043029"], ["updated_at", "2021-03-08 19:43:13.043029"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Completed 200 OK in 212ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 5093)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:43:14 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$T1GluILlBWlqPRSk9uucPumMM90QX/glI98EPFkuAmH81v910YZzO"], ["created_at", "2021-03-08 19:43:14.265050"], ["updated_at", "2021-03-08 19:43:14.265050"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Completed 200 OK in 211ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 1800)
+
+
+Started POST "/users" for ::1 at 2021-03-08 14:44:26 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:14: syntax error, unexpected tIDENTIFIER, expecting '}'
+                status: 400
+                ^~~~~~):
+  
+app/controllers/users_controller.rb:14: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/controllers/users_controller.rb:14: syntax error, unexpected tIDENTIFIER, expecting '}'
+Started POST "/users" for ::1 at 2021-03-08 14:45:21 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 10573)
+
+
