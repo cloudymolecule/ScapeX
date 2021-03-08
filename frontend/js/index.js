@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
+    //main menu
     const mLoginLogout = document.getElementById('menu-login-logout')
     const mRegister = document.getElementById('menu-register')
     const mCreate = document.getElementById('menu-create')
@@ -7,11 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const mTop = document.getElementById('menu-top')
     const mSearch = document.getElementById('menu-search')
     const mAbout = document.getElementById('menu-about')
-    
     const interface = document.getElementById('interface')
+    
+    //corners
+    const cTopRight = document.getElementById('corner-top-right')
+
     function clearElems(elementId) {
         document.getElementById(elementId).innerHTML = ""
     }
+
+    
 
     //main menu
     mLoginLogout.addEventListener('click', () => {
@@ -100,6 +106,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json()
             })
             .then(function(object) {
+                if (object.error) {
+                    clearElems('corner-top-right')
+                    let error = document.createElement('p')
+                    error.innerHTML = object.error
+                    error.setAttribute('class', 'warning')
+                    cTopRight.appendChild(error)
+                    cTopRight.removeAttribute('class')
+                    cTopRight.setAttribute('class', 'corner-active')
+                    setTimeout(() => {
+                        clearElems('corner-top-right')
+                        cTopRight.removeAttribute('class')
+                        cTopRight.setAttribute('class', 'corner-inactive')
+                    }, 6000)
+                } else {
+                    clearElems('interface')
+                    interface.innerHTML = 'Account created succesfully, please log in'
+                }
+                
+                
                 console.log(object)
             })
             .catch(function(error) {

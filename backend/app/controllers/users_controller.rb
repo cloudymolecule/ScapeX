@@ -7,11 +7,10 @@ class UsersController < ApplicationController
             password_confirmation: params[:password_confirmation]
         )
         if user.save
-            session[:user] = user.id
             render json: user
         else
             render json: {
-                error: "The user didn's save to the super sqlite",
+                error: "Error while creating account, try again.",
                 status: 400
             }
         end

@@ -696,3 +696,709 @@ Processing by UsersController#create as JSON
 Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 10573)
 
 
+Started POST "/users" for ::1 at 2021-03-08 14:51:50 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$gh0KTmUoFuWX1Xefbey6weELiVQVo/pLfzK7pHQ6J2kaqCyM8SlGq"], ["created_at", "2021-03-08 19:51:50.530277"], ["updated_at", "2021-03-08 19:51:50.530277"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 212ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 5079)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:06:37 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$qNTsZh16C9uY1qqvhC4DSuhgUg4StaHmr3VE9laSNGSahUHACu5ie"], ["created_at", "2021-03-08 20:06:37.838011"], ["updated_at", "2021-03-08 20:06:37.838011"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 216ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 2255)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:17:29 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$vng/6vyLjtLrcZQ7KVpmK.PwpK5OuX5sUexllcZCPh2oo0EzaHpmm"], ["created_at", "2021-03-08 20:17:29.981739"], ["updated_at", "2021-03-08 20:17:29.981739"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 219ms (Views: 0.5ms | ActiveRecord: 2.2ms | Allocations: 9020)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:26:09 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$65RJRfXLD7GMSZHReoaoC.hJuiWtldznKfznmRCxmhhW/SPhRkvxG"], ["created_at", "2021-03-08 20:26:10.160452"], ["updated_at", "2021-03-08 20:26:10.160452"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 4971)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:26:12 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$ykUJBA/VzuXNbTN1JtDqSONCICFrI2Mz75X8psAPxrczjZQffCfKK"], ["created_at", "2021-03-08 20:26:12.524201"], ["updated_at", "2021-03-08 20:26:12.524201"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 1802)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:26:48 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$s2uZQLUS9jAz3tYPqfSgG.L3S0oQ0viw0gDLEx4xCT76poHbhj1Ta"], ["created_at", "2021-03-08 20:26:49.102151"], ["updated_at", "2021-03-08 20:26:49.102151"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 215ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 6782)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:27:30 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"12312", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"12312", "password"=>"[FILTERED]"}}
+Completed 200 OK in 224ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1785)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:27:37 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"12312", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"12312", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "12312"], ["password_digest", "$2a$12$EFpSwiDTwwdjy0tzQ46RJOR50D4T8PqkH2Duqs7W0xhjNJVYoC4iy"], ["created_at", "2021-03-08 20:27:37.746736"], ["updated_at", "2021-03-08 20:27:37.746736"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 211ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 1782)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:28:18 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$v6Xo/pKN58mJDSJ6AtSxq.aJCcZ8tArObJDz3U.cU0B8vU61bxLY2"], ["created_at", "2021-03-08 20:28:18.411550"], ["updated_at", "2021-03-08 20:28:18.411550"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 216ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 1782)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:29:33 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"2we", "email"=>"qwe", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"2we", "email"=>"qwe", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "2we"], ["email", "qwe"], ["password_digest", "$2a$12$0.o5B0poI8.ymLyC6QvYeeN0qNWJrXB/LFCUE7AbCoJwTQPDNaxhu"], ["created_at", "2021-03-08 20:29:33.558845"], ["updated_at", "2021-03-08 20:29:33.558845"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 211ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 1785)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:29:35 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"2we", "email"=>"qwe", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"2we", "email"=>"qwe", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "2we"], ["email", "qwe"], ["password_digest", "$2a$12$zAjPJ/0hwUwob.UII/DjkOkOSIXntJQ5EIYCEEZpa4CVGpySqpody"], ["created_at", "2021-03-08 20:29:35.306246"], ["updated_at", "2021-03-08 20:29:35.306246"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 215ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 1791)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:29:38 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"2we", "email"=>"qwe", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"2we", "email"=>"qwe", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "2we"], ["email", "qwe"], ["password_digest", "$2a$12$ib4Sf.jPfyBAGxTy7Wmex.mZo1qP7gR7oPUTcXlKlT.o4DhkXvGLa"], ["created_at", "2021-03-08 20:29:38.823766"], ["updated_at", "2021-03-08 20:29:38.823766"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 1782)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:32:40 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$0AzL.w8lUnOAstOC69X/rOEf3QaPr8.kuddjX8UE8V5k1lTxT/HAi"], ["created_at", "2021-03-08 20:32:40.614163"], ["updated_at", "2021-03-08 20:32:40.614163"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 1782)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:33:11 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$zn921Vje6OoAiig.RzwvGejV84OidB5.ahfCx4OLbnwXqJbullV.K"], ["created_at", "2021-03-08 20:33:11.875891"], ["updated_at", "2021-03-08 20:33:11.875891"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 1785)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:34:05 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"213", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"213", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "213"], ["email", "123"], ["password_digest", "$2a$12$ScAUWWF4BEgGxrOoVJD9e.DBF6HeFSjJMcKbniHTmothTAiXKTa6q"], ["created_at", "2021-03-08 20:34:05.666761"], ["updated_at", "2021-03-08 20:34:05.666761"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 211ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 1782)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:39:04 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+Completed 200 OK in 212ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 513)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:40:16 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"wer", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"wer", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 411)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:43:03 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 420)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:43:08 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:46:38 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:46:40 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 420)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:46:41 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:46:58 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:47:00 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 420)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:49:23 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:49:43 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:50:55 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 420)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:50:56 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:51:04 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:51:34 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:12 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:14 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:15 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:15 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:15 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:15 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:16 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:52:19 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:55:22 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:57:45 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:59:11 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 15:59:44 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:00:37 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:01:53 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:02:14 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:02:38 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:04:30 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:04:32 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:04:33 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:04:36 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:04:37 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:04:37 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:04:38 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:05:03 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:05:03 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:05:04 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:05:05 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:06:50 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:06:50 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:06:51 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:06:52 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:06:52 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:07:49 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:08:00 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:08:25 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:08:45 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:09:18 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:09:22 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:22 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:23 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:24 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:24 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 420)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:24 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:25 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:25 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:25 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:26 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:26 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:27 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:10:27 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:11:10 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 3740)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:11:33 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:11:39 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:14:12 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$ItxSM6H1rd2YUXML6c/lO.TrW.t2AMIjRgiG6OBknwQYSyP6n8Lfy"], ["created_at", "2021-03-08 21:14:12.678005"], ["updated_at", "2021-03-08 21:14:12.678005"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 1807)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:14:53 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:15:21 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:15:27 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$fmB8/xhe.gQ1V/kjXsKzMudTIJXQnw/pSga98XabfTtistctZilTC"], ["created_at", "2021-03-08 21:15:27.658615"], ["updated_at", "2021-03-08 21:15:27.658615"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 215ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 1785)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:16:14 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:22:09 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 872)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:24:23 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:03 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:18 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:26 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$c8fHIEh.uO8nTSZLPmNhP.ydBPglHpQ.rTpmpMgreVjZlSug781m2"], ["created_at", "2021-03-08 21:25:26.416140"], ["updated_at", "2021-03-08 21:25:26.416140"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 218ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 1782)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:48 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:48 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:51 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:51 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 419)
+
+
+Started POST "/users" for ::1 at 2021-03-08 16:25:56 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$tJWZQJXvJTvSoxcVMoX.nuMR4PEjmpnp3w1ckR0bywJQ2Y1r23jjy"], ["created_at", "2021-03-08 21:25:56.949844"], ["updated_at", "2021-03-08 21:25:56.949844"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 216ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1782)
+
+

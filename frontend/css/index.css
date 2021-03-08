@@ -81,6 +81,19 @@ div#title {
     gap: 20px;
 }
 
+.warning {
+    overflow: auto;
+    text-align: center;
+    color: rgb(194, 185, 162);
+}
+.corner-active {
+    border: 3px solid rgb(255, 0, 0);
+}
+
+.corner-inactive {
+    background: black;
+}
+
 .interface {
     height: 60vh;
     overflow:auto;
