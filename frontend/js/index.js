@@ -22,11 +22,48 @@ document.addEventListener("DOMContentLoaded", () => {
     //main menu
     mLoginLogout.addEventListener('click', () => {
         clearElems('interface')
-        if (mLoginLogout.innerHTML === 'Login') {
-            interface.innerHTML = 'Login here!'
-        } else {
-            interface.innerHTML = 'Logout here!'
-        }
+
+        const form = document.createElement('div')
+        const p = document.createElement('p')
+        const labName = document.createElement('label')
+        const inputName = document.createElement('input')
+        
+        
+        const labPass = document.createElement('label')
+        const inputPass = document.createElement('input')
+        
+        
+        const br = document.createElement('br')
+        const submitButton = document.createElement('input')
+        
+        form.setAttribute('class', 'form')
+        p.innerText = "Log in to your ScapeX account"
+        labName.setAttribute('class', 'input-styles')
+        labName.innerText = "Username:"
+        inputName.setAttribute('type', 'text')
+        inputName.setAttribute('class', 'input-styles-inp')
+        inputName.setAttribute('id', 'input-name')
+        
+        labPass.setAttribute('class', 'input-styles')
+        labPass.innerText = "Password:"
+        inputPass.setAttribute('type', 'password')
+        inputPass.setAttribute('class', 'input-styles-inp')
+        inputPass.setAttribute('id', 'input-password')
+        
+        submitButton.setAttribute('type', 'submit')
+        submitButton.setAttribute('value', 'Log In')
+        submitButton.setAttribute('class', 'input-styles-button')
+
+        interface.appendChild(p)
+        form.appendChild(labName)
+        form.appendChild(inputName)
+       
+        form.appendChild(labPass)
+        form.appendChild(inputPass)
+       
+        form.appendChild(br)
+        form.appendChild(submitButton)
+        interface.appendChild(form)
     })
 
     mRegister.addEventListener('click', () => {
