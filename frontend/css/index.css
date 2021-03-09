@@ -50,6 +50,12 @@ div#title {
     color: red;
 }
 
+.menu-element-off {
+    opacity: 0.4;
+    color: rgb(60, 60, 60);
+    cursor: not-allowed;
+}
+
 .input-styles {
     background: black;
     color: rgb(194, 185, 162);
