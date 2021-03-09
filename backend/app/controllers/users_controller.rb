@@ -7,7 +7,7 @@ class UsersController < ApplicationController
             password_confirmation: params[:password_confirmation]
         )
         if user.save
-            render json: user
+            render json: user, only: [:username]
         else
             render json: {
                 error: "Error while creating account, try again.",

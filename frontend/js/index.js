@@ -1,6 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
     let loggedNow = 0 //Checks if logged in - TODO: Find a better way
+
+    //
+
+    uAuth = function() {
+        fetch('http://localhost:3000/auth',{method: 'GET', headers: {'Accept': 'application/json'}})
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(object) {
+            console.log(object)
+        })
+        .catch(function(error) {
+            console.log(error.message)
+        })
+    }
+    uAuth()
     
+
+
+
+
+
+    //
+
+
+
     //main menu
     const mLoginLogout = document.getElementById('menu-login-logout')
     const mRegister = document.getElementById('menu-register')
@@ -76,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     body: JSON.stringify(formData)
                 }
     
-                fetch('http://localhost:3000/sessions/login', configObj)
+                fetch('http://localhost:3000/login', configObj)
                 .then(function(response) {
                     return response.json()
                 })
@@ -212,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }, 6000)
                     } else {
                         clearElems('interface')
-                        interface.innerHTML = 'Account created succesfully, please log in'
+                        interface.innerHTML = `account created successfully, welcome ${object.username}. Please log in.`
                     }
                     
                     
