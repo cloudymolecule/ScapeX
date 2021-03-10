@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             form.setAttribute('class', 'form')
             p.innerText = "Log in to your ScapeX account"
             labName.setAttribute('class', 'input-styles')
-            labName.innerText = "Username:"
+            labName.innerText = "Email or Username:"
             inputName.setAttribute('type', 'text')
             inputName.setAttribute('class', 'input-styles-inp')
             inputName.setAttribute('id', 'input-name')

@@ -9,10 +9,7 @@ class UsersController < ApplicationController
         if user.save
             render json: user, only: [:username]
         else
-            render json: {
-                error: "Error while creating account, try again.",
-                status: 400
-            }
+            render json: {error: "Error while creating account, try again."}
         end
 
     end

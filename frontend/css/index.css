@@ -60,6 +60,7 @@ div#title {
     background: black;
     color: rgb(194, 185, 162);
     text-align: right;
+    font-size: 0.7em;
 }
 
 .input-styles-inp {
@@ -67,7 +68,7 @@ div#title {
     color: rgb(194, 185, 162);
     text-align:left;
     border: 3px solid rgb(96, 0, 0);
-    font-size: 1em;
+    font-size: 0.7em;
 }
 
 .input-styles-button {
