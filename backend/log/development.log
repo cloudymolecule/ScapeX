@@ -3667,3 +3667,72 @@ Processing by SessionsController#login as JSON
 Completed 200 OK in 25ms (Views: 5.8ms | ActiveRecord: 0.9ms | Allocations: 269719)
 
 
+Started POST "/login" for ::1 at 2021-03-09 22:38:22 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+Completed 500 Internal Server Error in 177ms (ActiveRecord: 17.8ms | Allocations: 1832160)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/sessions_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2021-03-09 22:38:27 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 3.2ms | Allocations: 191007)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/sessions_controller.rb:5:in `login'
+Started POST "/login" for ::1 at 2021-03-09 22:39:02 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 16.0ms | Allocations: 1836388)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:5:in `login'
+Started POST "/users" for ::1 at 2021-03-09 22:41:49 -0500
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"someone", "email"=>"7@7.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"someone", "email"=>"7@7.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "someone"], ["email", "7@7.com"], ["password_digest", "$2a$12$RPzRooUEnogUS0fUDT1HNeq5gYujib3VF6M5MGduWEUCTjiXj6HLq"], ["created_at", "2021-03-10 03:41:50.653491"], ["updated_at", "2021-03-10 03:41:50.653491"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 363ms (Views: 6.6ms | ActiveRecord: 18.3ms | Allocations: 1621747)
+
+
+Started POST "/login" for ::1 at 2021-03-09 22:41:59 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"someone", "password"=>"[FILTERED]", "session"=>{"input"=>"someone", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "someone"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+Completed 200 OK in 270ms (Views: 1.9ms | ActiveRecord: 1.1ms | Allocations: 346903)
+
+
+Started POST "/login" for ::1 at 2021-03-09 22:42:03 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"someone", "password"=>"[FILTERED]", "session"=>{"input"=>"someone", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "someone"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+Completed 200 OK in 231ms (Views: 5.6ms | ActiveRecord: 3.0ms | Allocations: 274370)
+
+

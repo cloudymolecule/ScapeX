@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
     def login
        
-        if user = User.find_by(username: params[:input]) || user = User.find_by(email: params[:input])
+        user = User.find_by(username: params[:input]) || user = User.find_by(email: params[:input])
+        if user && user.authenticate(params[:password])    
             render json: user, only: [:username]
         else
             render json: {
@@ -10,4 +11,5 @@ class SessionsController < ApplicationController
             }
         end
     end
+
 end
