@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clearElems('interface')
             // name	string - done
             // setting	string - done
-            // time_limit	integer
+            // time_limit	integer -done
             // descriptors	string
             // success	string
             // attempts	integer
@@ -254,22 +254,60 @@ document.addEventListener("DOMContentLoaded", () => {
             // req_objects	integer
             // lock	string
 
-            const p = document.createElement('p')
-            const form = document.createElement('div')
-            const labName = document.createElement('label') //
+            const p = document.createElement('p') //create room title
+            const form = document.createElement('div') //create room form
+            const labName = document.createElement('label') 
             const inputName = document.createElement('input')
             const labSetting = document.createElement('label')
             const inputSetting = document.createElement('input')
+            const labTime = document.createElement('label')
+            const inputTime = document.createElement('input')
             
-            const pDescList = document.createElement('p')
-            const descList = document.createElement('div')
-
-            const desc1 = document.createElement('p')
-            const descRadio1 = document.createElement('input')
-            const descRadioLab1 = document.createElement('label')
+            //setting fantasy
+            const settingRadioLab1 = document.createElement('label')
+            const settingRadio1 = document.createElement('input')
+            settingRadioLab1.setAttribute('class', '')
+            settingRadioLab1.innerText = ''
             descRadio1.setAttribute('type', 'radio')
-            descRadio1.setAttribute('id', '')
-            descRadio1.setAttribute('value', '')
+            descRadio1.setAttribute('name', 'setting')
+            descRadio1.setAttribute('value', 'fantasy')
+
+            //setting dungeon
+            const settingRadioLab2 = document.createElement('label')
+            const settingRadio2 = document.createElement('input')
+            settingRadioLab2.setAttribute('class', '')
+            settingRadioLab2.innerText = ''
+            descRadio2.setAttribute('type', 'radio')
+            descRadio2.setAttribute('name', 'setting')
+            descRadio2.setAttribute('value', 'dungeon')
+
+            //setting abandoned
+            const settingRadioLab3 = document.createElement('label')
+            const settingRadio3 = document.createElement('input')
+            settingRadioLab3.setAttribute('class', '')
+            settingRadioLab3.innerText = ''
+            descRadio3.setAttribute('type', 'radio')
+            descRadio3.setAttribute('name', 'setting')
+            descRadio3.setAttribute('value', 'abandone')
+
+            //setting haunted
+            const settingRadioLab4 = document.createElement('label')
+            const settingRadio4 = document.createElement('input')
+            settingRadioLab4.setAttribute('class', '')
+            settingRadioLab4.innerText = ''
+            descRadio4.setAttribute('type', 'radio')
+            descRadio4.setAttribute('name', 'setting')
+            descRadio4.setAttribute('value', 'haunted')
+
+            //setting generic
+            const settingRadioLab5 = document.createElement('label')
+            const settingRadio5 = document.createElement('input')
+            settingRadioLab5.setAttribute('class', '')
+            settingRadioLab5.innerText = ''
+            descRadio5.setAttribute('type', 'radio')
+            descRadio5.setAttribute('name', 'setting')
+            descRadio5.setAttribute('value', 'generic')
+
 
             
 
