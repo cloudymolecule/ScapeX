@@ -71,6 +71,16 @@ div#title {
     font-size: 0.7em;
 }
 
+input:focus {
+    color: rgb(255, 0, 0);
+    outline: 2px solid rgb(255, 68, 0);  
+}
+
+input.visited {
+    color: rgb(255, 0, 0);
+    outline: 2px solid rgb(255, 68, 0);  
+}
+
 .input-styles-button {
     color: rgb(194, 185, 162);
     text-align: center;
