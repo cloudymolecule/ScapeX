@@ -242,20 +242,10 @@ document.addEventListener("DOMContentLoaded", () => {
     mCreate.addEventListener('click', () => {
         if (loggedUser) {
             clearElems('interface')
-            // name	string - done
-            // setting	string - done
-            // time_limit	integer -done
-            // descriptors	string -done
-            // success	string done
-            // attempts	integer
-            // attempts_allowed	integer
-            // completed	string
-            // objects	integer
-            // req_objects	integer
-            // lock	string
             
             const p = document.createElement('p') //create room title
             p.innerText = 'Create room:'
+            p.setAttribute('class', 'input-styles')
 
             const form = document.createElement('div') //create room form
 
@@ -317,24 +307,32 @@ document.addEventListener("DOMContentLoaded", () => {
             const inputTime = document.createElement('input')
 
             const labSuccess = document.createElement('label')
-            labSuccess.innerText = "Room completion message:"
+            labSuccess.innerText = 'Room completion message:'
             const inputSuccess = document.createElement('input')
 
             const labAttempts = document.createElement('label')
-            labAttempts.innerText = "Number of attempts allowed:"
+            labAttempts.innerText = 'Number of attempts allowed:'
             const inputAttempts = document.createElement('input')
             
-            // attempts	integer
-            // attempts_allowed	integer
-            // completed	string
-            // objects	integer
-            // req_objects	integer
-            // lock	string
+            const labCompleted = document.createElement('label')
+            labCompleted.innerText = 'Room completion message:'
+            const inputCompleted = document.createElement('input')
+
+            const labNumOfObj = document.createElement('label')
+            labNumOfObj.innerText = 'Number of objects:'
+            const inputNumOfObj = document.createElement('input')
             
-
-
+            const labReqObj = document.createElement('label')
+            labReqObj.innerText = 'Number of required objects to finish room'
+            const inputReqObj = document.createElement('input')
+            
+            const labLock = document.createElement('label')
+            labLock.innerText = 'Number or phrase required to exit the room'
+            const inputLock = document.createElement('input')
             
             const submitButton = document.createElement('input')
+
+            interface.appendChild(p)
         }
     })
 
