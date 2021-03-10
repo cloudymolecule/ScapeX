@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // name	string - done
             // setting	string - done
             // time_limit	integer -done
-            // descriptors	string
+            // descriptors	string -done
             // success	string
             // attempts	integer
             // attempts_allowed	integer
@@ -262,12 +262,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const inputSetting = document.createElement('input')
             const labTime = document.createElement('label')
             const inputTime = document.createElement('input')
+
+            p.innerText = 'create room'
+            labName.innerText = 'name'
+            labSetting.innerText = 'choose a setting'
             
             //setting fantasy
             const settingRadioLab1 = document.createElement('label')
             const settingRadio1 = document.createElement('input')
             settingRadioLab1.setAttribute('class', '')
-            settingRadioLab1.innerText = ''
+            settingRadioLab1.innerText = 'Fantasy'
             descRadio1.setAttribute('type', 'radio')
             descRadio1.setAttribute('name', 'setting')
             descRadio1.setAttribute('value', 'fantasy')
@@ -276,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const settingRadioLab2 = document.createElement('label')
             const settingRadio2 = document.createElement('input')
             settingRadioLab2.setAttribute('class', '')
-            settingRadioLab2.innerText = ''
+            settingRadioLab2.innerText = 'Dungeon'
             descRadio2.setAttribute('type', 'radio')
             descRadio2.setAttribute('name', 'setting')
             descRadio2.setAttribute('value', 'dungeon')
@@ -285,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const settingRadioLab3 = document.createElement('label')
             const settingRadio3 = document.createElement('input')
             settingRadioLab3.setAttribute('class', '')
-            settingRadioLab3.innerText = ''
+            settingRadioLab3.innerText = 'Abandoned'
             descRadio3.setAttribute('type', 'radio')
             descRadio3.setAttribute('name', 'setting')
             descRadio3.setAttribute('value', 'abandone')
@@ -294,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const settingRadioLab4 = document.createElement('label')
             const settingRadio4 = document.createElement('input')
             settingRadioLab4.setAttribute('class', '')
-            settingRadioLab4.innerText = ''
+            settingRadioLab4.innerText = 'Haunted'
             descRadio4.setAttribute('type', 'radio')
             descRadio4.setAttribute('name', 'setting')
             descRadio4.setAttribute('value', 'haunted')
@@ -303,27 +307,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const settingRadioLab5 = document.createElement('label')
             const settingRadio5 = document.createElement('input')
             settingRadioLab5.setAttribute('class', '')
-            settingRadioLab5.innerText = ''
+            settingRadioLab5.innerText = 'Generic'
             descRadio5.setAttribute('type', 'radio')
             descRadio5.setAttribute('name', 'setting')
             descRadio5.setAttribute('value', 'generic')
 
 
             
-
-            const desc2 = document.createElement('p')
-
-            const desc3 = document.createElement('p')
-
-            function descAssign(constant, description, descNum) {
-                return 
-            }
-
-            const labPass = document.createElement('label')
-            const inputPass = document.createElement('input')
-            const labPassCon = document.createElement('label')
-            const inputPassCon = document.createElement('input')
-            const br = document.createElement('br')
             const submitButton = document.createElement('input')
         }
     })
