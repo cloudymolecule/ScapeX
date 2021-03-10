@@ -246,31 +246,31 @@ document.addEventListener("DOMContentLoaded", () => {
             // setting	string - done
             // time_limit	integer -done
             // descriptors	string -done
-            // success	string
+            // success	string done
             // attempts	integer
             // attempts_allowed	integer
             // completed	string
             // objects	integer
             // req_objects	integer
             // lock	string
-
-            const p = document.createElement('p') //create room title
-            const form = document.createElement('div') //create room form
-            const labName = document.createElement('label') 
-            const inputName = document.createElement('input')
-            const labSetting = document.createElement('label')
-            const inputSetting = document.createElement('input')
-            const labTime = document.createElement('label')
-            const inputTime = document.createElement('input')
-
-            p.innerText = 'create room'
-            labName.innerText = 'name'
-            labSetting.innerText = 'choose a setting'
             
+            const p = document.createElement('p') //create room title
+            p.innerText = 'Create room:'
+
+            const form = document.createElement('div') //create room form
+
+            const labName = document.createElement('label') //room name
+            labName.innerText = 'Room name:'
+            const inputName = document.createElement('input')
+
+            const labSetting = document.createElement('label') //setting
+            labSetting.innerText = 'choose a setting:'
+            const inputSetting = document.createElement('input')
+
             //setting fantasy
-            const settingRadioLab1 = document.createElement('label')
+            const settingRadioLab1 = document.createElement('label') 
             const settingRadio1 = document.createElement('input')
-            settingRadioLab1.setAttribute('class', '')
+            // settingRadioLab1.setAttribute('class', '')
             settingRadioLab1.innerText = 'Fantasy'
             descRadio1.setAttribute('type', 'radio')
             descRadio1.setAttribute('name', 'setting')
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //setting dungeon
             const settingRadioLab2 = document.createElement('label')
             const settingRadio2 = document.createElement('input')
-            settingRadioLab2.setAttribute('class', '')
+            // settingRadioLab2.setAttribute('class', '')
             settingRadioLab2.innerText = 'Dungeon'
             descRadio2.setAttribute('type', 'radio')
             descRadio2.setAttribute('name', 'setting')
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //setting abandoned
             const settingRadioLab3 = document.createElement('label')
             const settingRadio3 = document.createElement('input')
-            settingRadioLab3.setAttribute('class', '')
+            // settingRadioLab3.setAttribute('class', '')
             settingRadioLab3.innerText = 'Abandoned'
             descRadio3.setAttribute('type', 'radio')
             descRadio3.setAttribute('name', 'setting')
@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //setting haunted
             const settingRadioLab4 = document.createElement('label')
             const settingRadio4 = document.createElement('input')
-            settingRadioLab4.setAttribute('class', '')
+            // settingRadioLab4.setAttribute('class', '')
             settingRadioLab4.innerText = 'Haunted'
             descRadio4.setAttribute('type', 'radio')
             descRadio4.setAttribute('name', 'setting')
@@ -306,11 +306,31 @@ document.addEventListener("DOMContentLoaded", () => {
             //setting generic
             const settingRadioLab5 = document.createElement('label')
             const settingRadio5 = document.createElement('input')
-            settingRadioLab5.setAttribute('class', '')
+            // settingRadioLab5.setAttribute('class', '')
             settingRadioLab5.innerText = 'Generic'
             descRadio5.setAttribute('type', 'radio')
             descRadio5.setAttribute('name', 'setting')
             descRadio5.setAttribute('value', 'generic')
+
+            const labTime = document.createElement('label')
+            labTime.innerText = 'Choose a time limit in minutes (60 max)'
+            const inputTime = document.createElement('input')
+
+            const labSuccess = document.createElement('label')
+            labSuccess.innerText = "Room completion message:"
+            const inputSuccess = document.createElement('input')
+
+            const labAttempts = document.createElement('label')
+            labAttempts.innerText = "Number of attempts allowed:"
+            const inputAttempts = document.createElement('input')
+            
+            // attempts	integer
+            // attempts_allowed	integer
+            // completed	string
+            // objects	integer
+            // req_objects	integer
+            // lock	string
+            
 
 
             
