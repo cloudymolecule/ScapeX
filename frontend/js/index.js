@@ -206,12 +206,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     return response.json()
                 })
                 .then(function(object) {
-                    if (object.error) {
+                    if (object.errors) {
+                        // console.log(object)
                         clearElems('corner-top-right')
-                        let error = document.createElement('p')
-                        error.innerHTML = object.error
-                        error.setAttribute('class', 'warning')
-                        cTopRight.appendChild(error)
+                        object.errors.forEach(error => {
+                            let err = document.createElement('p')
+                            err.innerHTML = error
+                            err.setAttribute('class', 'warning')
+                            cTopRight.appendChild(err)
+                        })
                         cTopRight.removeAttribute('class')
                         cTopRight.setAttribute('class', 'corner-active')
                         setTimeout(() => {

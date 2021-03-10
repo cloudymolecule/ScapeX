@@ -9,7 +9,9 @@ class UsersController < ApplicationController
         if user.save
             render json: user, only: [:username]
         else
-            render json: {error: "Error while creating account, try again."}
+            # byebug
+            # user.errors.full_messages
+            render json: {errors: user.errors.full_messages}
         end
 
     end

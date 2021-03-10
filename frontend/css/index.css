@@ -105,6 +105,10 @@ input.visited {
 }
 .corner-active {
     border: 3px solid rgb(255, 0, 0);
+    max-width: 92%;
+    max-height:92px;
+    overflow:auto;
+    display:inline-block;
 }
 
 .corner-inactive {
