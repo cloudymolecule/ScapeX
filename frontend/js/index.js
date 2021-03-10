@@ -19,19 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // basic local authentication
     let loggedIn = false
-    
     function loggedToggle() {
         if (loggedIn) {
             loggedIn = false
             mLoginLogout.innerHTML = 'Login'
             mRegister.removeAttribute('class', 'menu-element-off')
             mRegister.setAttribute('class', 'menu-element')
+            mCreate.removeAttribute('menu-element')
+            mCreate.setAttribute('class', 'menu-element-off')
+            mMy.removeAttribute('menu-element')
+            mMy.setAttribute('class', 'menu-element-off')
         } else if (!loggedIn) {
             loggedIn = true
             clearElems('interface')
             mLoginLogout.innerHTML = 'Logout'
             mRegister.removeAttribute('menu-element')
             mRegister.setAttribute('class', 'menu-element-off')
+            mCreate.removeAttribute('class', 'menu-element-off')
+            mCreate.setAttribute('class', 'menu-element')
+            mMy.removeAttribute('class', 'menu-element-off')
+            mMy.setAttribute('class', 'menu-element')
         }
     }
 
@@ -75,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             submitButton.addEventListener('click', () => {
                 let formData = {
-                    username: document.getElementById('input-name').value,
+                    input: document.getElementById('input-name').value,
                     password: document.getElementById('input-password').value,
                 }
     
