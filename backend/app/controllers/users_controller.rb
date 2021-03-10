@@ -7,10 +7,15 @@ class UsersController < ApplicationController
             password_confirmation: params[:password_confirmation]
         )
         if user.save
-            render json: user, only: [:username]
+            render json: UserSerializer.new(user)
         else
             render json: {errors: user.errors.full_messages}
         end
 
     end
+
+    # def index
+    #     users = User.all
+    #     render json: UserSerializer.new(users)  
+    # end
 end

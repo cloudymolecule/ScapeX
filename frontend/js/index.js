@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // basic local authentication
-    let loggedIn = false
-    function loggedToggle() {
-        if (loggedIn) {
-            loggedIn = false
+    let loggedUser = false
+    function loggedToggle(user = false) {
+        if (loggedUser) {
+            loggedUser = user
             mLoginLogout.innerHTML = 'Login'
             mRegister.removeAttribute('class', 'menu-element-off')
             mRegister.setAttribute('class', 'menu-element')
@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
             mCreate.setAttribute('class', 'menu-element-off')
             mMy.removeAttribute('menu-element')
             mMy.setAttribute('class', 'menu-element-off')
-        } else if (!loggedIn) {
-            loggedIn = true
+        } else if (!loggedUser) {
+            loggedUser = user
             clearElems('interface')
             mLoginLogout.innerHTML = 'Logout'
             mRegister.removeAttribute('menu-element')
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const br = document.createElement('br')
         const submitButton = document.createElement('input')
         
-        if (!loggedIn) {
+        if (!loggedUser) {
             form.setAttribute('class', 'form')
             p.innerText = "Log in to your ScapeX account"
             labName.setAttribute('class', 'input-styles')
@@ -115,22 +115,21 @@ document.addEventListener("DOMContentLoaded", () => {
                             cTopRight.setAttribute('class', 'corner-inactive')
                         }, 6000)
                     } else {
-                        loggedToggle()
-                        interface.innerHTML = `You logged in successfully, ${object.username}.`
+                        loggedToggle(object.data.attributes.id)
+                        interface.innerHTML = `You logged in successfully, ${object.data.attributes.username}.`
                     }
                 })
                 .catch(function(error) {
                     console.log(error.message)
                 })
             })
-        } else if (loggedIn) {
+        } else if (loggedUser) {
             loggedToggle()
             interface.innerHTML = 'You logged out successfully.'
         }
     })
 
     mRegister.addEventListener('click', () => {
-        
         
         const form = document.createElement('div')
         const p = document.createElement('p')
@@ -145,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const br = document.createElement('br')
         const submitButton = document.createElement('input')
 
-        if (!loggedIn) {
+        if (!loggedUser) {
             clearElems('interface')
             form.setAttribute('class', 'form')
             p.innerText = "Create a ScapeX account"
@@ -210,7 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(function(object) {
                     if (object.errors) {
-                        // console.log(object)
                         clearElems('corner-top-right')
                         object.errors.forEach(error => {
                             let err = document.createElement('p')
@@ -226,8 +224,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             cTopRight.setAttribute('class', 'corner-inactive')
                         }, 6000)
                     } else {
-                        loggedToggle()
-                        interface.innerHTML = `Account created successfully, welcome ${object.username}.`
+                        loggedToggle(object.data.attributes.id)
+                        interface.innerHTML = `Account created successfully, welcome ${object.data.attributes.username}.`
                     }
                 })
                 .catch(function(error) {

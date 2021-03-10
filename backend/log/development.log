@@ -5051,3 +5051,213 @@ Processing by UsersController#create as JSON
 Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 4792)
 
 
+Started POST "/users" for ::1 at 2021-03-10 10:00:41 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"dario", "email"=>"1@1.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"dario", "email"=>"1@1.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "dario"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1@1.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "dario"], ["email", "1@1.com"], ["password_digest", "$2a$12$vHkKmso4tyUdLJ.yT/dS9OF0gWQZzWkmKm9awUttk31BzJldDTP5W"], ["created_at", "2021-03-10 15:00:42.062798"], ["updated_at", "2021-03-10 15:00:42.062798"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 224ms (ActiveRecord: 3.4ms | Allocations: 10981)
+
+
+  
+ArgumentError (username is not specified as a relationship on UserSerializer):
+  
+app/controllers/users_controller.rb:12:in `new'
+app/controllers/users_controller.rb:12:in `create'
+Started GET "/users" for ::1 at 2021-03-10 10:05:48 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/favicon.ico" for ::1 at 2021-03-10 10:05:49 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users" for ::1 at 2021-03-10 10:08:09 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/dariocarlino/Development/Flatiron/scapex/scapex/backend/app/controllers/users_controller.rb:27: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:27: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:27: syntax error, unexpected end-of-input, expecting end
+Started GET "/users" for ::1 at 2021-03-10 10:08:25 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4373)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x007f846e7975a8>
+Did you mean?  users):
+  
+app/controllers/users_controller.rb:21:in `index'
+Started GET "/users" for ::1 at 2021-03-10 10:08:33 -0500
+Processing by UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.9ms | Allocations: 6749)
+
+
+Started GET "/users" for ::1 at 2021-03-10 10:09:20 -0500
+Processing by UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.8ms | Allocations: 5737)
+
+
+Started GET "/users" for ::1 at 2021-03-10 10:11:06 -0500
+Processing by UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.8ms | Allocations: 5939)
+
+
+Started GET "/users" for ::1 at 2021-03-10 10:11:23 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms | Allocations: 705)
+
+
+Started GET "/users" for ::1 at 2021-03-10 10:11:44 -0500
+Processing by UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 1.1ms | Allocations: 5936)
+
+
+Started POST "/users" for ::1 at 2021-03-10 10:14:34 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$JBk0G6uOK9A5XUhHjBiJBuA6lspmU.Uqi4f44w9VobC3aXFnFOxLO"], ["created_at", "2021-03-10 15:14:34.751474"], ["updated_at", "2021-03-10 15:14:34.751474"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 217ms (Views: 0.4ms | ActiveRecord: 3.7ms | Allocations: 9136)
+
+
+Started GET "/users/new" for ::1 at 2021-03-10 10:30:49 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users/new"):
+  
+Started GET "/users" for ::1 at 2021-03-10 10:30:53 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 1.3ms | Allocations: 6023)
+
+
+Started GET "/users" for ::1 at 2021-03-10 10:32:20 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 675)
+
+
+  
+ArgumentError (username is not specified as a relationship on UserSerializer):
+  
+app/controllers/users_controller.rb:22:in `new'
+app/controllers/users_controller.rb:22:in `index'
+Started GET "/users" for ::1 at 2021-03-10 10:32:36 -0500
+Processing by UsersController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:21:in `index'
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 1.1ms | Allocations: 5732)
+
+
+Started POST "/users" for ::1 at 2021-03-10 10:33:59 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$UFgdxoNb0mtA48HGzE52fu4VMY/WRr6jUPDI8urX7PpsTkzRxPzqW"], ["created_at", "2021-03-10 15:33:59.274491"], ["updated_at", "2021-03-10 15:33:59.274491"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 2035)
+
+
+Started POST "/users" for ::1 at 2021-03-10 10:34:54 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$6AIr/UyjvdwaumnQ3yb4DuW1mnbpbw3fQCgrePqSnYij6X0dfTcY6"], ["created_at", "2021-03-10 15:34:55.176262"], ["updated_at", "2021-03-10 15:34:55.176262"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 1772)
+
+
+Started POST "/users" for ::1 at 2021-03-10 10:35:28 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$dcvr0tO1qqnjlGLVKx9X7ueWaaYdix6bfXuwDJlZzTQYRA3Flxj6G"], ["created_at", "2021-03-10 15:35:29.175825"], ["updated_at", "2021-03-10 15:35:29.175825"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 210ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 1757)
+
+
+Started POST "/users" for ::1 at 2021-03-10 10:36:21 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"123", "email"=>"123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"123", "email"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "123"], ["email", "123"], ["password_digest", "$2a$12$GOByhu85PlCiMNY9uO339.NYEy5Mr5agQdriN00//QybmsU1Wufmy"], ["created_at", "2021-03-10 15:36:21.791650"], ["updated_at", "2021-03-10 15:36:21.791650"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 1772)
+
+
+Started POST "/users" for ::1 at 2021-03-10 10:41:49 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"1234", "email"=>"1234", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"1234", "email"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "1234"], ["email", "1234"], ["password_digest", "$2a$12$XzskKjMi9szQeRLbAEFlr.xhyxtMLNn76mUwS5PNFUezh.yphYvN6"], ["created_at", "2021-03-10 15:41:49.703346"], ["updated_at", "2021-03-10 15:41:49.703346"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+Completed 200 OK in 223ms (Views: 0.4ms | ActiveRecord: 3.4ms | Allocations: 9136)
+
+
+Started POST "/login" for ::1 at 2021-03-10 10:41:58 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"1234", "password"=>"[FILTERED]", "session"=>{"input"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "1234"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `login'
+Completed 200 OK in 235ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1071)
+
+
