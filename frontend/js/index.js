@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             labName.setAttribute('class', 'input-styles')
             labName.innerText = "Email or Username:"
             inputName.setAttribute('type', 'text')
+            inputName.autocomplete = "off"
             inputName.setAttribute('class', 'input-styles-inp')
             inputName.setAttribute('id', 'input-name')
             labPass.setAttribute('class', 'input-styles')
@@ -151,11 +152,13 @@ document.addEventListener("DOMContentLoaded", () => {
             labName.setAttribute('class', 'input-styles')
             labName.innerText = "Username:"
             inputName.setAttribute('type', 'text')
+            inputName.autocomplete = "off"
             inputName.setAttribute('class', 'input-styles-inp')
             inputName.setAttribute('id', 'input-name')
             labEmail.setAttribute('class', 'input-styles')
             labEmail.innerText = "Email:"
             inputEmail.setAttribute('type', 'text')
+            inputEmail.autocomplete = "off"
             inputEmail.setAttribute('class', 'input-styles-inp')
             inputEmail.setAttribute('id', 'input-email')
             labPass.setAttribute('class', 'input-styles')

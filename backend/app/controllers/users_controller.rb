@@ -9,8 +9,6 @@ class UsersController < ApplicationController
         if user.save
             render json: user, only: [:username]
         else
-            # byebug
-            # user.errors.full_messages
             render json: {errors: user.errors.full_messages}
         end
 
