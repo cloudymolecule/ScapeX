@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mAbout = document.getElementById('menu-about')
     const interface = document.getElementById('interface')
 
-    //corners
+    //hot corners
     const cTopRight = document.getElementById('corner-top-right')
 
     function clearElems(elementId) {
@@ -240,8 +240,54 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mCreate.addEventListener('click', () => {
-        clearElems('interface')
-        interface.innerHTML = 'Create escape room here!'
+        if (loggedUser) {
+            clearElems('interface')
+            // name	string - done
+            // setting	string - done
+            // time_limit	integer
+            // descriptors	string
+            // success	string
+            // attempts	integer
+            // attempts_allowed	integer
+            // completed	string
+            // objects	integer
+            // req_objects	integer
+            // lock	string
+
+            const p = document.createElement('p')
+            const form = document.createElement('div')
+            const labName = document.createElement('label') //
+            const inputName = document.createElement('input')
+            const labSetting = document.createElement('label')
+            const inputSetting = document.createElement('input')
+            
+            const pDescList = document.createElement('p')
+            const descList = document.createElement('div')
+
+            const desc1 = document.createElement('p')
+            const descRadio1 = document.createElement('input')
+            const descRadioLab1 = document.createElement('label')
+            descRadio1.setAttribute('type', 'radio')
+            descRadio1.setAttribute('id', '')
+            descRadio1.setAttribute('value', '')
+
+            
+
+            const desc2 = document.createElement('p')
+
+            const desc3 = document.createElement('p')
+
+            function descAssign(constant, description, descNum) {
+                return 
+            }
+
+            const labPass = document.createElement('label')
+            const inputPass = document.createElement('input')
+            const labPassCon = document.createElement('label')
+            const inputPassCon = document.createElement('input')
+            const br = document.createElement('br')
+            const submitButton = document.createElement('input')
+        }
     })
 
     mMy.addEventListener('click', () => {

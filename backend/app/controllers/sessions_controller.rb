@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
     def login
-       
         user = User.find_by(username: params[:input]) || user = User.find_by(email: params[:input])
         if user && user.authenticate(params[:password])    
             render json: UserSerializer.new(user)
@@ -11,5 +10,4 @@ class SessionsController < ApplicationController
             }
         end
     end
-
 end
