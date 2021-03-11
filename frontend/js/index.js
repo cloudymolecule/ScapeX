@@ -337,7 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputSuccess.setAttribute('maxlength', '255')
             inputSuccess.autocomplete = "off"
             inputSuccess.setAttribute('class', 'input-styles-inp-success')
-            inputSuccess.setAttribute('id', 'input-success')
+            inputSuccess.setAttribute('id', 'input-completion')
 
             const labAttempts = document.createElement('label')
             labAttempts.innerText = 'Number of attempts allowed (10 max):'
@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
             labLock.innerText = 'Number or phrase required to exit the room'
             labLock.setAttribute('class', 'input-styles')
             const inputLock = document.createElement('input')
-            inputLock.setAttribute('type', 'number')
+            inputLock.setAttribute('type', 'input')
             inputLock.autocomplete = "off"
             inputLock.setAttribute('class', 'input-styles-inp')
             inputLock.setAttribute('id', 'input-lock')
@@ -406,7 +406,6 @@ document.addEventListener("DOMContentLoaded", () => {
             settingDiv.appendChild(settingRadio5)
             settingDiv.appendChild(settingRadioLab5)
             
-
             interface.appendChild(settingDiv)
 
             div2.appendChild(labTime)
@@ -425,10 +424,19 @@ document.addEventListener("DOMContentLoaded", () => {
             interface.appendChild(div2)
             interface.appendChild(br)
             interface.appendChild(submitButton)
-            
 
-            
-
+            submitButton.addEventListener('click', () => {
+                let formData = {
+                    name: document.getElementById(),
+                    setting: document.getElementById(),
+                    time: document.getElementById(),
+                    completion: document.getElementById(),
+                    attempts: document.getElementById(),
+                    obj_room: document.getElementById(),
+                    obj_exit: document.getElementById(),
+                    lock: document.getElementById()
+                }
+            })
             
         }
     })
