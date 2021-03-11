@@ -64,9 +64,30 @@ div#title {
 }
 
 .input-styles-inp {
+    width: fit-content;
     background: black;
     color: rgb(194, 185, 162);
     text-align:left;
+    border: 3px solid rgb(96, 0, 0);
+    font-size: 0.7em;
+}
+
+.input-styles-inp-success {
+    resize: none;
+    width:100%;
+    height:auto;
+    background: black;
+    color: rgb(194, 185, 162);
+    text-align:left;
+    border: 3px solid rgb(96, 0, 0);
+    font-size: 0.7em;
+}
+
+.input-styles-inp-num {
+    width: 50px;
+    background: black;
+    color: rgb(194, 185, 162);
+    text-align:center;
     border: 3px solid rgb(96, 0, 0);
     font-size: 0.7em;
 }
@@ -83,6 +104,7 @@ input.visited {
 
 .input-styles-button {
     color: rgb(194, 185, 162);
+    width: fit-content;
     text-align: center;
     font-size: 1em;
     background-color: rgb(96, 0, 0);
@@ -98,13 +120,22 @@ input.visited {
     gap: 20px;
 }
 
-.setting-div {
-    width: 60%;
+.room-form {
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10%
+    gap: 20px;
+}
+
+.setting-div {
+    width: 5%;
+    margin-left:auto;
+    margin-right: auto;
+    text-align:right;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     
 }
 

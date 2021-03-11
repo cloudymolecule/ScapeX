@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clearElems('interface')
             console.log(loggedUser)
             const p = document.createElement('p') //create room title
-            p.innerText = 'Create Room'
+            p.innerText = 'Create Escape Room'
 
             const div = document.createElement('div') //create room form
             div.setAttribute('class', 'form')
@@ -312,60 +312,58 @@ document.addEventListener("DOMContentLoaded", () => {
             settingRadioLab5.setAttribute('class', 'input-styles')
 
             const div2 = document.createElement('div')
-            div2.setAttribute('class', 'form')
+            div2.setAttribute('class', 'room-form')
 
             const labTime = document.createElement('label')
-            labTime.innerText = 'Choose a time limit in minutes (60 max)'
+            labTime.innerText = 'Choose a time limit in minutes (60 max):'
             labTime.setAttribute('class', 'input-styles')
             const inputTime = document.createElement('input')
             inputTime.setAttribute('type', 'text')
+            inputTime.setAttribute('maxlength', '2')
             inputTime.autocomplete = "off"
-            inputTime.setAttribute('class', 'input-styles-inp')
+            inputTime.setAttribute('class', 'input-styles-inp-num')
             inputTime.setAttribute('id', 'input-name')
 
             const labSuccess = document.createElement('label')
             labSuccess.innerText = 'Room completion message:'
             labSuccess.setAttribute('class', 'input-styles')
-            const inputSuccess = document.createElement('input')
-            inputSuccess.setAttribute('type', 'text')
+            const inputSuccess = document.createElement('textarea')
+            inputSuccess.setAttribute('id', 'inputSuccess')
+            inputSuccess.setAttribute('cols', '3')
+            inputSuccess.setAttribute('maxlength', '255')
+
             inputSuccess.autocomplete = "off"
-            inputSuccess.setAttribute('class', 'input-styles-inp')
+            inputSuccess.setAttribute('class', 'input-styles-inp-success')
             inputSuccess.setAttribute('id', 'input-name')
 
             const labAttempts = document.createElement('label')
-            labAttempts.innerText = 'Number of attempts allowed:'
+            labAttempts.innerText = 'Number of attempts allowed (10 max):'
             labAttempts.setAttribute('class', 'input-styles')
             const inputAttempts = document.createElement('input')
             inputAttempts.setAttribute('type', 'text')
+            inputAttempts.setAttribute('maxlength', '2')
             inputAttempts.autocomplete = "off"
-            inputAttempts.setAttribute('class', 'input-styles-inp')
+            inputAttempts.setAttribute('class', 'input-styles-inp-num')
             inputAttempts.setAttribute('id', 'input-name')
-            
-            const labCompleted = document.createElement('label')
-            labCompleted.innerText = 'Room completion message:'
-            labCompleted.setAttribute('class', 'input-styles')
-            const inputCompleted = document.createElement('input')
-            inputCompleted.setAttribute('type', 'text')
-            inputCompleted.autocomplete = "off"
-            inputCompleted.setAttribute('class', 'input-styles-inp')
-            inputCompleted.setAttribute('id', 'input-name')
 
             const labNumOfObj = document.createElement('label')
-            labNumOfObj.innerText = 'Number of objects:'
+            labNumOfObj.innerText = 'Number of objects (50 max):'
             labNumOfObj.setAttribute('class', 'input-styles')
             const inputNumOfObj = document.createElement('input')
             inputNumOfObj.setAttribute('type', 'text')
+            inputNumOfObj.setAttribute('maxlength', '2')
             inputNumOfObj.autocomplete = "off"
-            inputNumOfObj.setAttribute('class', 'input-styles-inp')
+            inputNumOfObj.setAttribute('class', 'input-styles-inp-num')
             inputNumOfObj.setAttribute('id', 'input-name')
             
             const labReqObj = document.createElement('label')
-            labReqObj.innerText = 'Number of required objects to finish room'
+            labReqObj.innerText = 'Number of required objects to finish room (3 max):'
             labReqObj.setAttribute('class', 'input-styles')
             const inputReqObj = document.createElement('input')
             inputReqObj.setAttribute('type', 'text')
+            inputReqObj.setAttribute('maxlength', '1')
             inputReqObj.autocomplete = "off"
-            inputReqObj.setAttribute('class', 'input-styles-inp')
+            inputReqObj.setAttribute('class', 'input-styles-inp-num')
             
             const labLock = document.createElement('label')
             labLock.innerText = 'Number or phrase required to exit the room'
@@ -376,6 +374,9 @@ document.addEventListener("DOMContentLoaded", () => {
             inputLock.setAttribute('class', 'input-styles-inp')
             
             const submitButton = document.createElement('input')
+            submitButton.setAttribute('type', 'submit')
+            submitButton.setAttribute('value', 'Create')
+            submitButton.setAttribute('class', 'input-styles-button')
 
             interface.appendChild(p)
             div.appendChild(labName)
@@ -383,16 +384,21 @@ document.addEventListener("DOMContentLoaded", () => {
             interface.appendChild(div)
             interface.appendChild(labSetting)
             
-            settingDiv.appendChild(settingRadioLab1)
             settingDiv.appendChild(settingRadio1)
-            settingDiv.appendChild(settingRadioLab2)
+            settingDiv.appendChild(settingRadioLab1)
+            
             settingDiv.appendChild(settingRadio2)
-            settingDiv.appendChild(settingRadioLab3)
+            settingDiv.appendChild(settingRadioLab2)
+            
             settingDiv.appendChild(settingRadio3)
-            settingDiv.appendChild(settingRadioLab4)
+            settingDiv.appendChild(settingRadioLab3)
+            
             settingDiv.appendChild(settingRadio4)
-            settingDiv.appendChild(settingRadioLab5)
+            settingDiv.appendChild(settingRadioLab4)
+            
             settingDiv.appendChild(settingRadio5)
+            settingDiv.appendChild(settingRadioLab5)
+            
 
             interface.appendChild(settingDiv)
 
@@ -402,8 +408,6 @@ document.addEventListener("DOMContentLoaded", () => {
             div2.appendChild(inputSuccess)
             div2.appendChild(labAttempts)
             div2.appendChild(inputAttempts)
-            div2.appendChild(labCompleted)
-            div2.appendChild(inputCompleted)
             div2.appendChild(labNumOfObj)
             div2.appendChild(inputNumOfObj)
             div2.appendChild(labReqObj)
@@ -412,7 +416,8 @@ document.addEventListener("DOMContentLoaded", () => {
             div2.appendChild(inputLock)
             
             interface.appendChild(div2)
-            
+            interface.appendChild(br)
+            interface.appendChild(submitButton)
             
 
             
