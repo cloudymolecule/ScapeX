@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!loggedUser) {
             clearElems('interface')
             form.setAttribute('class', 'form')
-            p.innerText = "Create a ScapeX account"
+            p.innerText = "Create a ScapeX Account"
             labName.setAttribute('class', 'input-styles')
             labName.innerText = "Username:"
             inputName.setAttribute('type', 'text')
@@ -240,99 +240,184 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mCreate.addEventListener('click', () => {
-        if (loggedUser) {
+        if (!loggedUser) { //re-enable this
             clearElems('interface')
-            
+            console.log(loggedUser)
             const p = document.createElement('p') //create room title
-            p.innerText = 'Create room:'
-            p.setAttribute('class', 'input-styles')
+            p.innerText = 'Create Room'
 
-            const form = document.createElement('div') //create room form
+            const div = document.createElement('div') //create room form
+            div.setAttribute('class', 'form')
 
             const labName = document.createElement('label') //room name
             labName.innerText = 'Room name:'
+            labName.setAttribute('class', 'input-styles')
             const inputName = document.createElement('input')
+            inputName.setAttribute('type', 'text')
+            inputName.autocomplete = "off"
+            inputName.setAttribute('class', 'input-styles-inp')
+            inputName.setAttribute('id', 'input-name')
+
+            const settingDiv = document.createElement('div')
+            settingDiv.setAttribute('class', 'setting-div')
 
             const labSetting = document.createElement('label') //setting
-            labSetting.innerText = 'choose a setting:'
-            const inputSetting = document.createElement('input')
+            labSetting.innerText = 'Choose a setting:'
+            labSetting.setAttribute('class', 'input-styles')
+            const br = document.createElement('br')
 
             //setting fantasy
             const settingRadioLab1 = document.createElement('label') 
             const settingRadio1 = document.createElement('input')
-            // settingRadioLab1.setAttribute('class', '')
             settingRadioLab1.innerText = 'Fantasy'
-            descRadio1.setAttribute('type', 'radio')
-            descRadio1.setAttribute('name', 'setting')
-            descRadio1.setAttribute('value', 'fantasy')
+            settingRadio1.setAttribute('type', 'radio')
+            settingRadio1.setAttribute('name', 'setting')
+            settingRadio1.setAttribute('value', 'fantasy')
+            settingRadioLab1.setAttribute('class', 'input-styles')
 
             //setting dungeon
             const settingRadioLab2 = document.createElement('label')
             const settingRadio2 = document.createElement('input')
-            // settingRadioLab2.setAttribute('class', '')
             settingRadioLab2.innerText = 'Dungeon'
-            descRadio2.setAttribute('type', 'radio')
-            descRadio2.setAttribute('name', 'setting')
-            descRadio2.setAttribute('value', 'dungeon')
+            settingRadio2.setAttribute('type', 'radio')
+            settingRadio2.setAttribute('name', 'setting')
+            settingRadio2.setAttribute('value', 'dungeon')
+            settingRadioLab2.setAttribute('class', 'input-styles')
 
             //setting abandoned
             const settingRadioLab3 = document.createElement('label')
             const settingRadio3 = document.createElement('input')
-            // settingRadioLab3.setAttribute('class', '')
             settingRadioLab3.innerText = 'Abandoned'
-            descRadio3.setAttribute('type', 'radio')
-            descRadio3.setAttribute('name', 'setting')
-            descRadio3.setAttribute('value', 'abandone')
+            settingRadio3.setAttribute('type', 'radio')
+            settingRadio3.setAttribute('name', 'setting')
+            settingRadio3.setAttribute('value', 'abandoned')
+            settingRadioLab3.setAttribute('class', 'input-styles')
 
             //setting haunted
             const settingRadioLab4 = document.createElement('label')
             const settingRadio4 = document.createElement('input')
-            // settingRadioLab4.setAttribute('class', '')
             settingRadioLab4.innerText = 'Haunted'
-            descRadio4.setAttribute('type', 'radio')
-            descRadio4.setAttribute('name', 'setting')
-            descRadio4.setAttribute('value', 'haunted')
+            settingRadio4.setAttribute('type', 'radio')
+            settingRadio4.setAttribute('name', 'setting')
+            settingRadio4.setAttribute('value', 'haunted')
+            settingRadioLab4.setAttribute('class', 'input-styles')
 
             //setting generic
             const settingRadioLab5 = document.createElement('label')
             const settingRadio5 = document.createElement('input')
-            // settingRadioLab5.setAttribute('class', '')
             settingRadioLab5.innerText = 'Generic'
-            descRadio5.setAttribute('type', 'radio')
-            descRadio5.setAttribute('name', 'setting')
-            descRadio5.setAttribute('value', 'generic')
+            settingRadio5.setAttribute('type', 'radio')
+            settingRadio5.setAttribute('name', 'setting')
+            settingRadio5.setAttribute('value', 'generic')
+            settingRadioLab5.setAttribute('class', 'input-styles')
+
+            const div2 = document.createElement('div')
+            div2.setAttribute('class', 'form')
 
             const labTime = document.createElement('label')
             labTime.innerText = 'Choose a time limit in minutes (60 max)'
+            labTime.setAttribute('class', 'input-styles')
             const inputTime = document.createElement('input')
+            inputTime.setAttribute('type', 'text')
+            inputTime.autocomplete = "off"
+            inputTime.setAttribute('class', 'input-styles-inp')
+            inputTime.setAttribute('id', 'input-name')
 
             const labSuccess = document.createElement('label')
             labSuccess.innerText = 'Room completion message:'
+            labSuccess.setAttribute('class', 'input-styles')
             const inputSuccess = document.createElement('input')
+            inputSuccess.setAttribute('type', 'text')
+            inputSuccess.autocomplete = "off"
+            inputSuccess.setAttribute('class', 'input-styles-inp')
+            inputSuccess.setAttribute('id', 'input-name')
 
             const labAttempts = document.createElement('label')
             labAttempts.innerText = 'Number of attempts allowed:'
+            labAttempts.setAttribute('class', 'input-styles')
             const inputAttempts = document.createElement('input')
+            inputAttempts.setAttribute('type', 'text')
+            inputAttempts.autocomplete = "off"
+            inputAttempts.setAttribute('class', 'input-styles-inp')
+            inputAttempts.setAttribute('id', 'input-name')
             
             const labCompleted = document.createElement('label')
             labCompleted.innerText = 'Room completion message:'
+            labCompleted.setAttribute('class', 'input-styles')
             const inputCompleted = document.createElement('input')
+            inputCompleted.setAttribute('type', 'text')
+            inputCompleted.autocomplete = "off"
+            inputCompleted.setAttribute('class', 'input-styles-inp')
+            inputCompleted.setAttribute('id', 'input-name')
 
             const labNumOfObj = document.createElement('label')
             labNumOfObj.innerText = 'Number of objects:'
+            labNumOfObj.setAttribute('class', 'input-styles')
             const inputNumOfObj = document.createElement('input')
+            inputNumOfObj.setAttribute('type', 'text')
+            inputNumOfObj.autocomplete = "off"
+            inputNumOfObj.setAttribute('class', 'input-styles-inp')
+            inputNumOfObj.setAttribute('id', 'input-name')
             
             const labReqObj = document.createElement('label')
             labReqObj.innerText = 'Number of required objects to finish room'
+            labReqObj.setAttribute('class', 'input-styles')
             const inputReqObj = document.createElement('input')
+            inputReqObj.setAttribute('type', 'text')
+            inputReqObj.autocomplete = "off"
+            inputReqObj.setAttribute('class', 'input-styles-inp')
             
             const labLock = document.createElement('label')
             labLock.innerText = 'Number or phrase required to exit the room'
+            labLock.setAttribute('class', 'input-styles')
             const inputLock = document.createElement('input')
+            inputLock.setAttribute('type', 'text')
+            inputLock.autocomplete = "off"
+            inputLock.setAttribute('class', 'input-styles-inp')
             
             const submitButton = document.createElement('input')
 
             interface.appendChild(p)
+            div.appendChild(labName)
+            div.appendChild(inputName)
+            interface.appendChild(div)
+            interface.appendChild(labSetting)
+            
+            settingDiv.appendChild(settingRadioLab1)
+            settingDiv.appendChild(settingRadio1)
+            settingDiv.appendChild(settingRadioLab2)
+            settingDiv.appendChild(settingRadio2)
+            settingDiv.appendChild(settingRadioLab3)
+            settingDiv.appendChild(settingRadio3)
+            settingDiv.appendChild(settingRadioLab4)
+            settingDiv.appendChild(settingRadio4)
+            settingDiv.appendChild(settingRadioLab5)
+            settingDiv.appendChild(settingRadio5)
+
+            interface.appendChild(settingDiv)
+
+            div2.appendChild(labTime)
+            div2.appendChild(inputTime)
+            div2.appendChild(labSuccess)
+            div2.appendChild(inputSuccess)
+            div2.appendChild(labAttempts)
+            div2.appendChild(inputAttempts)
+            div2.appendChild(labCompleted)
+            div2.appendChild(inputCompleted)
+            div2.appendChild(labNumOfObj)
+            div2.appendChild(inputNumOfObj)
+            div2.appendChild(labReqObj)
+            div2.appendChild(inputReqObj)
+            div2.appendChild(labLock)
+            div2.appendChild(inputLock)
+            
+            interface.appendChild(div2)
+            
+            
+
+            
+
+            
         }
     })
 

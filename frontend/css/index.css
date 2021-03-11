@@ -98,6 +98,16 @@ input.visited {
     gap: 20px;
 }
 
+.setting-div {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%
+    
+}
+
 .warning {
     overflow: auto;
     text-align: center;
