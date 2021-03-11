@@ -273,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
             settingRadio1.setAttribute('type', 'radio')
             settingRadio1.setAttribute('name', 'setting')
             settingRadio1.setAttribute('value', 'fantasy')
+            settingRadio1.setAttribute('id', 'radio-fantasy')
             settingRadioLab1.setAttribute('class', 'input-styles')
 
             //setting dungeon
@@ -282,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
             settingRadio2.setAttribute('type', 'radio')
             settingRadio2.setAttribute('name', 'setting')
             settingRadio2.setAttribute('value', 'dungeon')
+            settingRadio2.setAttribute('id', 'radio-dungeon')
             settingRadioLab2.setAttribute('class', 'input-styles')
 
             //setting abandoned
@@ -291,6 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
             settingRadio3.setAttribute('type', 'radio')
             settingRadio3.setAttribute('name', 'setting')
             settingRadio3.setAttribute('value', 'abandoned')
+            settingRadio3.setAttribute('id', 'radio-abandoned')
             settingRadioLab3.setAttribute('class', 'input-styles')
 
             //setting haunted
@@ -300,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
             settingRadio4.setAttribute('type', 'radio')
             settingRadio4.setAttribute('name', 'setting')
             settingRadio4.setAttribute('value', 'haunted')
+            settingRadio4.setAttribute('id', 'radio-haunted')
             settingRadioLab4.setAttribute('class', 'input-styles')
 
             //setting generic
@@ -309,6 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
             settingRadio5.setAttribute('type', 'radio')
             settingRadio5.setAttribute('name', 'setting')
             settingRadio5.setAttribute('value', 'generic')
+            settingRadio5.setAttribute('id', 'radio-generic')
             settingRadioLab5.setAttribute('class', 'input-styles')
 
             const div2 = document.createElement('div')
@@ -318,33 +323,31 @@ document.addEventListener("DOMContentLoaded", () => {
             labTime.innerText = 'Choose a time limit in minutes (60 max):'
             labTime.setAttribute('class', 'input-styles')
             const inputTime = document.createElement('input')
-            inputTime.setAttribute('type', 'text')
+            inputTime.setAttribute('type', 'number')
             inputTime.setAttribute('maxlength', '2')
             inputTime.autocomplete = "off"
             inputTime.setAttribute('class', 'input-styles-inp-num')
-            inputTime.setAttribute('id', 'input-name')
+            inputTime.setAttribute('id', 'input-time')
 
             const labSuccess = document.createElement('label')
             labSuccess.innerText = 'Room completion message:'
             labSuccess.setAttribute('class', 'input-styles')
             const inputSuccess = document.createElement('textarea')
-            inputSuccess.setAttribute('id', 'inputSuccess')
             inputSuccess.setAttribute('cols', '3')
             inputSuccess.setAttribute('maxlength', '255')
-
             inputSuccess.autocomplete = "off"
             inputSuccess.setAttribute('class', 'input-styles-inp-success')
-            inputSuccess.setAttribute('id', 'input-name')
+            inputSuccess.setAttribute('id', 'input-success')
 
             const labAttempts = document.createElement('label')
             labAttempts.innerText = 'Number of attempts allowed (10 max):'
             labAttempts.setAttribute('class', 'input-styles')
             const inputAttempts = document.createElement('input')
-            inputAttempts.setAttribute('type', 'text')
+            inputAttempts.setAttribute('type', 'number')
             inputAttempts.setAttribute('maxlength', '2')
             inputAttempts.autocomplete = "off"
             inputAttempts.setAttribute('class', 'input-styles-inp-num')
-            inputAttempts.setAttribute('id', 'input-name')
+            inputAttempts.setAttribute('id', 'input-attempts')
 
             const labNumOfObj = document.createElement('label')
             labNumOfObj.innerText = 'Number of objects (50 max):'
@@ -354,24 +357,26 @@ document.addEventListener("DOMContentLoaded", () => {
             inputNumOfObj.setAttribute('maxlength', '2')
             inputNumOfObj.autocomplete = "off"
             inputNumOfObj.setAttribute('class', 'input-styles-inp-num')
-            inputNumOfObj.setAttribute('id', 'input-name')
+            inputNumOfObj.setAttribute('id', 'input-obj-num')
             
             const labReqObj = document.createElement('label')
-            labReqObj.innerText = 'Number of required objects to finish room (3 max):'
+            labReqObj.innerText = 'Number of objects to exit room (3 max):'
             labReqObj.setAttribute('class', 'input-styles')
             const inputReqObj = document.createElement('input')
-            inputReqObj.setAttribute('type', 'text')
+            inputReqObj.setAttribute('type', 'number')
             inputReqObj.setAttribute('maxlength', '1')
             inputReqObj.autocomplete = "off"
             inputReqObj.setAttribute('class', 'input-styles-inp-num')
+            inputReqObj.setAttribute('id', 'input-req-obj')
             
             const labLock = document.createElement('label')
             labLock.innerText = 'Number or phrase required to exit the room'
             labLock.setAttribute('class', 'input-styles')
             const inputLock = document.createElement('input')
-            inputLock.setAttribute('type', 'text')
+            inputLock.setAttribute('type', 'number')
             inputLock.autocomplete = "off"
             inputLock.setAttribute('class', 'input-styles-inp')
+            inputLock.setAttribute('id', 'input-lock')
             
             const submitButton = document.createElement('input')
             submitButton.setAttribute('type', 'submit')
@@ -379,11 +384,13 @@ document.addEventListener("DOMContentLoaded", () => {
             submitButton.setAttribute('class', 'input-styles-button')
 
             interface.appendChild(p)
+            interface.appendChild(br)
             div.appendChild(labName)
             div.appendChild(inputName)
+            interface.appendChild(br)
             interface.appendChild(div)
             interface.appendChild(labSetting)
-            
+           
             settingDiv.appendChild(settingRadio1)
             settingDiv.appendChild(settingRadioLab1)
             

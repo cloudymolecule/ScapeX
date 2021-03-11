@@ -77,14 +77,14 @@ div#title {
     width:100%;
     height:auto;
     background: black;
-    color: rgb(194, 185, 162);
+    color: rgb(255, 0, 0);
     text-align:left;
     border: 3px solid rgb(96, 0, 0);
     font-size: 0.7em;
 }
 
 .input-styles-inp-num {
-    width: 50px;
+    width:80px;
     background: black;
     color: rgb(194, 185, 162);
     text-align:center;
@@ -92,12 +92,26 @@ div#title {
     font-size: 0.7em;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
 input:focus {
     color: rgb(255, 0, 0);
     outline: 2px solid rgb(255, 68, 0);  
 }
 
 input.visited {
+    color: rgb(255, 0, 0);
+    outline: 2px solid rgb(255, 68, 0);  
+}
+
+textarea:focus {
+    color: rgb(255, 0, 0);
+    outline: 2px solid rgb(255, 68, 0);  
+}
+
+textarea.visited {
     color: rgb(255, 0, 0);
     outline: 2px solid rgb(255, 68, 0);  
 }
@@ -121,7 +135,7 @@ input.visited {
 }
 
 .room-form {
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
@@ -202,4 +216,32 @@ div.interface {
     margin-left: auto;
     margin-right: auto;
     
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #000000;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid rgb(96, 0, 00);
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #323232;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid rgb(255, 0, 0);
 }
