@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mCreate.addEventListener('click', () => {
-        if (!loggedUser) { //re-enable this
+        if (loggedUser) { //re-enable this
             clearElems('interface')
             const p = document.createElement('p') //create room title
             p.innerText = 'Create Escape Room'
@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputTime.setAttribute('maxlength', '2')
             inputTime.autocomplete = "off"
             inputTime.setAttribute('class', 'input-styles-inp-num')
-            inputTime.setAttribute('id', 'input-time')
+            inputTime.setAttribute('id', 'input-time-limit')
 
             const labSuccess = document.createElement('label')
             labSuccess.innerText = 'Room completion message:'
@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputSuccess.setAttribute('maxlength', '255')
             inputSuccess.autocomplete = "off"
             inputSuccess.setAttribute('class', 'input-styles-inp-success')
-            inputSuccess.setAttribute('id', 'input-completion')
+            inputSuccess.setAttribute('id', 'input-completed-message')
 
             const labAttempts = document.createElement('label')
             labAttempts.innerText = 'Number of attempts allowed (10 max):'
@@ -346,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputAttempts.setAttribute('maxlength', '2')
             inputAttempts.autocomplete = "off"
             inputAttempts.setAttribute('class', 'input-styles-inp-num')
-            inputAttempts.setAttribute('id', 'input-attempts')
+            inputAttempts.setAttribute('id', 'input-attempts-allowed')
 
             const labNumOfObj = document.createElement('label')
             labNumOfObj.innerText = 'Number of objects (50 max):'
@@ -431,11 +431,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 
                 let formData = {
+                    user_id: loggedUser,
                     name: document.getElementById('input-name').value,
                     setting: document.querySelector('input[name="setting"]:checked').value,
-                    time: document.getElementById('input-time').value,
-                    completion: document.getElementById('input-completion').value,
-                    attempts: document.getElementById('input-attempts').value,
+                    time_limit: document.getElementById('input-time-limit').value,
+                    completed_message: document.getElementById('input-completed-message').value,
+                    attempts_allowed: document.getElementById('input-attempts-allowed').value,
+                    times_completed: 0,
                     obj_room: document.getElementById('input-obj-room').value,
                     obj_exit: document.getElementById('input-obj-exit').value,
                     lock: document.getElementById('input-lock').value
@@ -456,23 +458,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(function(object) {
                     if (object.errors) {
-                        // clearElems('corner-top-right')
-                        // object.errors.forEach(error => {
-                        //     let err = document.createElement('p')
-                        //     err.innerHTML = error
-                        //     err.setAttribute('class', 'warning')
-                        //     cTopRight.appendChild(err)
-                        // })
-                        // cTopRight.removeAttribute('class')
-                        // cTopRight.setAttribute('class', 'corner-active')
-                        // setTimeout(() => {
-                        //     clearElems('corner-top-right')
-                        //     cTopRight.removeAttribute('class')
-                        //     cTopRight.setAttribute('class', 'corner-inactive')
-                        // }, 6000)
+                        clearElems('corner-top-right')
+                        object.errors.forEach(error => {
+                            let err = document.createElement('p')
+                            err.innerHTML = error
+                            err.setAttribute('class', 'warning')
+                            cTopRight.appendChild(err)
+                        })
+                        cTopRight.removeAttribute('class')
+                        cTopRight.setAttribute('class', 'corner-active')
+                        setTimeout(() => {
+                            clearElems('corner-top-right')
+                            cTopRight.removeAttribute('class')
+                            cTopRight.setAttribute('class', 'corner-inactive')
+                        }, 6000)
                     } else {
-                        loggedToggle(object.data.attributes.id)
-                        interface.innerHTML = ``
+                        // loggedToggle(object.data.attributes.id)
+                        // interface.innerHTML = ``
+                        console.log(object)
                     }
                 })
                 .catch(function(error) {
