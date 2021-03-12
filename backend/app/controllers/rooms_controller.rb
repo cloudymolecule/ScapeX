@@ -1,24 +1,24 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :destroy]
 
-  def index
-    rooms = Room.all
+  # def index
+  #   rooms = Room.all
 
-    render json: RoomSerializer.new(rooms)
-  end
+  #   render json: RoomSerializer.new(rooms)
+  # end
 
-  def show
-    render json: room
-  end
+  # def show
+  #   render json: room
+  # end
 
   # POST /rooms
   def create
-    @room = Room.new(room_params)
+    room = Room.new(room_params)
 
-    if @room.save
-      render json: @room, status: :created, location: @room
+    if room.save
+      render json: RoomSerializer.new(room)
     else
-      render json: @room.errors, status: :unprocessable_entity
+      render json: {errors: room.errors.full_messages}
     end
   end
 
@@ -39,7 +39,7 @@ class RoomsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
-      @room = Room.find(params[:id])
+      room = Room.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

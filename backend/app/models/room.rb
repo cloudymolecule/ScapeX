@@ -8,11 +8,11 @@ class Room < ApplicationRecord
         with: /\A\d+\z/, message: "Only numbers allowed."
     }
 
-    validates :name, lenght: {maximum: 20}
-    validates :time_limit, lenght: {maximum: 2}
-    validates :attempts_allowed, lenght: {maximum: 2}
-    validates :obj_room, lenght: {maximum: 2}
-    validates :obj_exit, lenght: {maximum: 1}
+    validates :name, length: {maximum: 20}
+    validates :time_limit, length: {maximum: 2}
+    validates :attempts_allowed, length: {maximum: 2}
+    validates :obj_room, length: {maximum: 2}
+    validates :obj_exit, length: {maximum: 1}
 
     validates :time_limit, numericality: {greater_than_or_equal_to: 0 }
     validates :time_limit, numericality: {less_than_or_equal_to: 60 }

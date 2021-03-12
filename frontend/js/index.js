@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
             settingRadio1.setAttribute('type', 'radio')
             settingRadio1.setAttribute('name', 'setting')
             settingRadio1.setAttribute('value', 'fantasy')
+            settingRadio1.setAttribute('checked', 'checked')
             settingRadio1.setAttribute('id', 'radio-fantasy')
             settingRadioLab1.setAttribute('class', 'input-styles')
 

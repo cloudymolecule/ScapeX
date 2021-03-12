@@ -3,11 +3,6 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(user_params)
-        #     username: params[:username],
-        #     email: params[:email],
-        #     password: params[:password],
-        #     password_confirmation: params[:password_confirmation]
-        # )
         if user.save
             render json: UserSerializer.new(user)
         else
