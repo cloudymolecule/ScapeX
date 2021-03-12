@@ -1,4 +1,5 @@
 class RoomSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :name, :setting, :time_limit, :completed_message, :attempts, :attempts_allowed, :times_completed, :obj_room, :obj_exit, :lock
+  belongs_to :user
 end
