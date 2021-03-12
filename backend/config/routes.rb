@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rooms
   # resources :users 
   # resources :sessions
   post '/users', to: 'users#create'
