@@ -233,10 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
             })
         } 
-        
-
-        
-
     })
 
     mCreate.addEventListener('click', () => {
@@ -427,10 +423,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             submitButton.addEventListener('click', () => {
                 
-                
-
-                
-                
                 let formData = {
                     user_id: loggedUser,
                     name: document.getElementById('input-name').value,
@@ -476,8 +468,48 @@ document.addEventListener("DOMContentLoaded", () => {
                         }, 8000)
                     } else {                                
                         clearElems('interface')
+                        const p = document.createElement('p')
+                        p.innerText = 'Escape Room Items'
+
+                        const div = document.createElement('div')
+                        div.setAttribute('class', 'form')
                         for (let i = 0; i < object.data.attributes.obj_room; i++) {   // TODO: create items 
-                            console.log(i) 
+                            // console.log(i)
+                            
+                            
+                        }
+                        function itemsCreator() {
+                            class Item {
+                                constructor(
+                                    name,
+                                    description,
+                                    looked_message,
+                                    take,
+                                    take_message,
+                                    closed,
+                                    closed_message,
+                                    talk,
+                                    talk_message,
+                                    locked,
+                                    locked_message,
+                                    opened_message,
+                                    room_id
+                                ) {
+                                    this.name = object.data.attributes.name
+                                    this.description = object.data.attributes.description
+                                    this.looked_message = object.data.attributes.looked_message
+                                    this.take = object.data.attributes.take
+                                    this.take_message = object.data.attributes.take_message
+                                    this.closed = object.data.attributes.closed
+                                    this.closed_message = object.data.attributes.closed_message
+                                    this.talk = object.data.talk
+                                    this.talk_message = object.data.attributes.talk_message
+                                    this.locked = object.data.attributes.locked
+                                    this.locked_message = object.data.attributes.locked_message
+                                    this.opened_message = object.data.attributes.opened_message
+                                    this.room_id = object.data.attributes.room_id
+                                }
+                            }
                         }
                     }
                 })
@@ -485,7 +517,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log(error.message)
                 })
             })
-            
         }
     })
 
@@ -509,8 +540,5 @@ document.addEventListener("DOMContentLoaded", () => {
         interface.innerHTML = 'This is the about page :)'
 
     })
-    
-
-
 })
 
