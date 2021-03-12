@@ -13,6 +13,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.boolean :locked
       t.string :locked_message
       t.string :opened_message
+      t.belongs_to :room, null: false, foreign_key: true
 
       t.timestamps
     end
