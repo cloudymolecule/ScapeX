@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             clearElems('corner-top-right')
                             cTopRight.removeAttribute('class')
                             cTopRight.setAttribute('class', 'corner-inactive')
-                        }, 6000)
+                        }, 8000)
                     } else {
                         loggedToggle(object.data.attributes.id)
                         interface.innerHTML = `Account created successfully, welcome ${object.data.attributes.username}.`
@@ -439,6 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     completed_message: document.getElementById('input-completed-message').value,
                     attempts_allowed: document.getElementById('input-attempts-allowed').value,
                     times_completed: 0,
+                    attempts: 0,
                     obj_room: document.getElementById('input-obj-room').value,
                     obj_exit: document.getElementById('input-obj-exit').value,
                     lock: document.getElementById('input-lock').value
@@ -472,11 +473,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             clearElems('corner-top-right')
                             cTopRight.removeAttribute('class')
                             cTopRight.setAttribute('class', 'corner-inactive')
-                        }, 6000)
-                    } else {
-                        // loggedToggle(object.data.attributes.id)
-                        // interface.innerHTML = ``
-                        console.log(object)
+                        }, 8000)
+                    } else {                                
+                        clearElems('interface')
+                        for (let i = 0; i < object.data.attributes.obj_room; i++) {   // TODO: create items 
+                            console.log(i) 
+                        }
                     }
                 })
                 .catch(function(error) {

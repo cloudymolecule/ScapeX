@@ -1,11 +1,11 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :destroy]
 
-  # def index
-  #   rooms = Room.all
+  def index
+    rooms = Room.all
 
-  #   render json: RoomSerializer.new(rooms)
-  # end
+    render json: RoomSerializer.new(rooms)
+  end
 
   # def show
   #   render json: room

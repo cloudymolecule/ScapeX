@@ -6173,3 +6173,770 @@ ArgumentError (Unknown validator: 'LenghtValidator'):
   
 app/models/room.rb:11:in `<class:Room>'
 app/models/room.rb:1:in `<main>'
+Started POST "/login" for ::1 at 2021-03-11 22:27:55 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 226ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 10164)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:27:59 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 20472)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:28:13 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 9892)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:28:54 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"The Dungeon", "setting"=>"dungeon", "time_limit"=>"80", "completed_message"=>"You finished!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"3", "obj_exit"=>"3", "lock"=>"123", "room"=>{"name"=>"The Dungeon", "setting"=>"dungeon", "time_limit"=>"80", "completed_message"=>"You finished!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"3", "obj_exit"=>"3", "lock"=>"123", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "The Dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3931)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:29:06 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"The Dungeon", "setting"=>"dungeon", "time_limit"=>"80", "completed_message"=>"You finished!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"3", "obj_exit"=>"3", "lock"=>"123", "room"=>{"name"=>"The Dungeon", "setting"=>"dungeon", "time_limit"=>"80", "completed_message"=>"You finished!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"3", "obj_exit"=>"3", "lock"=>"123", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "The Dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3872)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:30:06 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:30:46 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"61", "completed_message"=>"Done!", "attempts_allowed"=>"11", "times_completed"=>0, "attempts"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"61", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"11", "times_completed"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 4914)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:30:52 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"60", "completed_message"=>"Done!", "attempts_allowed"=>"11", "times_completed"=>0, "attempts"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"60", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"11", "times_completed"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 4368)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:30:55 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts_allowed"=>"11", "times_completed"=>0, "attempts"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"11", "times_completed"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 4368)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:30:59 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts_allowed"=>"11", "times_completed"=>0, "attempts"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"11", "times_completed"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 4369)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:31:09 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts_allowed"=>"0", "times_completed"=>0, "attempts"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"0", "times_completed"=>0, "obj_room"=>"51", "obj_exit"=>"4", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3903)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:31:16 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts_allowed"=>"0", "times_completed"=>0, "attempts"=>0, "obj_room"=>"0", "obj_exit"=>"4", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"0", "times_completed"=>0, "obj_room"=>"0", "obj_exit"=>"4", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 3957)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:31:28 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts_allowed"=>"0", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"4", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"0", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"4", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3422)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:31:34 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts_allowed"=>"0", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"0", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"0", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"0", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (1.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Scary dungeon"], ["setting", "dungeon"], ["time_limit", 0], ["completed_message", "Done!"], ["attempts", 0], ["attempts_allowed", 0], ["times_completed", 0], ["obj_room", 1], ["obj_exit", 0], ["lock", "Cool"], ["user_id", 1], ["created_at", "2021-03-12 03:31:34.674163"], ["updated_at", "2021-03-12 03:31:34.674163"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 5614)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:31:51 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts_allowed"=>"0", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"0", "lock"=>"Cool", "room"=>{"name"=>"Scary dungeon", "setting"=>"dungeon", "time_limit"=>"0", "completed_message"=>"Done!", "attempts"=>0, "attempts_allowed"=>"0", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"0", "lock"=>"Cool", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Scary dungeon"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3442)
+
+
+Started GET "/rooms" for ::1 at 2021-03-11 22:33:05 -0500
+Processing by RoomsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rooms_controller.rb:7:in `index'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:7:in `index'
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 1.0ms | Allocations: 11089)
+
+
+Started POST "/users" for ::1 at 2021-03-11 22:33:25 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"234", "email"=>"345", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"234", "email"=>"345", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "234"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "345"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 219ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 6588)
+
+
+Started POST "/users" for ::1 at 2021-03-11 22:33:31 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"234", "email"=>"345@", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"234", "email"=>"345@", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "234"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "345@"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 214ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 3101)
+
+
+Started POST "/users" for ::1 at 2021-03-11 22:35:06 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"234", "email"=>"345@1.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"234", "email"=>"345@1.com", "password"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "234"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "345@1.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["username", "234"], ["email", "345@1.com"], ["password_digest", "$2a$12$wrgRg60hLudHSTu1Ynh.beRo94KpONUt2zzYM6UJVkCMK6uz90G8m"], ["created_at", "2021-03-12 03:35:06.737806"], ["updated_at", "2021-03-12 03:35:06.737806"]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 223ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 4930)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:35:41 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>2, "name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"", "room"=>{"name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"", "user_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Other Room"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 4386)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:35:50 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>2, "name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"", "room"=>{"name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"", "user_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Other Room"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3799)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:35:56 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>2, "name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"Bye", "room"=>{"name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"Bye", "user_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Other Room"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 3369)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:35:57 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>2, "name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"Bye", "room"=>{"name"=>"Other Room", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"Done!", "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"4", "obj_exit"=>"0", "lock"=>"Bye", "user_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "Other Room"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3369)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:36:48 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"234", "password"=>"[FILTERED]", "session"=>{"input"=>"234", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "234"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 219ms (Views: 0.3ms | ActiveRecord: 8.6ms | Allocations: 722)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:36:59 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>2, "name"=>"wqew", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"sdwqe", "attempts_allowed"=>"1", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"1", "lock"=>"1", "room"=>{"name"=>"wqew", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"sdwqe", "attempts"=>0, "attempts_allowed"=>"1", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"1", "lock"=>"1", "user_id"=>2}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "wqew"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "wqew"], ["setting", "abandoned"], ["time_limit", 23], ["completed_message", "sdwqe"], ["attempts", 0], ["attempts_allowed", 1], ["times_completed", 0], ["obj_room", 1], ["obj_exit", 1], ["lock", "1"], ["user_id", 2], ["created_at", "2021-03-12 03:36:59.469678"], ["updated_at", "2021-03-12 03:36:59.469678"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 3854)
+
+
+Started GET "/rooms" for ::1 at 2021-03-11 22:37:06 -0500
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1286)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:47:18 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1064)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:47:33 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"23", "setting"=>"dungeon", "time_limit"=>"3", "completed_message"=>"333", "attempts_allowed"=>"3", "times_completed"=>0, "attempts"=>0, "obj_room"=>"5", "obj_exit"=>"2", "lock"=>"23", "room"=>{"name"=>"23", "setting"=>"dungeon", "time_limit"=>"3", "completed_message"=>"333", "attempts"=>0, "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"5", "obj_exit"=>"2", "lock"=>"23", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "23"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "23"], ["setting", "dungeon"], ["time_limit", 3], ["completed_message", "333"], ["attempts", 0], ["attempts_allowed", 3], ["times_completed", 0], ["obj_room", 5], ["obj_exit", 2], ["lock", "23"], ["user_id", 1], ["created_at", "2021-03-12 03:47:33.485113"], ["updated_at", "2021-03-12 03:47:33.485113"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 3796)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:48:56 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 212ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:49:10 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"656", "setting"=>"dungeon", "time_limit"=>"34", "completed_message"=>"342234234", "attempts_allowed"=>"3", "times_completed"=>0, "attempts"=>0, "obj_room"=>"5", "obj_exit"=>"3", "lock"=>"343", "room"=>{"name"=>"656", "setting"=>"dungeon", "time_limit"=>"34", "completed_message"=>"342234234", "attempts"=>0, "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"5", "obj_exit"=>"3", "lock"=>"343", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "656"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "656"], ["setting", "dungeon"], ["time_limit", 34], ["completed_message", "342234234"], ["attempts", 0], ["attempts_allowed", 3], ["times_completed", 0], ["obj_room", 5], ["obj_exit", 3], ["lock", "343"], ["user_id", 1], ["created_at", "2021-03-12 03:49:10.853703"], ["updated_at", "2021-03-12 03:49:10.853703"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3777)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:50:53 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:51:02 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"34324", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"234324", "attempts_allowed"=>"3", "times_completed"=>0, "attempts"=>0, "obj_room"=>"5", "obj_exit"=>"2", "lock"=>"234", "room"=>{"name"=>"34324", "setting"=>"abandoned", "time_limit"=>"23", "completed_message"=>"234324", "attempts"=>0, "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"5", "obj_exit"=>"2", "lock"=>"234", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "34324"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "34324"], ["setting", "abandoned"], ["time_limit", 23], ["completed_message", "234324"], ["attempts", 0], ["attempts_allowed", 3], ["times_completed", 0], ["obj_room", 5], ["obj_exit", 2], ["lock", "234"], ["user_id", 1], ["created_at", "2021-03-12 03:51:02.760087"], ["updated_at", "2021-03-12 03:51:02.760087"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3777)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:51:58 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:52:09 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"123123213", "setting"=>"abandoned", "time_limit"=>"2", "completed_message"=>"2", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"5", "obj_exit"=>"2", "lock"=>"234", "room"=>{"name"=>"123123213", "setting"=>"abandoned", "time_limit"=>"2", "completed_message"=>"2", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"5", "obj_exit"=>"2", "lock"=>"234", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "123123213"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123123213"], ["setting", "abandoned"], ["time_limit", 2], ["completed_message", "2"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 5], ["obj_exit", 2], ["lock", "234"], ["user_id", 1], ["created_at", "2021-03-12 03:52:09.224554"], ["updated_at", "2021-03-12 03:52:09.224554"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 3777)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:55:12 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts_allowed"=>"22", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"12", "lock"=>"12", "room"=>{"name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts"=>0, "attempts_allowed"=>"22", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"12", "lock"=>"12", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "2132323"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 4418)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:55:21 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts_allowed"=>"22", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"12", "lock"=>"1", "room"=>{"name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts"=>0, "attempts_allowed"=>"22", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"12", "lock"=>"1", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "2132323"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 4357)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:55:35 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts_allowed"=>"1", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"12", "lock"=>"1", "room"=>{"name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts"=>0, "attempts_allowed"=>"1", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"12", "lock"=>"1", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "2132323"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 3887)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:55:41 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts_allowed"=>"1", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"1", "lock"=>"1", "room"=>{"name"=>"2132323", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"222", "attempts"=>0, "attempts_allowed"=>"1", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"1", "lock"=>"1", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "2132323"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2132323"], ["setting", "haunted"], ["time_limit", 2], ["completed_message", "222"], ["attempts", 0], ["attempts_allowed", 1], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 1], ["lock", "1"], ["user_id", 1], ["created_at", "2021-03-12 03:55:41.473281"], ["updated_at", "2021-03-12 03:55:41.473281"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 3777)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:55:52 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 214ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:56:00 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:56:13 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"213213213", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"213213213", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "213213213"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213213213"], ["setting", "dungeon"], ["time_limit", 2], ["completed_message", "12321"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 2], ["lock", "213213"], ["user_id", 1], ["created_at", "2021-03-12 03:56:13.992835"], ["updated_at", "2021-03-12 03:56:13.992835"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 3778)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:56:16 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"213213213", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"213213213", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "213213213"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 3385)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:56:19 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"21321321322", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"21321321322", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "21321321322"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "21321321322"], ["setting", "dungeon"], ["time_limit", 2], ["completed_message", "12321"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 2], ["lock", "213213"], ["user_id", 1], ["created_at", "2021-03-12 03:56:19.354269"], ["updated_at", "2021-03-12 03:56:19.354269"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 3777)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:56:22 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"2132132132221", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"2132132132221", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "2132132132221"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2132132132221"], ["setting", "dungeon"], ["time_limit", 2], ["completed_message", "12321"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 2], ["lock", "213213"], ["user_id", 1], ["created_at", "2021-03-12 03:56:22.537200"], ["updated_at", "2021-03-12 03:56:22.537200"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3779)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:56:29 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"456456546", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"456456546", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "456456546"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "456456546"], ["setting", "dungeon"], ["time_limit", 2], ["completed_message", "12321"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 2], ["lock", "213213"], ["user_id", 1], ["created_at", "2021-03-12 03:56:29.794018"], ["updated_at", "2021-03-12 03:56:29.794018"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 3777)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:56:45 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"456456546", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"456456546", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "456456546"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 3385)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:56:52 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"45645654fhfhfh6", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"45645654fhfhfh6", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "45645654fhfhfh6"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "45645654fhfhfh6"], ["setting", "dungeon"], ["time_limit", 2], ["completed_message", "12321"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 2], ["lock", "213213"], ["user_id", 1], ["created_at", "2021-03-12 03:56:52.385793"], ["updated_at", "2021-03-12 03:56:52.385793"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 3777)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 22:57:34 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"some name", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "room"=>{"name"=>"some name", "setting"=>"dungeon", "time_limit"=>"2", "completed_message"=>"12321", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"2", "lock"=>"213213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "some name"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "some name"], ["setting", "dungeon"], ["time_limit", 2], ["completed_message", "12321"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 2], ["lock", "213213"], ["user_id", 1], ["created_at", "2021-03-12 03:57:34.627405"], ["updated_at", "2021-03-12 03:57:34.627405"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 3777)
+
+
+Started GET "/rooms" for ::1 at 2021-03-11 22:57:41 -0500
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:7:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 3762)
+
+
+Started POST "/login" for ::1 at 2021-03-11 22:59:53 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 210ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 23:00:05 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"444", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"2323", "attempts_allowed"=>"2", "times_completed"=>0, "attempts"=>0, "obj_room"=>"20", "obj_exit"=>"2", "lock"=>"2", "room"=>{"name"=>"444", "setting"=>"haunted", "time_limit"=>"2", "completed_message"=>"2323", "attempts"=>0, "attempts_allowed"=>"2", "times_completed"=>0, "obj_room"=>"20", "obj_exit"=>"2", "lock"=>"2", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "444"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "444"], ["setting", "haunted"], ["time_limit", 2], ["completed_message", "2323"], ["attempts", 0], ["attempts_allowed", 2], ["times_completed", 0], ["obj_room", 20], ["obj_exit", 2], ["lock", "2"], ["user_id", 1], ["created_at", "2021-03-12 04:00:05.356464"], ["updated_at", "2021-03-12 04:00:05.356464"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 3777)
+
+
+Started POST "/login" for ::1 at 2021-03-11 23:03:11 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 23:03:32 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"45443221", "setting"=>"abandoned", "time_limit"=>"2", "completed_message"=>"23", "attempts_allowed"=>"1", "times_completed"=>0, "attempts"=>0, "obj_room"=>"20", "obj_exit"=>"1", "lock"=>"2", "room"=>{"name"=>"45443221", "setting"=>"abandoned", "time_limit"=>"2", "completed_message"=>"23", "attempts"=>0, "attempts_allowed"=>"1", "times_completed"=>0, "obj_room"=>"20", "obj_exit"=>"1", "lock"=>"2", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "45443221"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "45443221"], ["setting", "abandoned"], ["time_limit", 2], ["completed_message", "23"], ["attempts", 0], ["attempts_allowed", 1], ["times_completed", 0], ["obj_room", 20], ["obj_exit", 1], ["lock", "2"], ["user_id", 1], ["created_at", "2021-03-12 04:03:32.821849"], ["updated_at", "2021-03-12 04:03:32.821849"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 3778)
+
+
+Started POST "/login" for ::1 at 2021-03-11 23:05:12 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 209ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 597)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 23:05:27 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"ddfddd", "setting"=>"haunted", "time_limit"=>"1", "completed_message"=>"1", "attempts_allowed"=>"1", "times_completed"=>0, "attempts"=>0, "obj_room"=>"10", "obj_exit"=>"1", "lock"=>"213", "room"=>{"name"=>"ddfddd", "setting"=>"haunted", "time_limit"=>"1", "completed_message"=>"1", "attempts"=>0, "attempts_allowed"=>"1", "times_completed"=>0, "obj_room"=>"10", "obj_exit"=>"1", "lock"=>"213", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "ddfddd"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "ddfddd"], ["setting", "haunted"], ["time_limit", 1], ["completed_message", "1"], ["attempts", 0], ["attempts_allowed", 1], ["times_completed", 0], ["obj_room", 10], ["obj_exit", 1], ["lock", "213"], ["user_id", 1], ["created_at", "2021-03-12 04:05:27.031258"], ["updated_at", "2021-03-12 04:05:27.031258"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 3777)
+
+
+Started POST "/login" for ::1 at 2021-03-11 23:07:08 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 228ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 10164)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 23:07:20 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"123321ddddf", "setting"=>"haunted", "time_limit"=>"1", "completed_message"=>"1", "attempts_allowed"=>"1", "times_completed"=>0, "attempts"=>0, "obj_room"=>"12", "obj_exit"=>"2", "lock"=>"2", "room"=>{"name"=>"123321ddddf", "setting"=>"haunted", "time_limit"=>"1", "completed_message"=>"1", "attempts"=>0, "attempts_allowed"=>"1", "times_completed"=>0, "obj_room"=>"12", "obj_exit"=>"2", "lock"=>"2", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "123321ddddf"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123321ddddf"], ["setting", "haunted"], ["time_limit", 1], ["completed_message", "1"], ["attempts", 0], ["attempts_allowed", 1], ["times_completed", 0], ["obj_room", 12], ["obj_exit", 2], ["lock", "2"], ["user_id", 1], ["created_at", "2021-03-12 04:07:20.308775"], ["updated_at", "2021-03-12 04:07:20.308775"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 45ms (Views: 0.5ms | ActiveRecord: 2.3ms | Allocations: 12992)
+
+
+Started POST "/login" for ::1 at 2021-03-11 23:10:30 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 212ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 615)
+
+
+Started POST "/rooms" for ::1 at 2021-03-11 23:10:46 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"hghgdf", "setting"=>"haunted", "time_limit"=>"3", "completed_message"=>"3", "attempts_allowed"=>"3", "times_completed"=>0, "attempts"=>0, "obj_room"=>"20", "obj_exit"=>"2", "lock"=>"2", "room"=>{"name"=>"hghgdf", "setting"=>"haunted", "time_limit"=>"3", "completed_message"=>"3", "attempts"=>0, "attempts_allowed"=>"3", "times_completed"=>0, "obj_room"=>"20", "obj_exit"=>"2", "lock"=>"2", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "hghgdf"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "time_limit", "completed_message", "attempts", "attempts_allowed", "times_completed", "obj_room", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "hghgdf"], ["setting", "haunted"], ["time_limit", 3], ["completed_message", "3"], ["attempts", 0], ["attempts_allowed", 3], ["times_completed", 0], ["obj_room", 20], ["obj_exit", 2], ["lock", "2"], ["user_id", 1], ["created_at", "2021-03-12 04:10:46.146868"], ["updated_at", "2021-03-12 04:10:46.146868"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 3803)
+
+
