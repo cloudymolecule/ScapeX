@@ -13,10 +13,30 @@ document.addEventListener("DOMContentLoaded", () => {
     //hot corners
     const cTopRight = document.getElementById('corner-top-right')
 
+    //html functions
     function clearElems(elementId) {
         document.getElementById(elementId).innerHTML = ""
     }
 
+    function elementBuilder(element, innTxt, autoComp, attributes) {
+        const elem = document.createElement(element)
+        if (attributes) {
+            for (const [key, value] of Object.entries(attributes)) {
+                elem.setAttribute(key, value)
+            }
+        }
+        if (innTxt != null) {
+            elem.innerText = innTxt
+        }
+        if (autoComp != null) {
+            elem.autocomplete = 'off'
+        }
+        return elem
+    }
+
+    function massAppend() {
+
+    }
     // basic local authentication
     let loggedUser = false
     function loggedToggle(user = false) {
@@ -46,24 +66,29 @@ document.addEventListener("DOMContentLoaded", () => {
     mLoginLogout.addEventListener('click', () => {
         clearElems('interface')
 
-        const form = document.createElement('div')
-        const p = document.createElement('p')
-        const labName = document.createElement('label')
-        const inputName = document.createElement('input')
+
+        const form = elementBuilder('div', null, null, {'class':'form'})
+        // const form = document.createElement('div')
+        const p = elementBuilder('p', 'Log in to your ScapeX account')
+        // const p = document.createElement('p')
+        const labName = elementBuilder('label', 'Email or Username:', null, {'class':'input-styles'})
+        // const labName = document.createElement('label')
+        const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
+        // const inputName = document.createElement('input')
         const labPass = document.createElement('label')
         const inputPass = document.createElement('input')
         const br = document.createElement('br')
         const submitButton = document.createElement('input')
         
         if (!loggedUser) {
-            form.setAttribute('class', 'form')
-            p.innerText = "Log in to your ScapeX account"
-            labName.setAttribute('class', 'input-styles')
-            labName.innerText = "Email or Username:"
-            inputName.setAttribute('type', 'text')
-            inputName.autocomplete = "off"
-            inputName.setAttribute('class', 'input-styles-inp')
-            inputName.setAttribute('id', 'input-name')
+            // form.setAttribute('class', 'form')
+            // p.innerText = "Log in to your ScapeX account"
+            // labName.setAttribute('class', 'input-styles')
+            // labName.innerText = "Email or Username:"
+            // inputName.setAttribute('type', 'text')
+            // inputName.autocomplete = "off"
+            // inputName.setAttribute('class', 'input-styles-inp')
+            // inputName.setAttribute('id', 'input-name')
             labPass.setAttribute('class', 'input-styles')
             labPass.innerText = "Password:"
             inputPass.setAttribute('type', 'password')
@@ -468,16 +493,201 @@ document.addEventListener("DOMContentLoaded", () => {
                         }, 8000)
                     } else {                                
                         clearElems('interface')
-                        const p = document.createElement('p')
-                        p.innerText = 'Escape Room Items'
+                        const pItemCreate = document.createElement('p')
+                        pItemCreate.innerText = 'Escape Room Items'
 
-                        const div = document.createElement('div')
-                        div.setAttribute('class', 'form')
-                        for (let i = 0; i < object.data.attributes.obj_room; i++) {   // TODO: create items 
-                            // console.log(i)
+                        interface.appendChild(pItemCreate)
+
+                        const itemsContainer = document.createElement('div')
+                        // div.setAttribute('class', 'form')
+
+                        interface.appendChild(itemsContainer)
+
+                        // for (let i = 0; i < object.data.attributes.obj_room; i++) {   // TODO: create items 
+                        //     // console.log(i)
+                        //     const itemDiv = document.createElement('div')
+
+                        //     const labItemName = document.createElement('label') //item name
+                        //     labItemName.innerText = 'Name:'
+                        //     // labItemName.setAttribute('class', 'input-styles')
+                        //     const inputItemName = document.createElement('input')
+                        //     inputItemName.setAttribute('type', 'text')
+                        //     inputItemName.autocomplete = "off"
+                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
+                        //     // inputItemName.setAttribute('id', 'input-name')
+
+                        //     const labItemDesc = document.createElement('label') //description
+                        //     labItemDesc.innerText = 'Name:'
+                        //     // labItemDesc.setAttribute('class', 'input-styles')
+                        //     const inputItemDesc = document.createElement('input')
+                        //     inputItemDesc.setAttribute('type', 'text')
+                        //     inputItemDesc.autocomplete = "off"
+                        //     // inputItemDesc.setAttribute('class', 'input-styles-inp')
+                        //     // inputItemDesc.setAttribute('id', 'input-name')
+
+                        //     const labItemLook = document.createElement('label') //looked_message
+                        //     labItemLook.innerText = 'Name:'
+                        //     // labItemLook.setAttribute('class', 'input-styles')
+                        //     const inputItemLook = document.createElement('input')
+                        //     inputItemLook.setAttribute('type', 'text')
+                        //     inputItemLook.autocomplete = "off"
+                        //     // inputItemLook.setAttribute('class', 'input-styles-inp')
+                        //     // inputItemLook.setAttribute('id', 'input-name')
+
+                        //     const labiItemTake = document.createElement('label') //take radio
+                        //     labiItemTake.innerText = 'Choose a setting:'
+                        //     labiItemTake.setAttribute('class', 'input-styles')
+
+                        //     const lab = document.createElement('label') //take yes
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const settingRadioLab1 = document.createElement('label') //take no
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const labItemName = document.createElement('label') //take_message (conditional)
+                        //     labItemName.innerText = 'Name:'
+                        //     // labItemName.setAttribute('class', 'input-styles')
+                        //     const inputItemName = document.createElement('input')
+                        //     inputItemName.setAttribute('type', 'text')
+                        //     inputItemName.autocomplete = "off"
+                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
+                        //     // inputItemName.setAttribute('id', 'input-name')
+
+                        //     const labSetting = document.createElement('label') //closed radio
+                        //     labSetting.innerText = 'Choose a setting:'
+                        //     labSetting.setAttribute('class', 'input-styles')
+
+                        //     const settingRadioLab1 = document.createElement('label') //closed yes
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const settingRadioLab1 = document.createElement('label') //closed no
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const labItemName = document.createElement('label') //closed_message (conditional)
+                        //     labItemName.innerText = 'Name:'
+                        //     // labItemName.setAttribute('class', 'input-styles')
+                        //     const inputItemName = document.createElement('input')
+                        //     inputItemName.setAttribute('type', 'text')
+                        //     inputItemName.autocomplete = "off"
+                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
+                        //     // inputItemName.setAttribute('id', 'input-name')
+
+                        //     const labSetting = document.createElement('label') //talk radio
+                        //     labSetting.innerText = 'Choose a setting:'
+                        //     labSetting.setAttribute('class', 'input-styles')
+
+                        //     const settingRadioLab1 = document.createElement('label') //talk yes
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const settingRadioLab1 = document.createElement('label') //talk no
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const labItemName = document.createElement('label') //talk_message (conditional)
+                        //     labItemName.innerText = 'Name:'
+                        //     // labItemName.setAttribute('class', 'input-styles')
+                        //     const inputItemName = document.createElement('input')
+                        //     inputItemName.setAttribute('type', 'text')
+                        //     inputItemName.autocomplete = "off"
+                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
+                        //     // inputItemName.setAttribute('id', 'input-name')
+
+
+
+                        //     const labSetting = document.createElement('label') //locked radio
+                        //     labSetting.innerText = 'Choose a setting:'
+                        //     labSetting.setAttribute('class', 'input-styles')
+
+                        //     const settingRadioLab1 = document.createElement('label') //locked yes
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const settingRadioLab1 = document.createElement('label') //locked no
+                        //     const settingRadio1 = document.createElement('input')
+                        //     settingRadioLab1.innerText = 'Fantasy'
+                        //     settingRadio1.setAttribute('type', 'radio')
+                        //     settingRadio1.setAttribute('name', 'setting')
+                        //     settingRadio1.setAttribute('value', 'fantasy')
+                        //     settingRadio1.setAttribute('checked', 'checked')
+                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
+                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+
+                        //     const labItemName = document.createElement('label') //locked_message (conditional)
+                        //     labItemName.innerText = 'Name:'
+                        //     // labItemName.setAttribute('class', 'input-styles')
+                        //     const inputItemName = document.createElement('input')
+                        //     inputItemName.setAttribute('type', 'text')
+                        //     inputItemName.autocomplete = "off"
+                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
+                        //     // inputItemName.setAttribute('id', 'input-name')
+                        //     itemDiv.appendChild(labItemName)
+                        //     itemDiv.appendChild(inputItemName)
+                        //     itemsContainer.appendChild(itemDiv)
+
+
+
                             
-                            
-                        }
+                        //     // t.string "name"
+                        //     // t.string "description"
+                        //     // t.string "looked_message"
+                        //     // t.boolean "take"
+                        //     // t.string "take_message"
+                        //     // t.boolean "closed"
+                        //     // t.string "closed_message"
+                        //     // t.boolean "talk"
+                        //     // t.string "talk_message"
+                        //     // t.boolean "locked"
+                        //     // t.string "locked_message"
+                        //     // t.string "opened_message"
+                        //     // t.integer "room_id"
+                        // }
                         function itemsCreator() {
                             class Item {
                                 constructor(
