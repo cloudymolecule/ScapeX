@@ -242,7 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
     mCreate.addEventListener('click', () => {
         if (!loggedUser) { //re-enable this
             clearElems('interface')
-            console.log(loggedUser)
             const p = document.createElement('p') //create room title
             p.innerText = 'Create Escape Room'
 
@@ -357,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputNumOfObj.setAttribute('maxlength', '2')
             inputNumOfObj.autocomplete = "off"
             inputNumOfObj.setAttribute('class', 'input-styles-inp-num')
-            inputNumOfObj.setAttribute('id', 'input-obj-num')
+            inputNumOfObj.setAttribute('id', 'input-obj-room')
             
             const labReqObj = document.createElement('label')
             labReqObj.innerText = 'Number of objects to exit room (3 max):'
@@ -367,7 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
             inputReqObj.setAttribute('maxlength', '1')
             inputReqObj.autocomplete = "off"
             inputReqObj.setAttribute('class', 'input-styles-inp-num')
-            inputReqObj.setAttribute('id', 'input-req-obj')
+            inputReqObj.setAttribute('id', 'input-obj-exit')
             
             const labLock = document.createElement('label')
             labLock.innerText = 'Number or phrase required to exit the room'
@@ -426,16 +425,59 @@ document.addEventListener("DOMContentLoaded", () => {
             interface.appendChild(submitButton)
 
             submitButton.addEventListener('click', () => {
+                
+                
+
+                
+                
                 let formData = {
-                    name: document.getElementById(),
-                    setting: document.getElementById(),
-                    time: document.getElementById(),
-                    completion: document.getElementById(),
-                    attempts: document.getElementById(),
-                    obj_room: document.getElementById(),
-                    obj_exit: document.getElementById(),
-                    lock: document.getElementById()
+                    name: document.getElementById('input-name').value,
+                    setting: document.querySelector('input[name="setting"]:checked').value,
+                    time: document.getElementById('input-time').value,
+                    completion: document.getElementById('input-completion').value,
+                    attempts: document.getElementById('input-attempts').value,
+                    obj_room: document.getElementById('input-obj-room').value,
+                    obj_exit: document.getElementById('input-obj-exit').value,
+                    lock: document.getElementById('input-lock').value
                 }
+
+                let configObj = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                }
+                
+                fetch('http://localhost:3000/rooms', configObj)
+                .then(function(response) {
+                    return response.json()
+                })
+                .then(function(object) {
+                    if (object.errors) {
+                        // clearElems('corner-top-right')
+                        // object.errors.forEach(error => {
+                        //     let err = document.createElement('p')
+                        //     err.innerHTML = error
+                        //     err.setAttribute('class', 'warning')
+                        //     cTopRight.appendChild(err)
+                        // })
+                        // cTopRight.removeAttribute('class')
+                        // cTopRight.setAttribute('class', 'corner-active')
+                        // setTimeout(() => {
+                        //     clearElems('corner-top-right')
+                        //     cTopRight.removeAttribute('class')
+                        //     cTopRight.setAttribute('class', 'corner-inactive')
+                        // }, 6000)
+                    } else {
+                        loggedToggle(object.data.attributes.id)
+                        interface.innerHTML = ``
+                    }
+                })
+                .catch(function(error) {
+                    console.log(error.message)
+                })
             })
             
         }
