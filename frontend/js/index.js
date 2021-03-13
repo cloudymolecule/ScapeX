@@ -69,12 +69,17 @@ document.addEventListener("DOMContentLoaded", () => {
     mLoginLogout.addEventListener('click', () => {
         clearElems('interface')
         const form = elementBuilder('div', null, null, {'class':'form'})
+        
         const p = elementBuilder('p', 'Log in to your ScapeX account')
+        
         const labName = elementBuilder('label', 'Email or Username:', null, {'class':'input-styles'})
         const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
+        
         const labPass = elementBuilder('label', 'Password:', null, {'class':'input-styles'} )
         const inputPass = elementBuilder('input', null, 'off', {'type':'password', 'class':'input-styles-inp', 'id':'input-password'})
+        
         const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Log In', 'class':'input-styles-button'})
+        
         const br = document.createElement('br')
         
         if (!loggedUser) {
@@ -128,16 +133,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mRegister.addEventListener('click', () => {
         const form = elementBuilder('div', null, null, {'class':'form'})
+        
         const p = elementBuilder('p', "Create a ScapeX Account", null)
+        
         const labName = elementBuilder('label', 'Username:', null, {'class':'input-styles'})
         const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
+        
         const labEmail = elementBuilder('label', 'Email:', null, {'class':'input-styles'})
         const inputEmail = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-email'})
+        
         const labPass = elementBuilder('label', 'Password:', null, {'class':'input-styles'})
         const inputPass = elementBuilder('input', null, null, {'type':'password', 'class':'input-styles-inp', 'id':'input-password'})
+        
         const labPassCon = elementBuilder('label', 'Confirm password:', null, {'class':'input-styles'})
         const inputPassCon = elementBuilder('input', null, null, {'type':'password', 'class':'input-styles-inp', 'id':'input-password-con'})
+        
         const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Register', 'class':'input-styles-button'})
+        
         const br = document.createElement('br')
 
         if (!loggedUser) {
@@ -193,8 +205,10 @@ document.addEventListener("DOMContentLoaded", () => {
             clearElems('interface')
             const p = elementBuilder('p', 'Create Escape Room', null)
             const div = elementBuilder('div', null, null, {'class':'form'})
+            
             const labName = elementBuilder('label', 'Room name:', null, {'class':'input-styles'})
             const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
+            
             const settingDiv = elementBuilder('div', null, null, {'class':'setting-div'})
             const labSetting = elementBuilder('label', 'Choose a setting:', null, {'class':'input-styles'})
             const settingRadioLab1 = elementBuilder('label', 'Fantasy', null, {'class':'input-styles'})
@@ -207,20 +221,29 @@ document.addEventListener("DOMContentLoaded", () => {
             const settingRadio4 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-haunted'})
             const settingRadioLab5 = elementBuilder('label', 'Generic', null, {'class':'input-styles'})
             const settingRadio5 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-generic'})
+            
             const div2 = elementBuilder('div', null, null, {'class':'room-form'})
+            
             const labTime = elementBuilder('label', 'Choose a time limit in minutes (60 max):', null, {'class':'input-styles'})
             const inputTime = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-time-limit'})
+            
             const labSuccess = elementBuilder('label', 'Room completion message:', null, {'class':'input-styles'})
             const inputSuccess = elementBuilder('textarea', null, 'off', {'cols':'3', 'maxlength':'255', 'class':'input-styles-inp-success', 'id':'input-completed-message'})
+            
             const labAttempts = elementBuilder('label', 'Number of attempts allowed (10 max):', null, {'class':'input-styles'})
             const inputAttempts = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-attempts-allowed'})
+            
             const labNumOfObj = elementBuilder('label', 'Number of objects (50 max):', null, {'class':'input-styles'})
             const inputNumOfObj = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-obj-room'})
+            
             const labReqObj = elementBuilder('label', 'Number of objects to exit room (3 max):', null, {'class':'input-styles'})
             const inputReqObj = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'1', 'class':'input-styles-inp-num', 'id':'input-obj-exit'})
+            
             const labLock = elementBuilder('label', 'Number or phrase required to exit the room', null, {'class':'input-styles'})
             const inputLock = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-lock'})
+            
             const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Create', 'class':'input-styles-button'})
+            
             const br = document.createElement('br')
             massAppend(div, [labName, inputName])
             massAppend(interface, [p, br, br, div, labSetting])
@@ -298,171 +321,73 @@ document.addEventListener("DOMContentLoaded", () => {
                             // t.string "locked_message"
                             // t.string "opened_message"
                             // t.integer "room_id"
-                            const itemDiv = document.createElement('div')
+                            const itemForm = document.createElement('form')
 
-                            const labItemName = document.createElement('label') //item name
-                            labItemName.innerText = 'Name:'
+
+                            const labItemName = elementBuilder('label', 'Name:', null)
+                            const inputItemName = elementBuilder('input', null, 'off', {'type':'text'})
+
+                            const labItemDesc = elementBuilder('label', 'Description:', null)
+                            const inputItemDesc = elementBuilder('input', null, 'off', {'type':'text'})
+
+                            const labItemLook = elementBuilder('label', 'When looked at:', null)
+                            const inputItemLook = elementBuilder('input', null, 'off', {'type':'text'})
+
+                            const labiItemTake = elementBuilder('label', 'Can it be taken?:', null)
+                            const itemTakeYesLab = elementBuilder('label', 'yes', null)
+                            const itemTakeYes = elementBuilder('radio', null, null, {'name':'can-it-be-taken', 'value':'yes', 'checked':'checked', 'id':'radio-can-it-be-taken'})
+                            const itemTakeNoLab = elementBuilder('label', 'no', null)
+                            const itemTakeNo = elementBuilder('radio', null, null, {'name':'can-it-be-taken', 'value':'no', 'id':'radio-can-it-be-taken'})
+                            const labItemTakeMessage = elementBuilder('label', 'Message when taken:', null)
+                            const inputItemTakeMessage = elementBuilder('input', null, 'off')
+
+                            const labiItemClose = elementBuilder('label', 'Is it closed?:', null)
+                            const itemCloseYesLab = elementBuilder('label', 'yes', null)
+                            const itemCloseYes = elementBuilder('radio', null, null, {'name':'can-it-be-closed', 'value':'yes', 'checked':'checked', 'id':'radio-can-it-be-closed'})
+                            const itemCloseNoLab = elementBuilder('label', 'no', null)
+                            const itemCloseNo = elementBuilder('radio', null, null, {'name':'can-it-be-closed', 'value':'no', 'id':'radio-can-it-be-closed'})
+                            const labItemCloseMessage = elementBuilder('label', 'Message when opened:', null)
+                            const inputItemCloseMessage = elementBuilder('input', null, 'off')
+
+                            const labiItemTalk = elementBuilder('label', 'Can it talk?:', null)
+                            const itemTalkYesLab = elementBuilder('label', 'yes', null)
+                            const itemTalkYes = elementBuilder('radio', null, null, {'name':'can-it-be-talk', 'value':'yes', 'checked':'checked', 'id':'radio-can-it-talk'})
+                            const itemTalkNoLab = elementBuilder('label', 'no', null)
+                            const itemTalkNo = elementBuilder('radio', null, null, {'name':'can-it-be-talk', 'value':'no', 'id':'radio-can-it-talk'})
+                            const labItemTalkMessage = elementBuilder('label', 'What does it say?:', null)
+                            const inputItemTalkMessage = elementBuilder('input', null, 'off')
+
+                            const labiItemLock = elementBuilder('label', 'Is it locked?:', null)
+                            const itemLockYesLab = elementBuilder('label', 'yes', null)
+                            const itemLockYes = elementBuilder('radio', null, null, {'name':'is-it-locked', 'value':'yes', 'checked':'checked', 'id':'radio-is-it-locked'})
+                            const itemLockNoLab = elementBuilder('label', 'no', null)
+                            const itemLockNo = elementBuilder('radio', null, null, {'name':'is-it-locked', 'value':'no', 'id':'radio-is-it-locked'})
+                            const labItemLockMessage = elementBuilder('label', 'Enter number to open:', null)
+                            const inputItemLockMessage = elementBuilder('input', null, 'off')
+
+                            const itemSave = elementBuilder('input', null, null, {'type':'submit', 'value':'Save'})
+                            const itemEdit = elementBuilder('input', null, null, {'type':'submit', 'value':'Edit'})
+                            const itemDelete = elementBuilder('input', null, null, {'type':'submit', 'value':'Delete'})
+                            
+                            // n
+                            
+                            // old form below
                             // labItemName.setAttribute('class', 'input-styles')
-                            const inputItemName = document.createElement('input')
-                            inputItemName.setAttribute('type', 'text')
-                            inputItemName.autocomplete = "off"
                             // inputItemName.setAttribute('class', 'input-styles-inp')
                             // inputItemName.setAttribute('id', 'input-name')
-
-                            const labItemDesc = document.createElement('label') //description
-                            labItemDesc.innerText = 'Name:'
-                            // labItemDesc.setAttribute('class', 'input-styles')
-                            const inputItemDesc = document.createElement('input')
-                            inputItemDesc.setAttribute('type', 'text')
-                            inputItemDesc.autocomplete = "off"
-                            // inputItemDesc.setAttribute('class', 'input-styles-inp')
-                            // inputItemDesc.setAttribute('id', 'input-name')
-
-                            const labItemLook = document.createElement('label') //looked_message
-                            labItemLook.innerText = 'Name:'
-                            // labItemLook.setAttribute('class', 'input-styles')
-                            const inputItemLook = document.createElement('input')
-                            inputItemLook.setAttribute('type', 'text')
-                            inputItemLook.autocomplete = "off"
-                            // inputItemLook.setAttribute('class', 'input-styles-inp')
-                            // inputItemLook.setAttribute('id', 'input-name')
-
-                            const labiItemTake = document.createElement('label') //take radio
-                            labiItemTake.innerText = 'Choose a setting:'
-                            labiItemTake.setAttribute('class', 'input-styles')
-
-                            const lab = document.createElement('label') //take yes
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const settingRadioLab1 = document.createElement('label') //take no
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const labItemName = document.createElement('label') //take_message (conditional)
-                            labItemName.innerText = 'Name:'
-                            // labItemName.setAttribute('class', 'input-styles')
-                            const inputItemName = document.createElement('input')
-                            inputItemName.setAttribute('type', 'text')
-                            inputItemName.autocomplete = "off"
-                            // inputItemName.setAttribute('class', 'input-styles-inp')
+                            // settingRadioLab1.setAttribute('class', 'input-styles')
                             // inputItemName.setAttribute('id', 'input-name')
 
-                            const labSetting = document.createElement('label') //closed radio
-                            labSetting.innerText = 'Choose a setting:'
-                            labSetting.setAttribute('class', 'input-styles')
-
-                            const settingRadioLab1 = document.createElement('label') //closed yes
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const settingRadioLab1 = document.createElement('label') //closed no
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const labItemName = document.createElement('label') //closed_message (conditional)
-                            labItemName.innerText = 'Name:'
-                            // labItemName.setAttribute('class', 'input-styles')
-                            const inputItemName = document.createElement('input')
-                            inputItemName.setAttribute('type', 'text')
-                            inputItemName.autocomplete = "off"
-                            // inputItemName.setAttribute('class', 'input-styles-inp')
-                            // inputItemName.setAttribute('id', 'input-name')
-
-                            const labSetting = document.createElement('label') //talk radio
-                            labSetting.innerText = 'Choose a setting:'
-                            labSetting.setAttribute('class', 'input-styles')
-
-                            const settingRadioLab1 = document.createElement('label') //talk yes
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const settingRadioLab1 = document.createElement('label') //talk no
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const labItemName = document.createElement('label') //talk_message (conditional)
-                            labItemName.innerText = 'Name:'
-                            // labItemName.setAttribute('class', 'input-styles')
-                            const inputItemName = document.createElement('input')
-                            inputItemName.setAttribute('type', 'text')
-                            inputItemName.autocomplete = "off"
-                            // inputItemName.setAttribute('class', 'input-styles-inp')
-                            // inputItemName.setAttribute('id', 'input-name')
-
-
-
-                            const labSetting = document.createElement('label') //locked radio
-                            labSetting.innerText = 'Choose a setting:'
-                            labSetting.setAttribute('class', 'input-styles')
-
-                            const settingRadioLab1 = document.createElement('label') //locked yes
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const settingRadioLab1 = document.createElement('label') //locked no
-                            const settingRadio1 = document.createElement('input')
-                            settingRadioLab1.innerText = 'Fantasy'
-                            settingRadio1.setAttribute('type', 'radio')
-                            settingRadio1.setAttribute('name', 'setting')
-                            settingRadio1.setAttribute('value', 'fantasy')
-                            settingRadio1.setAttribute('checked', 'checked')
-                            settingRadio1.setAttribute('id', 'radio-fantasy')
-                            settingRadioLab1.setAttribute('class', 'input-styles')
-
-                            const labItemName = document.createElement('label') //locked_message (conditional)
-                            labItemName.innerText = 'Name:'
-                            // labItemName.setAttribute('class', 'input-styles')
-                            const inputItemName = document.createElement('input')
-                            inputItemName.setAttribute('type', 'text')
-                            inputItemName.autocomplete = "off"
-                            // inputItemName.setAttribute('class', 'input-styles-inp')
-                            // inputItemName.setAttribute('id', 'input-name')
-                            itemDiv.appendChild(labItemName)
-                            itemDiv.appendChild(inputItemName)
-                            itemsContainer.appendChild(itemDiv)
+                            massAppend(itemForm, [
+                                labItemName, inputItemName, labItemDesc, inputItemDesc, labItemLook,
+                                inputItemLook, labiItemTake, itemTakeYesLab, itemTakeYes, itemTakeNoLab,
+                                itemTakeNo, labItemTakeMessage, inputItemTakeMessage, labiItemClose, itemCloseYesLab,
+                                itemCloseYes, itemCloseNoLab, itemCloseNo, labItemCloseMessage, inputItemCloseMessage,
+                                labiItemTalk, itemTalkYesLab, itemTalkYes, itemTalkNoLab, itemTalkNo, labItemTalkMessage,
+                                inputItemTalkMessage, labiItemLock, itemLockYesLab, itemLockYes, itemLockNoLab, itemLockNo,
+                                labItemLockMessage, inputItemLockMessage, itemSave, itemEdit, itemDelete
+                            ])
+                            itemsContainer.appendChild(itemForm)
 
 
 
