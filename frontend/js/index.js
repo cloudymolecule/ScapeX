@@ -39,76 +39,47 @@ document.addEventListener("DOMContentLoaded", () => {
             mainElem.appendChild(arrOfElems[i])    
         } 
     }
+
+    function switchAttr(element, attr, newAttr) {
+        element.removeAttribute(attr)
+        element.setAttribute(attr, newAttr)
+    }
+
     // basic local authentication
     let loggedUser = false
     function loggedToggle(user = false) {
         if (loggedUser) {
             loggedUser = user
-            mLoginLogout.innerHTML = 'Login'
-            mRegister.removeAttribute('class', 'menu-element-off')
-            mRegister.setAttribute('class', 'menu-element')
-            mCreate.removeAttribute('menu-element')
-            mCreate.setAttribute('class', 'menu-element-off')
-            mMy.removeAttribute('menu-element')
-            mMy.setAttribute('class', 'menu-element-off')
+            mLoginLogout.innerText = 'Login'
+            switchAttr(mRegister, 'class', 'menu-element')
+            switchAttr(mCreate, 'class', 'menu-element-off')           
+            switchAttr(mMy, 'class', 'menu-element-off')
+            
         } else if (!loggedUser) {
             loggedUser = user
             clearElems('interface')
-            mLoginLogout.innerHTML = 'Logout'
-            mRegister.removeAttribute('menu-element')
-            mRegister.setAttribute('class', 'menu-element-off')
-            mCreate.removeAttribute('class', 'menu-element-off')
-            mCreate.setAttribute('class', 'menu-element')
-            mMy.removeAttribute('class', 'menu-element-off')
-            mMy.setAttribute('class', 'menu-element')
+            mLoginLogout.innerText = 'Logout'
+            switchAttr(mRegister, 'class', 'menu-element-off')          
+            switchAttr(mCreate, 'class', 'menu-element')
+            switchAttr(mMy, 'class', 'menu-element')
         }
     }
 
     //main menu
     mLoginLogout.addEventListener('click', () => {
         clearElems('interface')
-
-
         const form = elementBuilder('div', null, null, {'class':'form'})
-        // const form = document.createElement('div')
         const p = elementBuilder('p', 'Log in to your ScapeX account')
-        // const p = document.createElement('p')
         const labName = elementBuilder('label', 'Email or Username:', null, {'class':'input-styles'})
-        // const labName = document.createElement('label')
         const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
-        // const inputName = document.createElement('input')
-        const labPass = document.createElement('label')
-        const inputPass = document.createElement('input')
+        const labPass = elementBuilder('label', 'Password:', null, {'class':'input-styles'} )
+        const inputPass = elementBuilder('input', null, 'off', {'type':'password', 'class':'input-styles-inp', 'id':'input-password'})
+        const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Log In', 'class':'input-styles-button'})
         const br = document.createElement('br')
-        const submitButton = document.createElement('input')
         
         if (!loggedUser) {
-            // form.setAttribute('class', 'form')
-            // p.innerText = "Log in to your ScapeX account"
-            // labName.setAttribute('class', 'input-styles')
-            // labName.innerText = "Email or Username:"
-            // inputName.setAttribute('type', 'text')
-            // inputName.autocomplete = "off"
-            // inputName.setAttribute('class', 'input-styles-inp')
-            // inputName.setAttribute('id', 'input-name')
-            labPass.setAttribute('class', 'input-styles')
-            labPass.innerText = "Password:"
-            inputPass.setAttribute('type', 'password')
-            inputPass.setAttribute('class', 'input-styles-inp')
-            inputPass.setAttribute('id', 'input-password')
-            submitButton.setAttribute('type', 'submit')
-            submitButton.setAttribute('value', 'Log In')
-            submitButton.setAttribute('class', 'input-styles-button')
             interface.appendChild(p)
-            
-            
             massAppend(form, [labName, inputName, labPass, inputPass, br, submitButton])
-            // form.appendChild(labName)
-            // form.appendChild(inputName)
-            // form.appendChild(labPass)
-            // form.appendChild(inputPass)
-            // form.appendChild(br)
-            // form.appendChild(submitButton)
             interface.appendChild(form)
 
             submitButton.addEventListener('click', () => {
@@ -133,20 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(function(object) {
                     if (object.error) {
                         clearElems('corner-top-right')
-                        let error = document.createElement('p')
-                        error.innerHTML = object.error
-                        error.setAttribute('class', 'warning')
+                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
                         cTopRight.appendChild(error)
-                        cTopRight.removeAttribute('class')
-                        cTopRight.setAttribute('class', 'corner-active')
+                        switchAttr(cTopRight, 'class', 'corner-active')
                         setTimeout(() => {
                             clearElems('corner-top-right')
-                            cTopRight.removeAttribute('class')
-                            cTopRight.setAttribute('class', 'corner-inactive')
+                            switchAttr(cTopRight, 'class', 'corner-inactive')
                         }, 6000)
                     } else {
                         loggedToggle(object.data.attributes.id)
-                        interface.innerHTML = `You logged in successfully, ${object.data.attributes.username}.`
+                        interface.innerText = `You logged in successfully, ${object.data.attributes.username}.`
                     }
                 })
                 .catch(function(error) {
@@ -155,66 +122,28 @@ document.addEventListener("DOMContentLoaded", () => {
             })
         } else if (loggedUser) {
             loggedToggle()
-            interface.innerHTML = 'You logged out successfully.'
+            interface.innerText = 'You logged out successfully.'
         }
     })
 
     mRegister.addEventListener('click', () => {
-        
-        const form = document.createElement('div')
-        const p = document.createElement('p')
-        const labName = document.createElement('label')
-        const inputName = document.createElement('input')
-        const labEmail = document.createElement('label')
-        const inputEmail = document.createElement('input')
-        const labPass = document.createElement('label')
-        const inputPass = document.createElement('input')
-        const labPassCon = document.createElement('label')
-        const inputPassCon = document.createElement('input')
+        const form = elementBuilder('div', null, null, {'class':'form'})
+        const p = elementBuilder('p', "Create a ScapeX Account", null)
+        const labName = elementBuilder('label', 'Username:', null, {'class':'input-styles'})
+        const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
+        const labEmail = elementBuilder('label', 'Email:', null, {'class':'input-styles'})
+        const inputEmail = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-email'})
+        const labPass = elementBuilder('label', 'Password:', null, {'class':'input-styles'})
+        const inputPass = elementBuilder('input', null, null, {'type':'password', 'class':'input-styles-inp', 'id':'input-password'})
+        const labPassCon = elementBuilder('label', 'Confirm password:', null, {'class':'input-styles'})
+        const inputPassCon = elementBuilder('input', null, null, {'type':'password', 'class':'input-styles-inp', 'id':'input-password-con'})
+        const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Register', 'class':'input-styles-button'})
         const br = document.createElement('br')
-        const submitButton = document.createElement('input')
 
         if (!loggedUser) {
             clearElems('interface')
-            form.setAttribute('class', 'form')
-            p.innerText = "Create a ScapeX Account"
-            labName.setAttribute('class', 'input-styles')
-            labName.innerText = "Username:"
-            inputName.setAttribute('type', 'text')
-            inputName.autocomplete = "off"
-            inputName.setAttribute('class', 'input-styles-inp')
-            inputName.setAttribute('id', 'input-name')
-            labEmail.setAttribute('class', 'input-styles')
-            labEmail.innerText = "Email:"
-            inputEmail.setAttribute('type', 'text')
-            inputEmail.autocomplete = "off"
-            inputEmail.setAttribute('class', 'input-styles-inp')
-            inputEmail.setAttribute('id', 'input-email')
-            labPass.setAttribute('class', 'input-styles')
-            labPass.innerText = "Password:"
-            inputPass.setAttribute('type', 'password')
-            inputPass.setAttribute('class', 'input-styles-inp')
-            inputPass.setAttribute('id', 'input-password')
-            labPassCon.setAttribute('class', 'input-styles')
-            labPassCon.innerText = "Confirm password:"
-            inputPassCon.setAttribute('type', 'password')
-            inputPassCon.setAttribute('class', 'input-styles-inp')
-            inputPassCon.setAttribute('id', 'input-password-con')
-            submitButton.setAttribute('type', 'submit')
-            submitButton.setAttribute('value', 'Register')
-            submitButton.setAttribute('class', 'input-styles-button')
-
             interface.appendChild(p)
-            form.appendChild(labName)
-            form.appendChild(inputName)
-            form.appendChild(labEmail)
-            form.appendChild(inputEmail)
-            form.appendChild(labPass)
-            form.appendChild(inputPass)
-            form.appendChild(labPassCon)
-            form.appendChild(inputPassCon)
-            form.appendChild(br)
-            form.appendChild(submitButton)
+            massAppend(form, [labName, inputName, labEmail, inputEmail, labPass, inputPass, labPassCon, inputPassCon, br, submitButton])
             interface.appendChild(form)
             submitButton.addEventListener('click', () => {
                 let formData = {
@@ -240,18 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(function(object) {
                     if (object.errors) {
                         clearElems('corner-top-right')
-                        object.errors.forEach(error => {
-                            let err = document.createElement('p')
-                            err.innerHTML = error
-                            err.setAttribute('class', 'warning')
-                            cTopRight.appendChild(err)
-                        })
-                        cTopRight.removeAttribute('class')
-                        cTopRight.setAttribute('class', 'corner-active')
+                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
+                        cTopRight.appendChild(error)
+                        switchAttr(cTopRight, 'class', 'corner-active')
                         setTimeout(() => {
                             clearElems('corner-top-right')
-                            cTopRight.removeAttribute('class')
-                            cTopRight.setAttribute('class', 'corner-inactive')
+                            switchAttr(cTopRight, 'class', 'corner-inactive')
                         }, 8000)
                     } else {
                         loggedToggle(object.data.attributes.id)
@@ -266,191 +189,53 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mCreate.addEventListener('click', () => {
-        if (loggedUser) { //re-enable this
+        if (loggedUser) {
             clearElems('interface')
-            const p = document.createElement('p') //create room title
-            p.innerText = 'Create Escape Room'
-
-            const div = document.createElement('div') //create room form
-            div.setAttribute('class', 'form')
-
-            const labName = document.createElement('label') //room name
-            labName.innerText = 'Room name:'
-            labName.setAttribute('class', 'input-styles')
-            const inputName = document.createElement('input')
-            inputName.setAttribute('type', 'text')
-            inputName.autocomplete = "off"
-            inputName.setAttribute('class', 'input-styles-inp')
-            inputName.setAttribute('id', 'input-name')
-
-            const settingDiv = document.createElement('div')
-            settingDiv.setAttribute('class', 'setting-div')
-
-            const labSetting = document.createElement('label') //setting
-            labSetting.innerText = 'Choose a setting:'
-            labSetting.setAttribute('class', 'input-styles')
+            const p = elementBuilder('p', 'Create Escape Room', null)
+            const div = elementBuilder('div', null, null, {'class':'form'})
+            const labName = elementBuilder('label', 'Room name:', null, {'class':'input-styles'})
+            const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
+            const settingDiv = elementBuilder('div', null, null, {'class':'setting-div'})
+            const labSetting = elementBuilder('label', 'Choose a setting:', null, {'class':'input-styles'})
+            const settingRadioLab1 = elementBuilder('label', 'Fantasy', null, {'class':'input-styles'})
+            const settingRadio1 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'checked':'checked', 'id':'radio-fantasy'})
+            const settingRadioLab2 = elementBuilder('label', 'Dungeon', null, {'class':'input-styles'})
+            const settingRadio2 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-dungeon'})
+            const settingRadioLab3 = elementBuilder('label', 'Abandoned', null, {'class':'input-styles'})
+            const settingRadio3 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-abandoned'})
+            const settingRadioLab4 = elementBuilder('label', 'Haunted', null, {'class':'input-styles'})
+            const settingRadio4 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-haunted'})
+            const settingRadioLab5 = elementBuilder('label', 'Generic', null, {'class':'input-styles'})
+            const settingRadio5 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-generic'})
+            const div2 = elementBuilder('div', null, null, {'class':'room-form'})
+            const labTime = elementBuilder('label', 'Choose a time limit in minutes (60 max):', null, {'class':'input-styles'})
+            const inputTime = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-time-limit'})
+            const labSuccess = elementBuilder('label', 'Room completion message:', null, {'class':'input-styles'})
+            const inputSuccess = elementBuilder('textarea', null, 'off', {'cols':'3', 'maxlength':'255', 'class':'input-styles-inp-success', 'id':'input-completed-message'})
+            const labAttempts = elementBuilder('label', 'Number of attempts allowed (10 max):', null, {'class':'input-styles'})
+            const inputAttempts = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-attempts-allowed'})
+            const labNumOfObj = elementBuilder('label', 'Number of objects (50 max):', null, {'class':'input-styles'})
+            const inputNumOfObj = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-obj-room'})
+            const labReqObj = elementBuilder('label', 'Number of objects to exit room (3 max):', null, {'class':'input-styles'})
+            const inputReqObj = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'1', 'class':'input-styles-inp-num', 'id':'input-obj-exit'})
+            const labLock = elementBuilder('label', 'Number or phrase required to exit the room', null, {'class':'input-styles'})
+            const inputLock = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-lock'})
+            const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Create', 'class':'input-styles-button'})
             const br = document.createElement('br')
-
-            //setting fantasy
-            const settingRadioLab1 = document.createElement('label') 
-            const settingRadio1 = document.createElement('input')
-            settingRadioLab1.innerText = 'Fantasy'
-            settingRadio1.setAttribute('type', 'radio')
-            settingRadio1.setAttribute('name', 'setting')
-            settingRadio1.setAttribute('value', 'fantasy')
-            settingRadio1.setAttribute('checked', 'checked')
-            settingRadio1.setAttribute('id', 'radio-fantasy')
-            settingRadioLab1.setAttribute('class', 'input-styles')
-
-            //setting dungeon
-            const settingRadioLab2 = document.createElement('label')
-            const settingRadio2 = document.createElement('input')
-            settingRadioLab2.innerText = 'Dungeon'
-            settingRadio2.setAttribute('type', 'radio')
-            settingRadio2.setAttribute('name', 'setting')
-            settingRadio2.setAttribute('value', 'dungeon')
-            settingRadio2.setAttribute('id', 'radio-dungeon')
-            settingRadioLab2.setAttribute('class', 'input-styles')
-
-            //setting abandoned
-            const settingRadioLab3 = document.createElement('label')
-            const settingRadio3 = document.createElement('input')
-            settingRadioLab3.innerText = 'Abandoned'
-            settingRadio3.setAttribute('type', 'radio')
-            settingRadio3.setAttribute('name', 'setting')
-            settingRadio3.setAttribute('value', 'abandoned')
-            settingRadio3.setAttribute('id', 'radio-abandoned')
-            settingRadioLab3.setAttribute('class', 'input-styles')
-
-            //setting haunted
-            const settingRadioLab4 = document.createElement('label')
-            const settingRadio4 = document.createElement('input')
-            settingRadioLab4.innerText = 'Haunted'
-            settingRadio4.setAttribute('type', 'radio')
-            settingRadio4.setAttribute('name', 'setting')
-            settingRadio4.setAttribute('value', 'haunted')
-            settingRadio4.setAttribute('id', 'radio-haunted')
-            settingRadioLab4.setAttribute('class', 'input-styles')
-
-            //setting generic
-            const settingRadioLab5 = document.createElement('label')
-            const settingRadio5 = document.createElement('input')
-            settingRadioLab5.innerText = 'Generic'
-            settingRadio5.setAttribute('type', 'radio')
-            settingRadio5.setAttribute('name', 'setting')
-            settingRadio5.setAttribute('value', 'generic')
-            settingRadio5.setAttribute('id', 'radio-generic')
-            settingRadioLab5.setAttribute('class', 'input-styles')
-
-            const div2 = document.createElement('div')
-            div2.setAttribute('class', 'room-form')
-
-            const labTime = document.createElement('label')
-            labTime.innerText = 'Choose a time limit in minutes (60 max):'
-            labTime.setAttribute('class', 'input-styles')
-            const inputTime = document.createElement('input')
-            inputTime.setAttribute('type', 'number')
-            inputTime.setAttribute('maxlength', '2')
-            inputTime.autocomplete = "off"
-            inputTime.setAttribute('class', 'input-styles-inp-num')
-            inputTime.setAttribute('id', 'input-time-limit')
-
-            const labSuccess = document.createElement('label')
-            labSuccess.innerText = 'Room completion message:'
-            labSuccess.setAttribute('class', 'input-styles')
-            const inputSuccess = document.createElement('textarea')
-            inputSuccess.setAttribute('cols', '3')
-            inputSuccess.setAttribute('maxlength', '255')
-            inputSuccess.autocomplete = "off"
-            inputSuccess.setAttribute('class', 'input-styles-inp-success')
-            inputSuccess.setAttribute('id', 'input-completed-message')
-
-            const labAttempts = document.createElement('label')
-            labAttempts.innerText = 'Number of attempts allowed (10 max):'
-            labAttempts.setAttribute('class', 'input-styles')
-            const inputAttempts = document.createElement('input')
-            inputAttempts.setAttribute('type', 'number')
-            inputAttempts.setAttribute('maxlength', '2')
-            inputAttempts.autocomplete = "off"
-            inputAttempts.setAttribute('class', 'input-styles-inp-num')
-            inputAttempts.setAttribute('id', 'input-attempts-allowed')
-
-            const labNumOfObj = document.createElement('label')
-            labNumOfObj.innerText = 'Number of objects (50 max):'
-            labNumOfObj.setAttribute('class', 'input-styles')
-            const inputNumOfObj = document.createElement('input')
-            inputNumOfObj.setAttribute('type', 'text')
-            inputNumOfObj.setAttribute('maxlength', '2')
-            inputNumOfObj.autocomplete = "off"
-            inputNumOfObj.setAttribute('class', 'input-styles-inp-num')
-            inputNumOfObj.setAttribute('id', 'input-obj-room')
-            
-            const labReqObj = document.createElement('label')
-            labReqObj.innerText = 'Number of objects to exit room (3 max):'
-            labReqObj.setAttribute('class', 'input-styles')
-            const inputReqObj = document.createElement('input')
-            inputReqObj.setAttribute('type', 'number')
-            inputReqObj.setAttribute('maxlength', '1')
-            inputReqObj.autocomplete = "off"
-            inputReqObj.setAttribute('class', 'input-styles-inp-num')
-            inputReqObj.setAttribute('id', 'input-obj-exit')
-            
-            const labLock = document.createElement('label')
-            labLock.innerText = 'Number or phrase required to exit the room'
-            labLock.setAttribute('class', 'input-styles')
-            const inputLock = document.createElement('input')
-            inputLock.setAttribute('type', 'input')
-            inputLock.autocomplete = "off"
-            inputLock.setAttribute('class', 'input-styles-inp')
-            inputLock.setAttribute('id', 'input-lock')
-            
-            const submitButton = document.createElement('input')
-            submitButton.setAttribute('type', 'submit')
-            submitButton.setAttribute('value', 'Create')
-            submitButton.setAttribute('class', 'input-styles-button')
-
-            interface.appendChild(p)
-            interface.appendChild(br)
-            div.appendChild(labName)
-            div.appendChild(inputName)
-            interface.appendChild(br)
-            interface.appendChild(div)
-            interface.appendChild(labSetting)
-           
-            settingDiv.appendChild(settingRadio1)
-            settingDiv.appendChild(settingRadioLab1)
-            
-            settingDiv.appendChild(settingRadio2)
-            settingDiv.appendChild(settingRadioLab2)
-            
-            settingDiv.appendChild(settingRadio3)
-            settingDiv.appendChild(settingRadioLab3)
-            
-            settingDiv.appendChild(settingRadio4)
-            settingDiv.appendChild(settingRadioLab4)
-            
-            settingDiv.appendChild(settingRadio5)
-            settingDiv.appendChild(settingRadioLab5)
-            
+            massAppend(div, [labName, inputName])
+            massAppend(interface, [p, br, br, div, labSetting])
+            massAppend(settingDiv, [
+                settingRadio1, settingRadioLab1, settingRadio2,
+                settingRadioLab2, settingRadio3, settingRadioLab3,
+                settingRadio4, settingRadioLab4, settingRadio5, settingRadioLab5
+            ])
             interface.appendChild(settingDiv)
-
-            div2.appendChild(labTime)
-            div2.appendChild(inputTime)
-            div2.appendChild(labSuccess)
-            div2.appendChild(inputSuccess)
-            div2.appendChild(labAttempts)
-            div2.appendChild(inputAttempts)
-            div2.appendChild(labNumOfObj)
-            div2.appendChild(inputNumOfObj)
-            div2.appendChild(labReqObj)
-            div2.appendChild(inputReqObj)
-            div2.appendChild(labLock)
-            div2.appendChild(inputLock)
+            massAppend(div2, [
+                labTime, inputTime, labSuccess, inputSuccess, labAttempts, inputAttempts,
+                labNumOfObj, inputNumOfObj, labReqObj, inputReqObj, labLock, inputLock
+            ])
+            massAppend(interface, [div2, br, submitButton])
             
-            interface.appendChild(div2)
-            interface.appendChild(br)
-            interface.appendChild(submitButton)
-
             submitButton.addEventListener('click', () => {
                 
                 let formData = {
@@ -483,216 +268,207 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(function(object) {
                     if (object.errors) {
                         clearElems('corner-top-right')
-                        object.errors.forEach(error => {
-                            let err = document.createElement('p')
-                            err.innerHTML = error
-                            err.setAttribute('class', 'warning')
-                            cTopRight.appendChild(err)
-                        })
-                        cTopRight.removeAttribute('class')
-                        cTopRight.setAttribute('class', 'corner-active')
+                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
+                        cTopRight.appendChild(error)
+                        switchAttr(cTopRight, 'class', 'corner-active')
                         setTimeout(() => {
                             clearElems('corner-top-right')
-                            cTopRight.removeAttribute('class')
-                            cTopRight.setAttribute('class', 'corner-inactive')
+                            switchAttr(cTopRight, 'class', 'corner-inactive')
                         }, 8000)
                     } else {                                
                         clearElems('interface')
-                        const pItemCreate = document.createElement('p')
-                        pItemCreate.innerText = 'Escape Room Items'
-
+                        const pItemCreate = elementBuilder('p', 'Escape Room Items', null)
                         interface.appendChild(pItemCreate)
-
                         const itemsContainer = document.createElement('div')
                         // div.setAttribute('class', 'form')
 
                         interface.appendChild(itemsContainer)
 
-                        // for (let i = 0; i < object.data.attributes.obj_room; i++) {   // TODO: create items 
-                        //     // console.log(i)
-                        //     const itemDiv = document.createElement('div')
+                        for (let i = 0; i < object.data.attributes.obj_room; i++) {   // TODO: create items 
+                            // t.string "name"
+                            // t.string "description"
+                            // t.string "looked_message"
+                            // t.boolean "take"
+                            // t.string "take_message"
+                            // t.boolean "closed"
+                            // t.string "closed_message"
+                            // t.boolean "talk"
+                            // t.string "talk_message"
+                            // t.boolean "locked"
+                            // t.string "locked_message"
+                            // t.string "opened_message"
+                            // t.integer "room_id"
+                            const itemDiv = document.createElement('div')
 
-                        //     const labItemName = document.createElement('label') //item name
-                        //     labItemName.innerText = 'Name:'
-                        //     // labItemName.setAttribute('class', 'input-styles')
-                        //     const inputItemName = document.createElement('input')
-                        //     inputItemName.setAttribute('type', 'text')
-                        //     inputItemName.autocomplete = "off"
-                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
-                        //     // inputItemName.setAttribute('id', 'input-name')
+                            const labItemName = document.createElement('label') //item name
+                            labItemName.innerText = 'Name:'
+                            // labItemName.setAttribute('class', 'input-styles')
+                            const inputItemName = document.createElement('input')
+                            inputItemName.setAttribute('type', 'text')
+                            inputItemName.autocomplete = "off"
+                            // inputItemName.setAttribute('class', 'input-styles-inp')
+                            // inputItemName.setAttribute('id', 'input-name')
 
-                        //     const labItemDesc = document.createElement('label') //description
-                        //     labItemDesc.innerText = 'Name:'
-                        //     // labItemDesc.setAttribute('class', 'input-styles')
-                        //     const inputItemDesc = document.createElement('input')
-                        //     inputItemDesc.setAttribute('type', 'text')
-                        //     inputItemDesc.autocomplete = "off"
-                        //     // inputItemDesc.setAttribute('class', 'input-styles-inp')
-                        //     // inputItemDesc.setAttribute('id', 'input-name')
+                            const labItemDesc = document.createElement('label') //description
+                            labItemDesc.innerText = 'Name:'
+                            // labItemDesc.setAttribute('class', 'input-styles')
+                            const inputItemDesc = document.createElement('input')
+                            inputItemDesc.setAttribute('type', 'text')
+                            inputItemDesc.autocomplete = "off"
+                            // inputItemDesc.setAttribute('class', 'input-styles-inp')
+                            // inputItemDesc.setAttribute('id', 'input-name')
 
-                        //     const labItemLook = document.createElement('label') //looked_message
-                        //     labItemLook.innerText = 'Name:'
-                        //     // labItemLook.setAttribute('class', 'input-styles')
-                        //     const inputItemLook = document.createElement('input')
-                        //     inputItemLook.setAttribute('type', 'text')
-                        //     inputItemLook.autocomplete = "off"
-                        //     // inputItemLook.setAttribute('class', 'input-styles-inp')
-                        //     // inputItemLook.setAttribute('id', 'input-name')
+                            const labItemLook = document.createElement('label') //looked_message
+                            labItemLook.innerText = 'Name:'
+                            // labItemLook.setAttribute('class', 'input-styles')
+                            const inputItemLook = document.createElement('input')
+                            inputItemLook.setAttribute('type', 'text')
+                            inputItemLook.autocomplete = "off"
+                            // inputItemLook.setAttribute('class', 'input-styles-inp')
+                            // inputItemLook.setAttribute('id', 'input-name')
 
-                        //     const labiItemTake = document.createElement('label') //take radio
-                        //     labiItemTake.innerText = 'Choose a setting:'
-                        //     labiItemTake.setAttribute('class', 'input-styles')
+                            const labiItemTake = document.createElement('label') //take radio
+                            labiItemTake.innerText = 'Choose a setting:'
+                            labiItemTake.setAttribute('class', 'input-styles')
 
-                        //     const lab = document.createElement('label') //take yes
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const lab = document.createElement('label') //take yes
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const settingRadioLab1 = document.createElement('label') //take no
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const settingRadioLab1 = document.createElement('label') //take no
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const labItemName = document.createElement('label') //take_message (conditional)
-                        //     labItemName.innerText = 'Name:'
-                        //     // labItemName.setAttribute('class', 'input-styles')
-                        //     const inputItemName = document.createElement('input')
-                        //     inputItemName.setAttribute('type', 'text')
-                        //     inputItemName.autocomplete = "off"
-                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
-                        //     // inputItemName.setAttribute('id', 'input-name')
+                            const labItemName = document.createElement('label') //take_message (conditional)
+                            labItemName.innerText = 'Name:'
+                            // labItemName.setAttribute('class', 'input-styles')
+                            const inputItemName = document.createElement('input')
+                            inputItemName.setAttribute('type', 'text')
+                            inputItemName.autocomplete = "off"
+                            // inputItemName.setAttribute('class', 'input-styles-inp')
+                            // inputItemName.setAttribute('id', 'input-name')
 
-                        //     const labSetting = document.createElement('label') //closed radio
-                        //     labSetting.innerText = 'Choose a setting:'
-                        //     labSetting.setAttribute('class', 'input-styles')
+                            const labSetting = document.createElement('label') //closed radio
+                            labSetting.innerText = 'Choose a setting:'
+                            labSetting.setAttribute('class', 'input-styles')
 
-                        //     const settingRadioLab1 = document.createElement('label') //closed yes
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const settingRadioLab1 = document.createElement('label') //closed yes
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const settingRadioLab1 = document.createElement('label') //closed no
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const settingRadioLab1 = document.createElement('label') //closed no
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const labItemName = document.createElement('label') //closed_message (conditional)
-                        //     labItemName.innerText = 'Name:'
-                        //     // labItemName.setAttribute('class', 'input-styles')
-                        //     const inputItemName = document.createElement('input')
-                        //     inputItemName.setAttribute('type', 'text')
-                        //     inputItemName.autocomplete = "off"
-                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
-                        //     // inputItemName.setAttribute('id', 'input-name')
+                            const labItemName = document.createElement('label') //closed_message (conditional)
+                            labItemName.innerText = 'Name:'
+                            // labItemName.setAttribute('class', 'input-styles')
+                            const inputItemName = document.createElement('input')
+                            inputItemName.setAttribute('type', 'text')
+                            inputItemName.autocomplete = "off"
+                            // inputItemName.setAttribute('class', 'input-styles-inp')
+                            // inputItemName.setAttribute('id', 'input-name')
 
-                        //     const labSetting = document.createElement('label') //talk radio
-                        //     labSetting.innerText = 'Choose a setting:'
-                        //     labSetting.setAttribute('class', 'input-styles')
+                            const labSetting = document.createElement('label') //talk radio
+                            labSetting.innerText = 'Choose a setting:'
+                            labSetting.setAttribute('class', 'input-styles')
 
-                        //     const settingRadioLab1 = document.createElement('label') //talk yes
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const settingRadioLab1 = document.createElement('label') //talk yes
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const settingRadioLab1 = document.createElement('label') //talk no
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const settingRadioLab1 = document.createElement('label') //talk no
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const labItemName = document.createElement('label') //talk_message (conditional)
-                        //     labItemName.innerText = 'Name:'
-                        //     // labItemName.setAttribute('class', 'input-styles')
-                        //     const inputItemName = document.createElement('input')
-                        //     inputItemName.setAttribute('type', 'text')
-                        //     inputItemName.autocomplete = "off"
-                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
-                        //     // inputItemName.setAttribute('id', 'input-name')
+                            const labItemName = document.createElement('label') //talk_message (conditional)
+                            labItemName.innerText = 'Name:'
+                            // labItemName.setAttribute('class', 'input-styles')
+                            const inputItemName = document.createElement('input')
+                            inputItemName.setAttribute('type', 'text')
+                            inputItemName.autocomplete = "off"
+                            // inputItemName.setAttribute('class', 'input-styles-inp')
+                            // inputItemName.setAttribute('id', 'input-name')
 
 
 
-                        //     const labSetting = document.createElement('label') //locked radio
-                        //     labSetting.innerText = 'Choose a setting:'
-                        //     labSetting.setAttribute('class', 'input-styles')
+                            const labSetting = document.createElement('label') //locked radio
+                            labSetting.innerText = 'Choose a setting:'
+                            labSetting.setAttribute('class', 'input-styles')
 
-                        //     const settingRadioLab1 = document.createElement('label') //locked yes
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const settingRadioLab1 = document.createElement('label') //locked yes
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const settingRadioLab1 = document.createElement('label') //locked no
-                        //     const settingRadio1 = document.createElement('input')
-                        //     settingRadioLab1.innerText = 'Fantasy'
-                        //     settingRadio1.setAttribute('type', 'radio')
-                        //     settingRadio1.setAttribute('name', 'setting')
-                        //     settingRadio1.setAttribute('value', 'fantasy')
-                        //     settingRadio1.setAttribute('checked', 'checked')
-                        //     settingRadio1.setAttribute('id', 'radio-fantasy')
-                        //     settingRadioLab1.setAttribute('class', 'input-styles')
+                            const settingRadioLab1 = document.createElement('label') //locked no
+                            const settingRadio1 = document.createElement('input')
+                            settingRadioLab1.innerText = 'Fantasy'
+                            settingRadio1.setAttribute('type', 'radio')
+                            settingRadio1.setAttribute('name', 'setting')
+                            settingRadio1.setAttribute('value', 'fantasy')
+                            settingRadio1.setAttribute('checked', 'checked')
+                            settingRadio1.setAttribute('id', 'radio-fantasy')
+                            settingRadioLab1.setAttribute('class', 'input-styles')
 
-                        //     const labItemName = document.createElement('label') //locked_message (conditional)
-                        //     labItemName.innerText = 'Name:'
-                        //     // labItemName.setAttribute('class', 'input-styles')
-                        //     const inputItemName = document.createElement('input')
-                        //     inputItemName.setAttribute('type', 'text')
-                        //     inputItemName.autocomplete = "off"
-                        //     // inputItemName.setAttribute('class', 'input-styles-inp')
-                        //     // inputItemName.setAttribute('id', 'input-name')
-                        //     itemDiv.appendChild(labItemName)
-                        //     itemDiv.appendChild(inputItemName)
-                        //     itemsContainer.appendChild(itemDiv)
+                            const labItemName = document.createElement('label') //locked_message (conditional)
+                            labItemName.innerText = 'Name:'
+                            // labItemName.setAttribute('class', 'input-styles')
+                            const inputItemName = document.createElement('input')
+                            inputItemName.setAttribute('type', 'text')
+                            inputItemName.autocomplete = "off"
+                            // inputItemName.setAttribute('class', 'input-styles-inp')
+                            // inputItemName.setAttribute('id', 'input-name')
+                            itemDiv.appendChild(labItemName)
+                            itemDiv.appendChild(inputItemName)
+                            itemsContainer.appendChild(itemDiv)
 
 
 
                             
-                        //     // t.string "name"
-                        //     // t.string "description"
-                        //     // t.string "looked_message"
-                        //     // t.boolean "take"
-                        //     // t.string "take_message"
-                        //     // t.boolean "closed"
-                        //     // t.string "closed_message"
-                        //     // t.boolean "talk"
-                        //     // t.string "talk_message"
-                        //     // t.boolean "locked"
-                        //     // t.string "locked_message"
-                        //     // t.string "opened_message"
-                        //     // t.integer "room_id"
-                        // }
+                            
+                        }
                         function itemsCreator() {
                             class Item {
                                 constructor(

@@ -6989,3 +6989,109 @@ Processing by RoomsController#create as JSON
 Completed 200 OK in 31ms (Views: 0.8ms | ActiveRecord: 3.4ms | Allocations: 11724)
 
 
+Started POST "/login" for ::1 at 2021-03-12 19:52:00 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"", "password"=>"[FILTERED]", "session"=>{"input"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 2.0ms | Allocations: 1491)
+
+
+Started POST "/login" for ::1 at 2021-03-12 20:06:17 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 214ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 1088)
+
+
+Started POST "/login" for ::1 at 2021-03-12 20:08:49 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"", "password"=>"[FILTERED]", "session"=>{"input"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 924)
+
+
+Started POST "/users" for ::1 at 2021-03-12 20:45:29 -0500
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 200 OK in 27ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 6562)
+
+
+Started POST "/login" for ::1 at 2021-03-12 21:03:47 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 214ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 1064)
+
+
+Started POST "/login" for ::1 at 2021-03-12 21:04:15 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 211ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
+Started POST "/login" for ::1 at 2021-03-12 21:31:00 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 215ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 1065)
+
+
+Started POST "/rooms" for ::1 at 2021-03-12 21:31:04 -0500
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (1.5ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-13 02:31:04.618944"], ["updated_at", "2021-03-13 02:31:04.618944"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 2.8ms | Allocations: 2929)
+
+
+Started POST "/login" for ::1 at 2021-03-12 21:31:21 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 213ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 600)
+
+
+Started POST "/login" for ::1 at 2021-03-12 21:33:17 -0500
+Processing by SessionsController#login as JSON
+  Parameters: {"input"=>"123", "password"=>"[FILTERED]", "session"=>{"input"=>"123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `login'
+Completed 200 OK in 213ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 597)
+
+
