@@ -34,8 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return elem
     }
 
-    function massAppend() {
-
+    function massAppend(mainElem, arrOfElems) {
+        for (let i = 0; i < arrOfElems.length; i++) {
+            mainElem.appendChild(arrOfElems[i])    
+        } 
     }
     // basic local authentication
     let loggedUser = false
@@ -98,12 +100,15 @@ document.addEventListener("DOMContentLoaded", () => {
             submitButton.setAttribute('value', 'Log In')
             submitButton.setAttribute('class', 'input-styles-button')
             interface.appendChild(p)
-            form.appendChild(labName)
-            form.appendChild(inputName)
-            form.appendChild(labPass)
-            form.appendChild(inputPass)
-            form.appendChild(br)
-            form.appendChild(submitButton)
+            
+            
+            massAppend(form, [labName, inputName, labPass, inputPass, br, submitButton])
+            // form.appendChild(labName)
+            // form.appendChild(inputName)
+            // form.appendChild(labPass)
+            // form.appendChild(inputPass)
+            // form.appendChild(br)
+            // form.appendChild(submitButton)
             interface.appendChild(form)
 
             submitButton.addEventListener('click', () => {
