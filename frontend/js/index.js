@@ -421,19 +421,24 @@ document.addEventListener("DOMContentLoaded", () => {
                             saveButton.addEventListener('click', () => {
                                 console.log(`save ${i}`)
                                 
+                                function isThereContent(element) {
+                                    if (element && element.value) { return element.value } else { return null}
+                                }
+
                                 let formData = {
                                     room_id: 1,
                                     name: document.getElementById(`name-${i}`).value,
                                     description: document.getElementById(`description-${i}`).value,
+                                    looked_message: document.getElementById(`looked-${i}`).value,
                                     take: canItBeTakenYesNo,
-                                    take_message: document.getElementById(`take-message${i}`).value,
+                                    take_message: isThereContent(document.getElementById(`take-message${i}`)),
                                     closed: isItClosedYesNo,
-                                    closed_message: document.getElementById(`closed-message${i}`).value,
+                                    closed_message: isThereContent(document.getElementById(`closed-message${i}`)),
                                     talk: canItTalkYesNo,
-                                    talk_message: document.getElementById(`talk-message${i}`).value,
+                                    talk_message: isThereContent(document.getElementById(`talk-message${i}`)),
                                     locked: isItLockedYesNo,
-                                    locked_message: document.getElementById(`locked-message${i}`).value,
-                                    opened_message: document.getElementById(`opened-message${i}`).value
+                                    locked_message: isThereContent(document.getElementById(`locked-message${i}`)),
+                                    opened_message: isThereContent(document.getElementById(`opened-message${i}`))
                                 }
 
                                 let configObj = {
