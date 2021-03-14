@@ -265,6 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             switchAttr(cTopRight, 'class', 'corner-inactive')
                         }, 8000)
                     } else {                                
+                        let currentRoom //current room from object
                         interface.innerHTML = `
                             <p>Escape Room Items</p>
                             <div id="items" class="items-alternate"></div>`
@@ -338,7 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
                                     <label class="input-styles">Message when taken:</label>
-                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                    <textarea class="input-styles-inp" id="take-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
                                 `
                                 canItBeTaken.appendChild(messageDiv)
                             })
@@ -358,7 +359,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
                                     <label class="input-styles">Message when closed:</label>
-                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                    <textarea class="input-styles-inp" id="closed-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
                                 `
                                 isItClosed.appendChild(messageDiv)
                             })
@@ -378,7 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
                                     <label class="input-styles">Can it talk:</label>
-                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                    <textarea class="input-styles-inp" id="talk-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
                                 `
                                 canItTalk.appendChild(messageDiv)
                             })
@@ -397,8 +398,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                 clearElems(`is-it-locked-${i}`)
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
-                                    <label class="input-styles">Can it talk:</label>
-                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                    <label class="input-styles">Locked Message:</label>
+                                    <textarea class="input-styles-inp" id="locked-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
+
+                                    <label class="input-styles">Opened Message:</label>
+                                    <textarea class="input-styles-inp" id="opened-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
                                 `
                                 IsItLocked.appendChild(messageDiv)
                             })
@@ -419,17 +423,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 
                                 let formData = {
                                     room_id: 1,
-                                    name: document.getElementById(`name-${i}`),
-                                    description: document.getElementById(`description-${i}`),
+                                    name: document.getElementById(`name-${i}`).value,
+                                    description: document.getElementById(`description-${i}`).value,
                                     take: canItBeTakenYesNo,
-                                    take_message: document.getElementById(``),
+                                    take_message: document.getElementById(`take-message${i}`).value,
                                     closed: isItClosedYesNo,
-                                    closed_message: document.getElementById(``),
+                                    closed_message: document.getElementById(`closed-message${i}`).value,
                                     talk: canItTalkYesNo,
-                                    talk_message: document.getElementById(``),
+                                    talk_message: document.getElementById(`talk-message${i}`).value,
                                     locked: isItLockedYesNo,
-                                    locked_message: document.getElementById(``),
-                                    opened_message: document.getElementById(``)
+                                    locked_message: document.getElementById(`locked-message${i}`).value,
+                                    opened_message: document.getElementById(`opened-message${i}`).value
                                 }
 
                                 let configObj = {
@@ -446,6 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return response.json()
                                 })
                                 .then(function(object) {
+                                    console.log(object.error)
                                     if (object.error) {
                                         clearElems('corner-top-right')
                                         const error = elementBuilder('p', object.error, null, {'class':'warning'})
