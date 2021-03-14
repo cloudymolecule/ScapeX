@@ -331,8 +331,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             const canItBeTaken = document.getElementById(`can-it-be-taken-${i}`)
                             const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${i}`)
                             const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${i}`)
-                            
+                            let canItBeTakenYesNo = false
                             radioCanItBeTakenYes.addEventListener('change', function(e) {
+                                canItBeTakenYesNo = true
                                 clearElems(`can-it-be-taken-${i}`)
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
@@ -343,14 +344,16 @@ document.addEventListener("DOMContentLoaded", () => {
                             })
 
                             radioCanItBeTakenNo.addEventListener('change', function(e) {
+                                canItBeTakenYesNo = false
                                 clearElems(`can-it-be-taken-${i}`)
                             })
 
                             const isItClosed = document.getElementById(`is-it-closed-${i}`)
                             const radioIsItClosedYes = document.getElementById(`radio-is-it-closed-yes-${i}`)
                             const radioIsItClosedNo = document.getElementById(`radio-is-it-closed-no-${i}`)
-
+                            let isItClosedYesNo = false
                             radioIsItClosedYes.addEventListener('change', function(e) {
+                                isItClosedYesNo = true
                                 clearElems(`is-it-closed-${i}`)
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
@@ -361,14 +364,16 @@ document.addEventListener("DOMContentLoaded", () => {
                             })
 
                             radioIsItClosedNo.addEventListener('change', function(e) {
+                                isItClosedYesNo = false
                                 clearElems(`is-it-closed-${i}`)
                             })
 
                             const canItTalk = document.getElementById(`can-it-talk-${i}`)
                             const radioCanItTalkYes = document.getElementById(`radio-can-it-talk-yes-${i}`)
                             const radioCanItTalkNo = document.getElementById(`radio-can-it-talk-no-${i}`)
-
+                            let canItTalkYesNo = false
                             radioCanItTalkYes.addEventListener('change', function(e) {
+                                canItBeTakenYesNo = true
                                 clearElems(`can-it-talk-${i}`)
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
@@ -379,14 +384,16 @@ document.addEventListener("DOMContentLoaded", () => {
                             })
 
                             radioCanItTalkNo.addEventListener('change', function(e) {
+                                canItBeTakenYesNo = false
                                 clearElems(`can-it-talk-${i}`)
                             })
                             
                             const IsItLocked = document.getElementById(`is-it-locked-${i}`)
                             const radioIsItLockedYes = document.getElementById(`radio-is-it-locked-yes-${i}`)
                             const radioIsItLockedNo = document.getElementById(`radio-is-it-locked-no-${i}`)
-
+                            let isItLockedYesNo = false
                             radioIsItLockedYes.addEventListener('change', function(e) {
+                                isItLockedYesNo = true
                                 clearElems(`is-it-locked-${i}`)
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
@@ -397,6 +404,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             })
 
                             radioIsItLockedNo.addEventListener('change', function(e) {
+                                isItLockedYesNo = false
                                 clearElems(`is-it-locked-${i}`)
                             })
 
@@ -408,6 +416,52 @@ document.addEventListener("DOMContentLoaded", () => {
                             
                             saveButton.addEventListener('click', () => {
                                 console.log(`save ${i}`)
+                                
+                                let formData = {
+                                    room_id: 1,
+                                    name: document.getElementById(`name-${i}`),
+                                    description: document.getElementById(`description-${i}`),
+                                    take: canItBeTakenYesNo,
+                                    take_message: document.getElementById(``),
+                                    closed: isItClosedYesNo,
+                                    closed_message: document.getElementById(``),
+                                    talk: canItTalkYesNo,
+                                    talk_message: document.getElementById(``),
+                                    locked: isItLockedYesNo,
+                                    locked_message: document.getElementById(``),
+                                    opened_message: document.getElementById(``)
+                                }
+
+                                let configObj = {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: JSON.stringify(formData)
+                                }
+
+                                fetch('http://localhost:3000/items', configObj)
+                                .then(function(response) {
+                                    return response.json()
+                                })
+                                .then(function(object) {
+                                    if (object.error) {
+                                        clearElems('corner-top-right')
+                                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
+                                        cTopRight.appendChild(error)
+                                        switchAttr(cTopRight, 'class', 'corner-active')
+                                        setTimeout(() => {
+                                            clearElems('corner-top-right')
+                                            switchAttr(cTopRight, 'class', 'corner-inactive')
+                                        }, 6000)
+                                    } else {
+                                        console.log(object)
+                                    }
+                                })
+                                .catch(function(error) {
+                                    console.log(error.message)
+                                })
                             })
 
                             editButton.addEventListener('click', () => {
