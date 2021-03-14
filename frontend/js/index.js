@@ -68,7 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //main menu
     mLoginLogout.addEventListener('click', () => {
         clearElems('interface')
-        const form = elementBuilder('div', null, null, {'class':'form'})
+        const form = elementBuilder('form', null, null, {'class':'form'})
+        form.addEventListener('click', function(e) {e.preventDefault()})
         
         const p = elementBuilder('p', 'Log in to your ScapeX account')
         
@@ -132,7 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mRegister.addEventListener('click', () => {
-        const form = elementBuilder('div', null, null, {'class':'form'})
+        const form = elementBuilder('form', null, null, {'class':'form'})
+        form.addEventListener('click', function(e) {e.preventDefault()})
         
         const p = elementBuilder('p', "Create a ScapeX Account", null)
         
@@ -204,12 +206,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (loggedUser) {
             clearElems('interface')
             const p = elementBuilder('p', 'Create Escape Room', null)
-            const div = elementBuilder('div', null, null, {'class':'form'})
+            const form = elementBuilder('form', null, null) // {'class':'form'}
+            form.addEventListener('click', function(e) {e.preventDefault()})
             
             const labName = elementBuilder('label', 'Room name:', null, {'class':'input-styles'})
             const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
             
             const settingDiv = elementBuilder('div', null, null, {'class':'setting-div'})
+            
             const labSetting = elementBuilder('label', 'Choose a setting:', null, {'class':'input-styles'})
             const settingRadioLab1 = elementBuilder('label', 'Fantasy', null, {'class':'input-styles'})
             const settingRadio1 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'checked':'checked', 'id':'radio-fantasy'})
@@ -245,19 +249,25 @@ document.addEventListener("DOMContentLoaded", () => {
             const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Create', 'class':'input-styles-button'})
             
             const br = document.createElement('br')
-            massAppend(div, [labName, inputName])
-            massAppend(interface, [p, br, br, div, labSetting])
+            massAppend(form, [labName, inputName])  //fix
+            massAppend(interface, [p, br, br, form, labSetting])
             massAppend(settingDiv, [
                 settingRadio1, settingRadioLab1, settingRadio2,
                 settingRadioLab2, settingRadio3, settingRadioLab3,
                 settingRadio4, settingRadioLab4, settingRadio5, settingRadioLab5
             ])
-            interface.appendChild(settingDiv)
+            form.appendChild(settingDiv)
+
+            // interface.appendChild(settingDiv)
             massAppend(div2, [
                 labTime, inputTime, labSuccess, inputSuccess, labAttempts, inputAttempts,
                 labNumOfObj, inputNumOfObj, labReqObj, inputReqObj, labLock, inputLock
             ])
-            massAppend(interface, [div2, br, submitButton])
+
+            form.appendChild(div2)
+            form.appendChild(submitButton)
+            // massAppend(interface, [div2, br, submitButton])
+            interface.appendChild(form)
             
             submitButton.addEventListener('click', () => {
                 
@@ -322,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             // t.string "opened_message"
                             // t.integer "room_id"
                             const itemForm = document.createElement('form')
-
+                            itemForm.addEventListener('click', function(e) {e.preventDefault()})
 
                             const labItemName = elementBuilder('label', 'Name:', null)
                             const inputItemName = elementBuilder('input', null, 'off', {'type':'text'})
@@ -369,7 +379,18 @@ document.addEventListener("DOMContentLoaded", () => {
                             const itemEdit = elementBuilder('input', null, null, {'type':'submit', 'value':'Edit'})
                             const itemDelete = elementBuilder('input', null, null, {'type':'submit', 'value':'Delete'})
                             
-                            // n
+                            itemSave.addEventListener('click', () => {
+                                console.log('save')
+                            })
+
+                            itemEdit.addEventListener('click', () => {
+                                console.log('edit')
+                            })
+
+                            itemDelete.addEventListener('click', () => {
+                                console.log('delete')
+                            })
+                            
                             
                             // old form below
                             // labItemName.setAttribute('class', 'input-styles')
