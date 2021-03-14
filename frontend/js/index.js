@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {                                
                         interface.innerHTML = `
                             <p>Escape Room Items</p>
-                            <div id="items"></div>`
+                            <div id="items" class="items-alternate"></div>`
                         const items = document.getElementById('items')
                         // const itemsContainer = document.createElement('div')
                         // div.setAttribute('class', 'form')
@@ -406,17 +406,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             
                             
-                            // itemSave.addEventListener('click', () => {
-                            //     console.log('save')
-                            // })
+                            saveButton.addEventListener('click', () => {
+                                console.log(`save ${i}`)
+                            })
 
-                            // itemEdit.addEventListener('click', () => {
-                            //     console.log('edit')
-                            // })
+                            editButton.addEventListener('click', () => {
+                                console.log(`edit ${i}`)
+                            })
 
-                            // itemDelete.addEventListener('click', () => {
-                            //     console.log('delete')
-                            // })
+                            deleteButton.addEventListener('click', () => {
+                                console.log(`delete ${i}`)
+                            })
                             
                             
                         }

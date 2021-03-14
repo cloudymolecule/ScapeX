@@ -264,6 +264,26 @@ input[type='radio']:checked:after {
     border: 2px solid rgb(255, 0, 0);
 }
 
-#bott-space {
-    margin-bottom: 20px
+.items-alternate>form:nth-child(odd){
+    background-color:rgb(15, 15, 15);
+}
+
+.items-alternate>form:nth-child(even){
+background-color:rgb(7, 7, 7);
+}
+
+.items-alternate>form>label:nth-child(odd){
+    background-color:transparent
+}
+
+.items-alternate>form>label:nth-child(even){
+background-color:transparent
+}
+
+.items-alternate>form>div>div>label:nth-child(odd){
+    background-color:transparent
+}
+
+.items-alternate>form>div>div>label:nth-child(even){
+background-color:transparent
 }
