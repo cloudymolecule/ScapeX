@@ -9,6 +9,12 @@ body {
     grid-auto-rows: minmax(100px, auto);
 }
 
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr 1fr); 
+    grid-gap: 1em;
+}
+
 div#title {
     border: 2px dotted rgb(77, 77, 77);
     background-color: rgb(18, 18, 18);
@@ -74,7 +80,7 @@ div#title {
 
 .input-styles-inp-success {
     resize: none;
-    width:100%;
+    /* width:100%; */
     height:auto;
     background: black;
     color: rgb(255, 0, 0);
@@ -150,6 +156,18 @@ textarea.visited {
     text-align:right;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
+}
+
+.items-radio-div {
+    width: 35%;
+    margin-left:auto;
+    margin-right: auto;
+    text-align:right;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    
     
 }
 
@@ -244,4 +262,8 @@ input[type='radio']:checked:after {
     display: inline-block;
     visibility: visible;
     border: 2px solid rgb(255, 0, 0);
+}
+
+#bott-space {
+    margin-bottom: 20px
 }

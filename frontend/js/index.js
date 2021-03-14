@@ -67,26 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //main menu
     mLoginLogout.addEventListener('click', () => {
-        clearElems('interface')
-        const form = elementBuilder('form', null, null, {'class':'form'})
+        interface.innerHTML = `
+            <p>Log in to your ScapeX account</p>
+            <form class="form" id="form">
+                <label class="input-styles">Email or Username:</label>
+                <input type"text" class="input-styles-inp" id="input-name">
+                <label class="input-styles">Password:</label>
+                <input type="password" class="input-styles-inp" id="input-password"><br />
+                <input type="input" type="submit" value="Log In" class="input-styles-button" id="submit-button">
+            </form>`
+        const form = document.getElementById('form')
         form.addEventListener('click', function(e) {e.preventDefault()})
-        
-        const p = elementBuilder('p', 'Log in to your ScapeX account')
-        
-        const labName = elementBuilder('label', 'Email or Username:', null, {'class':'input-styles'})
-        const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
-        
-        const labPass = elementBuilder('label', 'Password:', null, {'class':'input-styles'} )
-        const inputPass = elementBuilder('input', null, 'off', {'type':'password', 'class':'input-styles-inp', 'id':'input-password'})
-        
-        const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Log In', 'class':'input-styles-button'})
-        
-        const br = document.createElement('br')
-        
+        const submitButton = document.getElementById('submit-button')
+
         if (!loggedUser) {
-            interface.appendChild(p)
-            massAppend(form, [labName, inputName, labPass, inputPass, br, submitButton])
-            interface.appendChild(form)
 
             submitButton.addEventListener('click', () => {
                 let formData = {
@@ -133,32 +127,23 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mRegister.addEventListener('click', () => {
-        const form = elementBuilder('form', null, null, {'class':'form'})
-        form.addEventListener('click', function(e) {e.preventDefault()})
-        
-        const p = elementBuilder('p', "Create a ScapeX Account", null)
-        
-        const labName = elementBuilder('label', 'Username:', null, {'class':'input-styles'})
-        const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
-        
-        const labEmail = elementBuilder('label', 'Email:', null, {'class':'input-styles'})
-        const inputEmail = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-email'})
-        
-        const labPass = elementBuilder('label', 'Password:', null, {'class':'input-styles'})
-        const inputPass = elementBuilder('input', null, null, {'type':'password', 'class':'input-styles-inp', 'id':'input-password'})
-        
-        const labPassCon = elementBuilder('label', 'Confirm password:', null, {'class':'input-styles'})
-        const inputPassCon = elementBuilder('input', null, null, {'type':'password', 'class':'input-styles-inp', 'id':'input-password-con'})
-        
-        const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Register', 'class':'input-styles-button'})
-        
-        const br = document.createElement('br')
-
         if (!loggedUser) {
-            clearElems('interface')
-            interface.appendChild(p)
-            massAppend(form, [labName, inputName, labEmail, inputEmail, labPass, inputPass, labPassCon, inputPassCon, br, submitButton])
-            interface.appendChild(form)
+            interface.innerHTML = `
+                <p>Create a ScapeX Account</p>
+                <form class="form" id="form">
+                    <label class="input-styles">Username:</label>
+                    <input type="text" class="input-styles-inp" id="input-name">
+                    <label class="input-styles">Email:</label>
+                    <input type="text" class="input-styles-inp" id="input-email">
+                    <label class="input-styles">Password:</label>
+                    <input type="password" class="input-styles-inp" id="input-password">
+                    <label class="input-styles">Confirm password:</label>
+                    <input type="password" class="input-styles-inp" id="input-password-con"></ br>
+                    <input type="submit" value="Register" class="input-styles-button" id="submit-button">
+                </form>`
+            const form = document.getElementById('form')
+            form.addEventListener('click', function(e) {e.preventDefault()})
+            const submitButton = document.getElementById('submit-button')
             submitButton.addEventListener('click', () => {
                 let formData = {
                     username: document.getElementById('input-name').value,
@@ -203,76 +188,47 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mCreate.addEventListener('click', () => {
-        if (loggedUser) {
-            clearElems('interface')
-            const p = elementBuilder('p', 'Create Escape Room', null)
-            const form = elementBuilder('form', null, null) // {'class':'form'}
+        if (!loggedUser) { //change!
+            interface.innerHTML = `
+                <form id="form">
+                    <p>Create Escape Room</p>
+                    <label class="input-styles">Room Name:</label>
+                    <input type="text" class="input-styles-inp" id="input-name"><br />
+                    <label class="input-styles">Choose a setting:</label><br />
+                    <div class="setting-div">
+                        <label class="input-styles">Fantasy</label>
+                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-fantasy">
+                        <label class="input-styles">Dungeon</label>
+                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-dungeon">
+                        <label class="input-styles">Abandoned</label>
+                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-abandoned">
+                        <label class="input-styles">Haunted</label>
+                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-haunted">
+                        <label class="input-styles">Generic</label>
+                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-generic">
+                    </div><br />
+                    <label class="input-styles">Choose a time limit in minutes (60 max):</label>
+                    <input type="text" maxlength="2" class="input-styles-inp-num" id="input-time-limit"><br />
+                    <label class="input-styles">Room completion message:</label><br />
+                    <textarea class="input-styles-inp-success" id="input-completed-message" cols="50" rows="5" maxlength="255"></textarea><br />
+                    <label class="input-styles">Number of attempts allowed (10 max):</label>
+                    <input type="text" maxlength="2" class="input-styles-inp-num" id="input-attempts-allowed"><br />  
+                    <label class="input-styles">Number of objects (50 max):</label>
+                    <input type="text" maxlength="2" class="input-styles-inp-num" id="input-obj-room"><br />
+                    <label class="input-styles">Number of objects to exit room (3 max):</label>
+                    <input type="text" maxlength="1" class="input-styles-inp-num" id="input-obj-exit"><br />  
+                    <label class="input-styles">Number or phrase required to exit the room:</label>
+                    <input type="text" class="input-styles-inp" id="input-lock"><br /><br />  
+                    <input type="submit" value="Create" class="input-styles-button" id="submit-button">
+                </form>`
+            const form = document.getElementById('form')
             form.addEventListener('click', function(e) {e.preventDefault()})
-            
-            const labName = elementBuilder('label', 'Room name:', null, {'class':'input-styles'})
-            const inputName = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-name'})
-            
-            const settingDiv = elementBuilder('div', null, null, {'class':'setting-div'})
-            
-            const labSetting = elementBuilder('label', 'Choose a setting:', null, {'class':'input-styles'})
-            const settingRadioLab1 = elementBuilder('label', 'Fantasy', null, {'class':'input-styles'})
-            const settingRadio1 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'checked':'checked', 'id':'radio-fantasy'})
-            const settingRadioLab2 = elementBuilder('label', 'Dungeon', null, {'class':'input-styles'})
-            const settingRadio2 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-dungeon'})
-            const settingRadioLab3 = elementBuilder('label', 'Abandoned', null, {'class':'input-styles'})
-            const settingRadio3 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-abandoned'})
-            const settingRadioLab4 = elementBuilder('label', 'Haunted', null, {'class':'input-styles'})
-            const settingRadio4 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-haunted'})
-            const settingRadioLab5 = elementBuilder('label', 'Generic', null, {'class':'input-styles'})
-            const settingRadio5 = elementBuilder('input', null, null, {'type':'radio', 'name':'setting', 'value':'fantasy', 'id':'radio-generic'})
-            
-            const div2 = elementBuilder('div', null, null, {'class':'room-form'})
-            
-            const labTime = elementBuilder('label', 'Choose a time limit in minutes (60 max):', null, {'class':'input-styles'})
-            const inputTime = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-time-limit'})
-            
-            const labSuccess = elementBuilder('label', 'Room completion message:', null, {'class':'input-styles'})
-            const inputSuccess = elementBuilder('textarea', null, 'off', {'cols':'3', 'maxlength':'255', 'class':'input-styles-inp-success', 'id':'input-completed-message'})
-            
-            const labAttempts = elementBuilder('label', 'Number of attempts allowed (10 max):', null, {'class':'input-styles'})
-            const inputAttempts = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-attempts-allowed'})
-            
-            const labNumOfObj = elementBuilder('label', 'Number of objects (50 max):', null, {'class':'input-styles'})
-            const inputNumOfObj = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'2', 'class':'input-styles-inp-num', 'id':'input-obj-room'})
-            
-            const labReqObj = elementBuilder('label', 'Number of objects to exit room (3 max):', null, {'class':'input-styles'})
-            const inputReqObj = elementBuilder('input', null, 'off', {'type':'text', 'maxlength':'1', 'class':'input-styles-inp-num', 'id':'input-obj-exit'})
-            
-            const labLock = elementBuilder('label', 'Number or phrase required to exit the room', null, {'class':'input-styles'})
-            const inputLock = elementBuilder('input', null, 'off', {'type':'text', 'class':'input-styles-inp', 'id':'input-lock'})
-            
-            const submitButton = elementBuilder('input', null, null, {'type':'submit', 'value':'Create', 'class':'input-styles-button'})
-            
-            const br = document.createElement('br')
-            massAppend(form, [labName, inputName])  //fix
-            massAppend(interface, [p, br, br, form, labSetting])
-            massAppend(settingDiv, [
-                settingRadio1, settingRadioLab1, settingRadio2,
-                settingRadioLab2, settingRadio3, settingRadioLab3,
-                settingRadio4, settingRadioLab4, settingRadio5, settingRadioLab5
-            ])
-            form.appendChild(settingDiv)
-
-            // interface.appendChild(settingDiv)
-            massAppend(div2, [
-                labTime, inputTime, labSuccess, inputSuccess, labAttempts, inputAttempts,
-                labNumOfObj, inputNumOfObj, labReqObj, inputReqObj, labLock, inputLock
-            ])
-
-            form.appendChild(div2)
-            form.appendChild(submitButton)
-            // massAppend(interface, [div2, br, submitButton])
-            interface.appendChild(form)
+            const submitButton = document.getElementById('submit-button')
             
             submitButton.addEventListener('click', () => {
                 
                 let formData = {
-                    user_id: loggedUser,
+                    user_id: 1,//loggedUser, change!
                     name: document.getElementById('input-name').value,
                     setting: document.querySelector('input[name="setting"]:checked').value,
                     time_limit: document.getElementById('input-time-limit').value,
@@ -309,75 +265,142 @@ document.addEventListener("DOMContentLoaded", () => {
                             switchAttr(cTopRight, 'class', 'corner-inactive')
                         }, 8000)
                     } else {                                
-                        clearElems('interface')
-                        const pItemCreate = elementBuilder('p', 'Escape Room Items', null)
-                        interface.appendChild(pItemCreate)
-                        const itemsContainer = document.createElement('div')
+                        interface.innerHTML = `
+                            <p>Escape Room Items</p>
+                            <div id="items"></div>`
+                        const items = document.getElementById('items')
+                        // const itemsContainer = document.createElement('div')
                         // div.setAttribute('class', 'form')
 
-                        interface.appendChild(itemsContainer)
 
                         for (let i = 0; i < object.data.attributes.obj_room; i++) {   // TODO: create items 
-                            // t.string "name"
-                            // t.string "description"
-                            // t.string "looked_message"
-                            // t.boolean "take"
-                            // t.string "take_message"
-                            // t.boolean "closed"
-                            // t.string "closed_message"
-                            // t.boolean "talk"
-                            // t.string "talk_message"
-                            // t.boolean "locked"
-                            // t.string "locked_message"
-                            // t.string "opened_message"
-                            // t.integer "room_id"
-                            const itemForm = document.createElement('form')
-                            itemForm.addEventListener('click', function(e) {e.preventDefault()})
+                            const itemFormElem = elementBuilder('form', null, null, {'class':'item-form'})
+                            itemFormElem.innerHTML = `
+                                    <label class="input-styles">Name:</label>
+                                    <input type="text" class="input-styles-inp" id="name-${i}"><br />
 
-                            const labItemName = elementBuilder('label', 'Name:', null)
-                            const inputItemName = elementBuilder('input', null, 'off', {'type':'text'})
+                                    <label class="input-styles">Description:</label>
+                                    <input type="text" class="input-styles-inp" id="description-${i}"><br />
 
-                            const labItemDesc = elementBuilder('label', 'Description:', null)
-                            const inputItemDesc = elementBuilder('input', null, 'off', {'type':'text'})
+                                    <label class="input-styles">When looked at:</label>
+                                    <input type="text" class="input-styles-inp" id="looked-${i}"><br />
 
-                            const labItemLook = elementBuilder('label', 'When looked at:', null)
-                            const inputItemLook = elementBuilder('input', null, 'off', {'type':'text'})
+                                    <label class="input-styles">Can it be taken?:</label>
+                                    <input type="radio" name="can-it-be-taken" value="no" checked="checked" id="radio-can-it-be-taken-no-${i}">
+                                    <label class="input-styles">no</label>
+                                    <input type="radio" name="can-it-be-taken" value="yes" id="radio-can-it-be-taken-yes-${i}">
+                                    <label class="input-styles">yes</label><br />
+                                    <div id="can-it-be-taken-${i}"></div>
 
-                            const labiItemTake = elementBuilder('label', 'Can it be taken?:', null)
-                            const itemTakeYesLab = elementBuilder('label', 'yes', null)
-                            const itemTakeYes = elementBuilder('radio', null, null, {'name':'can-it-be-taken', 'value':'yes', 'checked':'checked', 'id':'radio-can-it-be-taken'})
-                            const itemTakeNoLab = elementBuilder('label', 'no', null)
-                            const itemTakeNo = elementBuilder('radio', null, null, {'name':'can-it-be-taken', 'value':'no', 'id':'radio-can-it-be-taken'})
-                            const labItemTakeMessage = elementBuilder('label', 'Message when taken:', null)
-                            const inputItemTakeMessage = elementBuilder('input', null, 'off')
+                                    <label class="input-styles">Is it closed?:</label>
+                                    <input type="radio" name="is-it-closed" value="no" checked="checked" id="radio-is-it-closed-no-${i}">
+                                    <label class="input-styles">no</label>
+                                    <input type="radio" name="is-it-closed" value="yes" id="radio-is-it-closed-yes-${i}">
+                                    <label class="input-styles">yes</label><br />
+                                    <div id="is-it-closed-${i}"></div>
+                                        
+                                    <label class="input-styles">Can it talk:</label>
+                                    <input type="radio" name="can-it-talk" value="no" checked="checked" id="radio-can-it-talk-no-${i}">
+                                    <label class="input-styles">no</label>
+                                    <input type="radio" name="can-it-talk" value="yes" id="radio-can-it-talk-yes-${i}">
+                                    <label class="input-styles">yes</label><br />
+                                    <div id="can-it-talk-${i}"></div>
 
-                            const labiItemClose = elementBuilder('label', 'Is it closed?:', null)
-                            const itemCloseYesLab = elementBuilder('label', 'yes', null)
-                            const itemCloseYes = elementBuilder('radio', null, null, {'name':'can-it-be-closed', 'value':'yes', 'checked':'checked', 'id':'radio-can-it-be-closed'})
-                            const itemCloseNoLab = elementBuilder('label', 'no', null)
-                            const itemCloseNo = elementBuilder('radio', null, null, {'name':'can-it-be-closed', 'value':'no', 'id':'radio-can-it-be-closed'})
-                            const labItemCloseMessage = elementBuilder('label', 'Message when opened:', null)
-                            const inputItemCloseMessage = elementBuilder('input', null, 'off')
+                                    <label class="input-styles">Is it locked>:</label>
+                                    <input type="radio" name="is-it-locked" value="no" checked="checked" id="radio-is-it-locked-no-${i}">
+                                    <label class="input-styles">no</label>
+                                    <input type="radio" name="is-it-locked" value="yes" id="radio-is-it-locked-yes-${i}">
+                                    <label class="input-styles">yes</label><br />
+                                    <div id="is-it-locked-${i}"></div>
+                                    
+                                    <input type="submit" value="Save" class="input-styles-button" id="save-button-${i}">
+                                    <input type="submit" value="Edit" class="input-styles-button" id="edit-button-${i}"">
+                                    <input type="submit" value="Delete" class="input-styles-button" id="delete-button-${i}">`
 
-                            const labiItemTalk = elementBuilder('label', 'Can it talk?:', null)
-                            const itemTalkYesLab = elementBuilder('label', 'yes', null)
-                            const itemTalkYes = elementBuilder('radio', null, null, {'name':'can-it-be-talk', 'value':'yes', 'checked':'checked', 'id':'radio-can-it-talk'})
-                            const itemTalkNoLab = elementBuilder('label', 'no', null)
-                            const itemTalkNo = elementBuilder('radio', null, null, {'name':'can-it-be-talk', 'value':'no', 'id':'radio-can-it-talk'})
-                            const labItemTalkMessage = elementBuilder('label', 'What does it say?:', null)
-                            const inputItemTalkMessage = elementBuilder('input', null, 'off')
 
-                            const labiItemLock = elementBuilder('label', 'Is it locked?:', null)
-                            const itemLockYesLab = elementBuilder('label', 'yes', null)
-                            const itemLockYes = elementBuilder('radio', null, null, {'name':'is-it-locked', 'value':'yes', 'checked':'checked', 'id':'radio-is-it-locked'})
-                            const itemLockNoLab = elementBuilder('label', 'no', null)
-                            const itemLockNo = elementBuilder('radio', null, null, {'name':'is-it-locked', 'value':'no', 'id':'radio-is-it-locked'})
-                            const labItemLockMessage = elementBuilder('label', 'Enter number to open:', null)
-                            const inputItemLockMessage = elementBuilder('input', null, 'off')
+                            items.appendChild(itemFormElem)
 
-                            const itemSave = elementBuilder('input', null, null, {'type':'submit', 'value':'Save'})
-                            const itemEdit = elementBuilder('input', null, null, {'type':'submit', 'value':'Edit'})
-                            const itemDelete = elementBuilder('input', null, null, {'type':'submit', 'value':'Delete'})
+                            const saveButton = document.getElementById(`save-button-${i}`)
+                            const editButton = document.getElementById(`edit-button-${i}`)
+                            const deleteButton = document.getElementById(`delete-button-${i}`)
+
+                            const canItBeTaken = document.getElementById(`can-it-be-taken-${i}`)
+                            const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${i}`)
+                            const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${i}`)
+                            
+                            radioCanItBeTakenYes.addEventListener('change', function(e) {
+                                clearElems(`can-it-be-taken-${i}`)
+                                const messageDiv = document.createElement('div')
+                                messageDiv.innerHTML = `
+                                    <label class="input-styles">Message when taken:</label>
+                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                `
+                                canItBeTaken.appendChild(messageDiv)
+                            })
+
+                            radioCanItBeTakenNo.addEventListener('change', function(e) {
+                                clearElems(`can-it-be-taken-${i}`)
+                            })
+
+                            const isItClosed = document.getElementById(`is-it-closed-${i}`)
+                            const radioIsItClosedYes = document.getElementById(`radio-is-it-closed-yes-${i}`)
+                            const radioIsItClosedNo = document.getElementById(`radio-is-it-closed-no-${i}`)
+
+                            radioIsItClosedYes.addEventListener('change', function(e) {
+                                clearElems(`is-it-closed-${i}`)
+                                const messageDiv = document.createElement('div')
+                                messageDiv.innerHTML = `
+                                    <label class="input-styles">Message when closed:</label>
+                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                `
+                                isItClosed.appendChild(messageDiv)
+                            })
+
+                            radioIsItClosedNo.addEventListener('change', function(e) {
+                                clearElems(`is-it-closed-${i}`)
+                            })
+
+                            const canItTalk = document.getElementById(`can-it-talk-${i}`)
+                            const radioCanItTalkYes = document.getElementById(`radio-can-it-talk-yes-${i}`)
+                            const radioCanItTalkNo = document.getElementById(`radio-can-it-talk-no-${i}`)
+
+                            radioCanItTalkYes.addEventListener('change', function(e) {
+                                clearElems(`can-it-talk-${i}`)
+                                const messageDiv = document.createElement('div')
+                                messageDiv.innerHTML = `
+                                    <label class="input-styles">Can it talk:</label>
+                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                `
+                                canItTalk.appendChild(messageDiv)
+                            })
+
+                            radioCanItTalkNo.addEventListener('change', function(e) {
+                                clearElems(`can-it-talk-${i}`)
+                            })
+                            
+                            const IsItLocked = document.getElementById(`is-it-locked-${i}`)
+                            const radioIsItLockedYes = document.getElementById(`radio-is-it-locked-yes-${i}`)
+                            const radioIsItLockedNo = document.getElementById(`radio-is-it-locked-no-${i}`)
+
+                            radioIsItLockedYes.addEventListener('change', function(e) {
+                                clearElems(`is-it-locked-${i}`)
+                                const messageDiv = document.createElement('div')
+                                messageDiv.innerHTML = `
+                                    <label class="input-styles">Can it talk:</label>
+                                    <textarea class="input-styles-inp" id="" cols="20" rows="2" maxlength="255"></textarea><br />
+                                `
+                                IsItLocked.appendChild(messageDiv)
+                            })
+
+                            radioIsItLockedNo.addEventListener('change', function(e) {
+                                clearElems(`is-it-locked-${i}`)
+                            })
+
+                            
+
+                            
+
+                            
                             
                             itemSave.addEventListener('click', () => {
                                 console.log('save')
@@ -390,28 +413,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             itemDelete.addEventListener('click', () => {
                                 console.log('delete')
                             })
-                            
-                            
-                            // old form below
-                            // labItemName.setAttribute('class', 'input-styles')
-                            // inputItemName.setAttribute('class', 'input-styles-inp')
-                            // inputItemName.setAttribute('id', 'input-name')
-                            // settingRadioLab1.setAttribute('class', 'input-styles')
-                            // inputItemName.setAttribute('id', 'input-name')
-
-                            massAppend(itemForm, [
-                                labItemName, inputItemName, labItemDesc, inputItemDesc, labItemLook,
-                                inputItemLook, labiItemTake, itemTakeYesLab, itemTakeYes, itemTakeNoLab,
-                                itemTakeNo, labItemTakeMessage, inputItemTakeMessage, labiItemClose, itemCloseYesLab,
-                                itemCloseYes, itemCloseNoLab, itemCloseNo, labItemCloseMessage, inputItemCloseMessage,
-                                labiItemTalk, itemTalkYesLab, itemTalkYes, itemTalkNoLab, itemTalkNo, labItemTalkMessage,
-                                inputItemTalkMessage, labiItemLock, itemLockYesLab, itemLockYes, itemLockNoLab, itemLockNo,
-                                labItemLockMessage, inputItemLockMessage, itemSave, itemEdit, itemDelete
-                            ])
-                            itemsContainer.appendChild(itemForm)
-
-
-
                             
                             
                         }
@@ -478,4 +479,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
 })
-
