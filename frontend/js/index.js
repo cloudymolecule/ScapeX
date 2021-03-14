@@ -306,13 +306,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <label class="input-styles">yes</label><br />
                                     <div id="can-it-talk-${i}"></div>
 
-                                    <label class="input-styles">Is it locked>:</label>
+                                    <label class="input-styles">Is it locked:</label>
                                     <input type="radio" name="is-it-locked" value="no" checked="checked" id="radio-is-it-locked-no-${i}">
                                     <label class="input-styles">no</label>
                                     <input type="radio" name="is-it-locked" value="yes" id="radio-is-it-locked-yes-${i}">
                                     <label class="input-styles">yes</label><br />
                                     <div id="is-it-locked-${i}"></div>
-                                    
+                                    <br />
                                     <input type="submit" value="Save" class="input-styles-button" id="save-button-${i}">
                                     <input type="submit" value="Edit" class="input-styles-button" id="edit-button-${i}"">
                                     <input type="submit" value="Delete" class="input-styles-button" id="delete-button-${i}">`
@@ -323,6 +323,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             const saveButton = document.getElementById(`save-button-${i}`)
                             const editButton = document.getElementById(`edit-button-${i}`)
                             const deleteButton = document.getElementById(`delete-button-${i}`)
+
+                            saveButton.addEventListener('click', function(e) {e.preventDefault()})
+                            editButton.addEventListener('click', function(e) {e.preventDefault()})
+                            deleteButton.addEventListener('click', function(e) {e.preventDefault()})
 
                             const canItBeTaken = document.getElementById(`can-it-be-taken-${i}`)
                             const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${i}`)
@@ -402,17 +406,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             
                             
-                            itemSave.addEventListener('click', () => {
-                                console.log('save')
-                            })
+                            // itemSave.addEventListener('click', () => {
+                            //     console.log('save')
+                            // })
 
-                            itemEdit.addEventListener('click', () => {
-                                console.log('edit')
-                            })
+                            // itemEdit.addEventListener('click', () => {
+                            //     console.log('edit')
+                            // })
 
-                            itemDelete.addEventListener('click', () => {
-                                console.log('delete')
-                            })
+                            // itemDelete.addEventListener('click', () => {
+                            //     console.log('delete')
+                            // })
                             
                             
                         }
