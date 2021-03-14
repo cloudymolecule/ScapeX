@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             const radioCanItTalkNo = document.getElementById(`radio-can-it-talk-no-${i}`)
                             let canItTalkYesNo = false
                             radioCanItTalkYes.addEventListener('change', function(e) {
-                                canItBeTakenYesNo = true
+                                canItTalkYesNo = true
                                 clearElems(`can-it-talk-${i}`)
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             })
 
                             radioCanItTalkNo.addEventListener('change', function(e) {
-                                canItBeTakenYesNo = false
+                                canItTalkYesNo = false
                                 clearElems(`can-it-talk-${i}`)
                             })
                             
