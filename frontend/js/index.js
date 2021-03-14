@@ -257,9 +257,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(function(object) {
                     if (object.errors) {
                         clearElems('corner-top-right')
-                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
-                        cTopRight.appendChild(error)
-                        switchAttr(cTopRight, 'class', 'corner-active')
+                        object.errors.forEach(error => {
+                            const errorRoom = elementBuilder('p', error, null, {'class':'warning'})
+                            switchAttr(cTopRight, 'class', 'corner-active')
+                            cTopRight.appendChild(errorRoom)
+                        })
                         setTimeout(() => {
                             clearElems('corner-top-right')
                             switchAttr(cTopRight, 'class', 'corner-inactive')
@@ -455,18 +457,21 @@ document.addEventListener("DOMContentLoaded", () => {
                                     return response.json()
                                 })
                                 .then(function(object) {
-                                    console.log(object.error)
-                                    if (object.error) {
+                                   
+                                    
+                                    if (object.errors) {
                                         clearElems('corner-top-right')
-                                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
-                                        cTopRight.appendChild(error)
-                                        switchAttr(cTopRight, 'class', 'corner-active')
+                                        object.errors.forEach(error => {
+                                            const errorItems = elementBuilder('p', error, null, {'class':'warning'})
+                                            switchAttr(cTopRight, 'class', 'corner-active')
+                                            cTopRight.appendChild(errorItems)
+                                        })
                                         setTimeout(() => {
                                             clearElems('corner-top-right')
                                             switchAttr(cTopRight, 'class', 'corner-inactive')
-                                        }, 6000)
+                                        }, 8000)
                                     } else {
-                                        console.log(object)
+                                        console.log('success yay')
                                     }
                                 })
                                 .catch(function(error) {
