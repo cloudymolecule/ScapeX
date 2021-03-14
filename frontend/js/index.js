@@ -168,9 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(function(object) {
                     if (object.errors) {
                         clearElems('corner-top-right')
-                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
-                        cTopRight.appendChild(error)
-                        switchAttr(cTopRight, 'class', 'corner-active')
+                        object.errors.forEach(error => {
+                            const errorRegis = elementBuilder('p', error, null, {'class':'warning'})
+                            switchAttr(cTopRight, 'class', 'corner-active')
+                            cTopRight.appendChild(errorRegis)
+                        })
                         setTimeout(() => {
                             clearElems('corner-top-right')
                             switchAttr(cTopRight, 'class', 'corner-inactive')
