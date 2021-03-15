@@ -201,13 +201,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         <label class="input-styles">Fantasy</label>
                         <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-fantasy">
                         <label class="input-styles">Dungeon</label>
-                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-dungeon">
+                        <input type="radio" name="setting" value="fantasy" id="radio-dungeon">
                         <label class="input-styles">Abandoned</label>
-                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-abandoned">
+                        <input type="radio" name="setting" value="fantasy" id="radio-abandoned">
                         <label class="input-styles">Haunted</label>
-                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-haunted">
+                        <input type="radio" name="setting" value="fantasy" id="radio-haunted">
                         <label class="input-styles">Generic</label>
-                        <input type="radio" name="setting" value="fantasy" checked="checked" id="radio-generic">
+                        <input type="radio" name="setting" value="fantasy" id="radio-generic">
                     </div><br />
                     <label class="input-styles">Choose a time limit in minutes (60 max):</label>
                     <input type="text" maxlength="2" class="input-styles-inp-num" id="input-time-limit"><br />
@@ -224,11 +224,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <input type="submit" value="Create" class="input-styles-button" id="submit-button">
                 </form>`
             const form = document.getElementById('form')
-            form.addEventListener('click', function(e) {e.preventDefault()})
             const submitButton = document.getElementById('submit-button')
             
-            submitButton.addEventListener('click', () => {
-                
+            submitButton.addEventListener('click', (e) => {
+                e.preventDefault()
                 let formData = {
                     user_id: 1,//loggedUser, change!
                     name: document.getElementById('input-name').value,
@@ -628,7 +627,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 })
                             })
                     })
-                    deleteButton.addEventListener('click', () => {
+                    deleteButton.addEventListener('click', (e) => {
+                        e.preventDefault()
                         let configObj = {
                             method: 'DELETE',
                             headers: {
@@ -648,8 +648,26 @@ document.addEventListener("DOMContentLoaded", () => {
                         })
                         interface.innerHTML =`delete-button-${r.id}`
                     })
-                    editItemsButton.addEventListener('click', () => {
-                        
+                    editItemsButton.addEventListener('click', (e) => {
+                        e.preventDefault()
+                        let configObj = {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                        }
+                        fetch(`http://localhost:3000/items/${thisRoom.id}/index`, configObj)
+                        .then(function(response) {
+                            return response.json()
+                        })
+                        .then(function(object) {
+                            console.log(object)
+                        })
+                        .catch(function(error) {
+                            console.log(error.message)
+                        })
+                        // interface.innerHTML =`delete-button-${r.id}`
                     })
                 })
             })

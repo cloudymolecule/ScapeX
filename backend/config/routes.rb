@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   patch '/rooms/:id/update', to: 'rooms#update'
   delete '/rooms/:id/delete', to: 'rooms#destroy'
   get '/:id/rooms', to: 'rooms#index'
+  get '/items/:id/index', to: 'items#index'
   post '/items/new', to: 'items#create'
   post '/users/new', to: 'users#create'
   post '/login', to: 'sessions#login'
