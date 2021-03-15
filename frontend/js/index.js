@@ -543,6 +543,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (radio === thisRoom.setting) {return 'checked="checked"'}
                     }
                     editButton.addEventListener('click', () => {
+                        console.log(thisRoom)
                         interface.innerHTML =  `
                             <form id="form">
                                 <p>Edit: ${thisRoom.name}</p>
@@ -562,25 +563,93 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <input type="radio" ${checkChecked('generic')} name="setting" value="fantasy" id="radio-generic">
                                 </div><br />
                                 <label class="input-styles">Choose a time limit in minutes (60 max):</label>
-                                <input type="text" value="${thisRoom.time_limit} "maxlength="2" class="input-styles-inp-num" id="input-time-limit"><br />
+                                <input type="text" value="${thisRoom.time_limit}" "maxlength="2" class="input-styles-inp-num" id="input-time-limit"><br />
                                 <label class="input-styles">Room completion message:</label><br />
-                                <textarea value="${thisRoom.completed_message} class="input-styles-inp-success" id="input-completed-message" cols="50" rows="5" maxlength="255"></textarea><br />
+                                <textarea class="input-styles-inp-success" id="input-completed-message" cols="50" rows="5" maxlength="255">${thisRoom.completed_message}</textarea><br />
                                 <label class="input-styles">Number of attempts allowed (10 max):</label>
-                                <input type="text" value="${thisRoom.attempts_allowed} maxlength="2" class="input-styles-inp-num" id="input-attempts-allowed"><br />  
+                                <input type="text" value="${thisRoom.attempts_allowed}" maxlength="2" class="input-styles-inp-num" id="input-attempts-allowed"><br />  
                                 <label class="input-styles">Number of objects (50 max):</label>
-                                <input type="text" value="${thisRoom.obj_room} maxlength="2" class="input-styles-inp-num" id="input-obj-room"><br />
+                                <input type="text" value="${thisRoom.obj_room}" maxlength="2" class="input-styles-inp-num" id="input-obj-room"><br />
                                 <label class="input-styles">Number of objects to exit room (3 max):</label>
-                                <input type="text" value="${thisRoom.obj_exit} maxlength="1" class="input-styles-inp-num" id="input-obj-exit"><br />  
+                                <input type="text" value="${thisRoom.obj_exit}" maxlength="1" class="input-styles-inp-num" id="input-obj-exit"><br />  
                                 <label class="input-styles">Number or phrase required to exit the room:</label>
-                                <input type="text" value="${thisRoom.lock} class="input-styles-inp" id="input-lock"><br /><br />  
-                                <input type="submit" value="Create" class="input-styles-button" id="submit-button">
+                                <input type="text" value="${thisRoom.lock}" class="input-styles-inp" id="input-lock"><br /><br />  
+                                <input type="submit" value="Update" class="input-styles-button" id="update-button">
                             </form>`
+
+                            const update = document.getElementById('update-button')
+                            update.addEventListener('click', function(e) {
+                                e.preventDefault()
+                                let formData = {
+                                    user_id: 1,//loggedUser, change!
+                                    name: document.getElementById('input-name').value,
+                                    setting: document.querySelector('input[name="setting"]:checked').value,
+                                    time_limit: document.getElementById('input-time-limit').value,
+                                    completed_message: document.getElementById('input-completed-message').value,
+                                    attempts_allowed: document.getElementById('input-attempts-allowed').value,
+                                    times_completed: 0,
+                                    attempts: 0,
+                                    obj_room: document.getElementById('input-obj-room').value,
+                                    obj_exit: document.getElementById('input-obj-exit').value,
+                                    lock: document.getElementById('input-lock').value
+                                }
+                
+                                let configObj = {
+                                    method: 'PATCH',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: JSON.stringify(formData)
+                                }
+                                fetch(`http://localhost:3000/rooms/${thisRoom.id}/update`, configObj)
+                                .then(function(response) {
+                                    return response.json()
+                                })
+                                .then(function(object) {
+                                    if (object.errors) {
+                                        clearElems('corner-top-right')
+                                        object.errors.forEach(error => {
+                                            const errorUpdate = elementBuilder('p', error, null, {'class':'warning'})
+                                            switchAttr(cTopRight, 'class', 'corner-active')
+                                            cTopRight.appendChild(errorUpdate)
+                                        })
+                                        setTimeout(() => {
+                                            clearElems('corner-top-right')
+                                            switchAttr(cTopRight, 'class', 'corner-inactive')
+                                        }, 8000)
+                                    } else {
+                                        console.log(object)
+                                        interface.innerHTML = `Edit success.`
+                                    }
+                                })
+                                .catch(function(error) {
+                                    console.log(error.message)
+                                })
+                            })
                     })
                     deleteButton.addEventListener('click', () => {
+                        let configObj = {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                        }
+                        fetch(`http://localhost:3000/rooms/${thisRoom.id}/delete`, configObj)
+                        .then(function(response) {
+                            return response.json()
+                        })
+                        .then(function(object) {
+                            interface.innerHTML = object.success
+                        })
+                        .catch(function(error) {
+                            console.log(error.message)
+                        })
                         interface.innerHTML =`delete-button-${r.id}`
                     })
                     editItemsButton.addEventListener('click', () => {
-                        interface.innerHTML = `edit-items-button-${r.id}`
+                        
                     })
                 })
             })

@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
     belongs_to :user
-    has_many :items
+    has_many :items, :dependent => :destroy
 
     # validates :name, :setting, :time_limit, :completed_message, :attempts, :attempts_allowed, :times_completed, :obj_room, :obj_exit, :lock, presence: true
     # validates :name, uniqueness: true

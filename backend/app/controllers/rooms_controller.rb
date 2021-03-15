@@ -17,7 +17,6 @@ class RoomsController < ApplicationController
   # POST /rooms
   def create
     room = Room.new(room_params)
-
     if room.save
       render json: RoomSerializer.new(room)
     else
@@ -27,16 +26,19 @@ class RoomsController < ApplicationController
 
   # PATCH/PUT /rooms/1
   def update
-    if @room.update(room_params)
-      render json: @room
+    room = Room.find(params[:id])
+    if room.update(room_params)
+      render json: RoomSerializer.new(room)
     else
-      render json: @room.errors, status: :unprocessable_entity
+      render json: {errors: room.errors.full_messages}
     end
   end
 
   # DELETE /rooms/1
   def destroy
-    @room.destroy
+    room = Room.find(params[:id])
+    room.destroy
+    render json: {success: "Room deleted successfully"}
   end
 
   private
