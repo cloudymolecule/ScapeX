@@ -695,7 +695,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                     this.room_id = room_id
                                 }
                             }
+                            interface.innerHTML = `
+                                    <p>Edit this room's items</p>
+                                    <div id="items" class="items-alternate"></div>`
                             object.data.forEach(i => { 
+                                
                                 const thisItem = new Item(
                                     i.id,
                                     i.attributes.name,
@@ -712,11 +716,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                     i.attributes.opened_message,
                                     i.relationships.room.data.id
                                 )
-                                interface.innerHTML = `
-                                    <p>Edit this room's items</p>
-                                    <div id="items" class="items-alternate"></div>`
+                                
                                 const items = document.getElementById('items')
-                                const itemFormElem = elementBuilder('form', null, null, {'class':'item-form', 'id':'item-form'})
+                                const itemFormElem =  elementBuilder('form', null, null, {'class':'item-form', 'id':`item-form-${thisItem.id}`})
+                                
+                               
                                 function checkCheckedItem(radio) {
                                     if (radio === 'can-it-be-taken-yes') {if (thisItem.take === true) {return 'checked="checked"'}}
                                     if (radio === 'is-it-closed-yes') {if (thisItem.closed === true) {return 'checked="checked"'}}
@@ -730,40 +734,40 @@ document.addEventListener("DOMContentLoaded", () => {
                                 }
                                 function messagesCheck(messageIncluded) {
                                     if (messageIncluded === "take") {
-                                        if (currentItem.take === true) {
+                                        if (thisItem.take === true) {
                                             return `
                                             <label class="input-styles">Message when taken:</label>
-                                            <textarea class="input-styles-inp" id="take-message${i}" cols="20" rows="2" maxlength="255">${currentItem.take_message}</textarea><br />`
-                                        } 
-                                    } else {return ""}
+                                            <textarea class="input-styles-inp" id="take-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.take_message}</textarea><br />`
+                                        } else {return ""}
+                                    } 
                                     if (messageIncluded === "closed") {
-                                        console.log(currentItem.closed_message)
-                                        if (currentItem.closed === true) {
+                                        console.log('here')
+                                        if (thisItem.closed === true) {
                                             return `
                                             <label class="input-styles">Message when closed:</label>
-                                            <textarea class="input-styles-inp" id="closed-message${i}" cols="20" rows="2" maxlength="255">${currentItem.closed_message}</textarea><br />
+                                            <textarea class="input-styles-inp" id="closed-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.closed_message}</textarea><br />
                                         `
-                                        }
-                                    } else {return ""}
+                                        } else {return ""}
+                                    } 
                                     if (messageIncluded === "talk") {
-                                        if (currentItem.talk === true) {
+                                        if (thisItem.talk === true) {
                                             return `
                                             <label class="input-styles">Can it talk:</label>
-                                            <textarea class="input-styles-inp" id="talk-message${i}" cols="20" rows="2" maxlength="255">${currentItem.talk_message}</textarea><br />
+                                            <textarea class="input-styles-inp" id="talk-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.talk_message}</textarea><br />
                                         `
-                                        }
-                                    } else {return ""}
+                                        } else {return ""}
+                                    } 
                                     if (messageIncluded === "locked") {
-                                        if (currentItem.locked === true) {
+                                        if (thisItem.locked === true) {
                                             return `
                                             <label class="input-styles">Locked Message:</label>
-                                            <textarea class="input-styles-inp" id="locked-message${i}" cols="20" rows="2" maxlength="255">${currentItem.locked_message}</textarea><br />
+                                            <textarea class="input-styles-inp" id="locked-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.locked_message}</textarea><br />
                     
                                             <label class="input-styles">Opened Message:</label>
-                                            <textarea class="input-styles-inp" id="opened-message${i}" cols="20" rows="2" maxlength="255">${currentItem.opened_message}</textarea><br />
+                                            <textarea class="input-styles-inp" id="opened-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.opened_message}</textarea><br />
                                         `
-                                        }
-                                    } else {return ""}
+                                        } else {return ""}
+                                    } 
                                 }
                                 itemFormElem.innerHTML = `
                                     <label class="input-styles">Name:</label>
@@ -776,37 +780,46 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <input type="text" value="${thisItem.looked_message}" class="input-styles-inp" id="looked-${thisItem.id}"><br />
 
                                     <label class="input-styles">Can it be taken?:</label>
-                                    <input type="radio" ${checkCheckedItem('can-it-be-taken-no')} name="can-it-be-taken" value="no" checked="checked" id="radio-can-it-be-taken-no-${thisItem.id}">
+                                    <input type="radio" ${checkCheckedItem('can-it-be-taken-no')} name="can-it-be-taken" value="no" id="radio-can-it-be-taken-no-${thisItem.id}">
                                     <label class="input-styles">no</label>
                                     <input type="radio" ${checkCheckedItem('can-it-be-taken-yes')} name="can-it-be-taken" value="yes" id="radio-can-it-be-taken-yes-${thisItem.id}">
                                     <label class="input-styles">yes</label><br />
-                                    <div id="can-it-be-taken-${thisItem.id}"></div>
-
+                                    <div id="can-it-be-taken-${thisItem.id}">
+                                    ${messagesCheck('take')}
+                                    </div>
+                                    
                                     <label class="input-styles">Is it closed?:</label>
-                                    <input type="radio" ${checkCheckedItem('is-it-closed-no')} name="is-it-closed" value="no" checked="checked" id="radio-is-it-closed-no-${thisItem.id}">
+                                    <input type="radio" ${checkCheckedItem('is-it-closed-no')} name="is-it-closed" value="no" id="radio-is-it-closed-no-${thisItem.id}">
                                     <label class="input-styles">no</label>
                                     <input type="radio" ${checkCheckedItem('is-it-closed-yes')} name="is-it-closed" value="yes" id="radio-is-it-closed-yes-${thisItem.id}">
                                     <label class="input-styles">yes</label><br />
-                                    <div id="is-it-closed-${thisItem.id}"></div>
-                                        
+                                    <div id="is-it-closed-${thisItem.id}">
+                                    ${messagesCheck('closed')}
+                                    </div>
+                                    
                                     <label class="input-styles">Can it talk:</label>
-                                    <input type="radio" ${checkCheckedItem('can-it-talk-no')} name="can-it-talk" value="no" checked="checked" id="radio-can-it-talk-no-${thisItem.id}">
+                                    <input type="radio" ${checkCheckedItem('can-it-talk-no')} name="can-it-talk" value="no" id="radio-can-it-talk-no-${thisItem.id}">
                                     <label class="input-styles">no</label>
                                     <input type="radio" ${checkCheckedItem('can-it-talk-yes')} name="can-it-talk" value="yes" id="radio-can-it-talk-yes-${thisItem.id}">
                                     <label class="input-styles">yes</label><br />
-                                    <div id="can-it-talk-${thisItem.id}"></div>
+                                    <div id="can-it-talk-${thisItem.id}">
+                                    ${messagesCheck('talk')}
+                                    </div>
 
                                     <label class="input-styles">Is it locked:</label>
-                                    <input type="radio" ${checkCheckedItem('is-it-locked-no')} name="is-it-locked" value="no" checked="checked" id="radio-is-it-locked-no-${thisItem.id}">
+                                    <input type="radio" ${checkCheckedItem('is-it-locked-no')} name="is-it-locked" value="no" id="radio-is-it-locked-no-${thisItem.id}">
                                     <label class="input-styles">no</label>
                                     <input type="radio" ${checkCheckedItem('is-it-locked-yes')} name="is-it-locked" value="yes" id="radio-is-it-locked-yes-${thisItem.id}">
                                     <label class="input-styles">yes</label><br />
-                                    <div id="is-it-locked-${thisItem.id}"></div>
+                                    <div id="is-it-locked-${thisItem.id}">
+                                    ${messagesCheck('locked')}
+                                    </div>
+
                                     <br />
                                     <input type="submit" value="Update" class="input-styles-button" id="update-button-${thisItem.id}">`
                                     
                                 items.appendChild(itemFormElem)
-
+                                
                                 const updateButton = document.getElementById(`update-button-${thisItem.id}`)
                                 updateButton.addEventListener('click', function(e) {e.preventDefault()})
                                 const canItBeTaken = document.getElementById(`can-it-be-taken-${thisItem.id}`)
