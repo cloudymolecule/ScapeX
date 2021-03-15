@@ -287,3 +287,15 @@ background-color:transparent
 .items-alternate>form>div>div>label:nth-child(even){
 background-color:transparent
 }
+
+.items-alternate>form>p:nth-child(odd){
+    background-color:transparent
+}
+
+.items-alternate>form>p:nth-child(even){
+background-color:transparent
+}
+
+.saved {
+    background-color: rgb(0, 24, 0) !important;
+}

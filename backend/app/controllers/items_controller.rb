@@ -2,16 +2,17 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :update, :destroy]
 
   # GET /items
-  # def index
-  #   @items = Item.all
+  def index
+    items = Item.all
 
-  #   render json: @items
-  # end
+    render json: ItemSerializer.new(items)
+  end
 
-  # # GET /items/1
-  # def show
-  #   render json: @item
-  # end
+  # GET /items/1
+  def show
+    item = Item.find(params[:id])
+    render json: ItemSerializer.new(item)
+  end
 
   # POST /items
   def create
@@ -26,10 +27,11 @@ class ItemsController < ApplicationController
 
   # PATCH/PUT /items/1
   # def update
-  #   if @item.update(item_params)
-  #     render json: @item
+  #   item = Item.find(params[:id])
+  #   if item.update(item_params)
+  #     render json: ItemSerializer.new(item)
   #   else
-  #     render json: @item.errors, status: :unprocessable_entity
+  #     render json: {errors: item.errors.full_messages}
   #   end
   # end
 
@@ -41,7 +43,7 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @item = Item.find(params[:id])
+      item = Item.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
