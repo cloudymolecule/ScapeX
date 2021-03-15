@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mMy = document.getElementById('menu-my')
     const mTop = document.getElementById('menu-top')
     const mSearch = document.getElementById('menu-search')
-    const mAbout = document.getElementById('menu-about')
+    const mPlay = document.getElementById('menu-play')
     const interface = document.getElementById('interface')
 
     //hot corners
@@ -992,9 +992,9 @@ document.addEventListener("DOMContentLoaded", () => {
         interface.innerHTML = 'Search escape rooms!'
     })
     
-    mAbout.addEventListener('click', () => {
+    mPlay.addEventListener('click', () => {
         clearElems('interface')
-        interface.innerHTML = 'This is the about page :)'
+        interface.innerHTML = 'escape some rooms! :)'
 
     })
 })
