@@ -15753,3 +15753,399 @@ Processing by RoomsController#index as JSON
 Completed 200 OK in 45ms (Views: 41.6ms | ActiveRecord: 2.2ms | Allocations: 86060)
 
 
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:57:53 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 52ms (Views: 48.7ms | ActiveRecord: 2.0ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:58:43 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 53ms (Views: 49.7ms | ActiveRecord: 2.1ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:58:46 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 42ms (Views: 39.3ms | ActiveRecord: 1.8ms | Allocations: 86060)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:58:48 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 52ms (Views: 48.8ms | ActiveRecord: 1.8ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:58:48 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 1.6ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:58:49 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 1.7ms | Allocations: 86060)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:58:50 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 51ms (Views: 48.0ms | ActiveRecord: 2.1ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:02:19 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 46.9ms | ActiveRecord: 2.0ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:02:20 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 1.9ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:04:47 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 44ms (Views: 40.7ms | ActiveRecord: 2.3ms | Allocations: 86060)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:05:12 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 52ms (Views: 48.5ms | ActiveRecord: 2.1ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:05:18 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 46.9ms | ActiveRecord: 1.9ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:23:16 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 3.2ms | Allocations: 86575)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:24:34 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 2.1ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:24:38 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 46.9ms | ActiveRecord: 1.7ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:24:40 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 2.3ms | Allocations: 86060)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:27:05 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 107ms (Views: 96.3ms | ActiveRecord: 2.2ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:27:32 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 54ms (Views: 50.4ms | ActiveRecord: 2.0ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:27:58 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 54ms (Views: 50.2ms | ActiveRecord: 1.8ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:28:55 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 53ms (Views: 50.1ms | ActiveRecord: 1.8ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:34:52 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 60ms (Views: 51.6ms | ActiveRecord: 4.8ms | Allocations: 86575)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:34:55 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 46.8ms | ActiveRecord: 2.0ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:38:32 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 52ms (Views: 48.7ms | ActiveRecord: 2.1ms | Allocations: 86061)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 13:38:53 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 54ms (Views: 50.3ms | ActiveRecord: 2.1ms | Allocations: 86061)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "items"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "looked_message" varchar, "take" boolean, "take_message" varchar, "closed" boolean, "closed_message" varchar, "talk" boolean, "talk_message" varchar, "locked" boolean, "locked_message" varchar, "opened_message" varchar, "room_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_items_on_room_id" ON "items" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "setting" varchar, "time_limit" integer, "completed_message" varchar, "attempts" integer, "attempts_allowed" integer, "times_completed" integer, "obj_room" integer, "obj_exit" integer, "lock" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_rooms_on_user_id" ON "rooms" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aitems" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "looked_message" varchar DEFAULT NULL, "take" boolean DEFAULT NULL, "take_message" varchar DEFAULT NULL, "closed" boolean DEFAULT NULL, "closed_message" varchar DEFAULT NULL, "talk" boolean DEFAULT NULL, "talk_message" varchar DEFAULT NULL, "locked" boolean DEFAULT NULL, "locked_message" varchar DEFAULT NULL, "opened_message" varchar DEFAULT NULL, "room_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aitems_on_room_id" ON "aitems" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aitems" ("id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at")
+                     SELECT "id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at" FROM "items"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "items"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "looked_message" varchar DEFAULT NULL, "take" boolean DEFAULT NULL, "take_message" varchar DEFAULT NULL, "closed" boolean DEFAULT NULL, "closed_message" varchar DEFAULT NULL, "talk" boolean DEFAULT NULL, "talk_message" varchar DEFAULT NULL, "locked" boolean DEFAULT NULL, "locked_message" varchar DEFAULT NULL, "opened_message" varchar DEFAULT NULL, "room_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9353db44a2"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_items_on_room_id" ON "items" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "items" ("id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at")
+                     SELECT "id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at" FROM "aitems"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aitems"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arooms" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "setting" varchar DEFAULT NULL, "time_limit" integer DEFAULT NULL, "completed_message" varchar DEFAULT NULL, "attempts" integer DEFAULT NULL, "attempts_allowed" integer DEFAULT NULL, "times_completed" integer DEFAULT NULL, "obj_room" integer DEFAULT NULL, "obj_exit" integer DEFAULT NULL, "lock" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_arooms_on_user_id" ON "arooms" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "arooms" ("id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at")
+                     SELECT "id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at" FROM "rooms"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "rooms"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "setting" varchar DEFAULT NULL, "time_limit" integer DEFAULT NULL, "completed_message" varchar DEFAULT NULL, "attempts" integer DEFAULT NULL, "attempts_allowed" integer DEFAULT NULL, "times_completed" integer DEFAULT NULL, "obj_room" integer DEFAULT NULL, "obj_exit" integer DEFAULT NULL, "lock" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a63cab0c67"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_rooms_on_user_id" ON "rooms" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at")
+                     SELECT "id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at" FROM "arooms"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "arooms"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210312010734)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210308173615),
+(20210312010306);
+
+[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-03-15 17:40:13.866700"], ["updated_at", "2021-03-15 17:40:13.866700"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d00816b9d2790f52cc7f4b4b927c762262830fa3"], ["created_at", "2021-03-15 17:40:13.872580"], ["updated_at", "2021-03-15 17:40:13.872580"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "items"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "looked_message" varchar, "take" boolean, "take_message" varchar, "closed" boolean, "closed_message" varchar, "talk" boolean, "talk_message" varchar, "locked" boolean, "locked_message" varchar, "opened_message" varchar, "room_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_items_on_room_id" ON "items" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "rooms"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "setting" varchar, "time_limit" integer, "completed_message" varchar, "attempts" integer, "attempts_allowed" integer, "times_completed" integer, "obj_room" integer, "obj_exit" integer, "lock" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_rooms_on_user_id" ON "rooms" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aitems" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "looked_message" varchar DEFAULT NULL, "take" boolean DEFAULT NULL, "take_message" varchar DEFAULT NULL, "closed" boolean DEFAULT NULL, "closed_message" varchar DEFAULT NULL, "talk" boolean DEFAULT NULL, "talk_message" varchar DEFAULT NULL, "locked" boolean DEFAULT NULL, "locked_message" varchar DEFAULT NULL, "opened_message" varchar DEFAULT NULL, "room_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aitems_on_room_id" ON "aitems" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aitems" ("id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at")
+                     SELECT "id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at" FROM "items"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "items"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "looked_message" varchar DEFAULT NULL, "take" boolean DEFAULT NULL, "take_message" varchar DEFAULT NULL, "closed" boolean DEFAULT NULL, "closed_message" varchar DEFAULT NULL, "talk" boolean DEFAULT NULL, "talk_message" varchar DEFAULT NULL, "locked" boolean DEFAULT NULL, "locked_message" varchar DEFAULT NULL, "opened_message" varchar DEFAULT NULL, "room_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9353db44a2"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_items_on_room_id" ON "items" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "items" ("id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at")
+                     SELECT "id","name","description","looked_message","take","take_message","closed","closed_message","talk","talk_message","locked","locked_message","opened_message","room_id","created_at","updated_at" FROM "aitems"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aitems"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arooms" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "setting" varchar DEFAULT NULL, "time_limit" integer DEFAULT NULL, "completed_message" varchar DEFAULT NULL, "attempts" integer DEFAULT NULL, "attempts_allowed" integer DEFAULT NULL, "times_completed" integer DEFAULT NULL, "obj_room" integer DEFAULT NULL, "obj_exit" integer DEFAULT NULL, "lock" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_arooms_on_user_id" ON "arooms" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "arooms" ("id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at")
+                     SELECT "id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at" FROM "rooms"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "rooms"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "setting" varchar DEFAULT NULL, "time_limit" integer DEFAULT NULL, "completed_message" varchar DEFAULT NULL, "attempts" integer DEFAULT NULL, "attempts_allowed" integer DEFAULT NULL, "times_completed" integer DEFAULT NULL, "obj_room" integer DEFAULT NULL, "obj_exit" integer DEFAULT NULL, "lock" varchar DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_a63cab0c67"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_rooms_on_user_id" ON "rooms" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at")
+                     SELECT "id","name","setting","time_limit","completed_message","attempts","attempts_allowed","times_completed","obj_room","obj_exit","lock","user_id","created_at","updated_at" FROM "arooms"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "arooms"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210312010734)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210308173615),
+(20210312010306);
+
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-03-15 17:40:13.929414"], ["updated_at", "2021-03-15 17:40:13.929414"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2021-03-15 17:40:13.933617"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "d00816b9d2790f52cc7f4b4b927c762262830fa3"], ["created_at", "2021-03-15 17:40:13.938064"], ["updated_at", "2021-03-15 17:40:13.938064"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

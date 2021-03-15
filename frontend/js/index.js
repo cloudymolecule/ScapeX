@@ -495,30 +495,92 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json()
             })
             .then(function(object) {
+                class Room {
+                    constructor(id, user_id, name, setting, time_limit, completed_message, attempts, attempts_allowed, times_completed, obj_room, obj_exit, lock) {
+                        this.id = id
+                        this.user_id = user_id
+                        this.name = name
+                        this.setting = setting
+                        this.time_limit = time_limit
+                        this.completed_message = completed_message
+                        this.attempts = attempts
+                        this.attempts_allowed = attempts_allowed
+                        this.times_completed = times_completed
+                        this.obj_room = obj_room
+                        this.obj_exit = obj_exit
+                        this.lock = lock
+                    }
+                }
                 object.data.forEach(r => {
-                    const room = elementBuilder('div', null, null)
-                    room.innerHTML = `
-                        <p>Room Name: ${r.attributes.name}</p>
-                        <input type="submit" value="Edit" class="input-styles-button" id="edit-button">
-                        <input type="submit" value="Delete" class="input-styles-button" id="delete-button">
-                        <input type="submit" value="Edit Items" class="input-styles-button" id="edit-items-button">`
+                    const roo = elementBuilder('div', null, null)
+                    const thisRoom = new Room(
+                        r.id,
+                        r.relationships.user.data.id,
+                        r.attributes.name,
+                        r.attributes.setting,
+                        r.attributes.time_limit,
+                        r.attributes.completed_message,
+                        r.attributes.attempts,
+                        r.attributes.attempts_allowed,
+                        r.attributes.times_completed,
+                        r.attributes.obj_room,
+                        r.attributes.obj_exit,
+                        r.attributes.lock,
+                    )
                     
-                    const editButton = document.getElementById('edit-button')
-                    const deleteButton = document.getElementById('delete-button')
-                    const editItemsButton = document.getElementById('edit-items-button')
-                    roomsDiv.appendChild(room)
+                    roo.innerHTML = `
+                        <p>Room Name: ${thisRoom.name}</p>
+                        <input type="submit" value="Edit" class="input-styles-button" id="edit-button-${thisRoom.id}">
+                        <input type="submit" value="Delete" class="input-styles-button" id="delete-button-${thisRoom.id}">
+                        <input type="submit" value="Edit Items" class="input-styles-button" id="edit-items-button-${thisRoom.id}">`
+                    
+                    roomsDiv.appendChild(roo)
+                    const editButton = document.getElementById(`edit-button-${thisRoom.id}`)
+                    const deleteButton = document.getElementById(`delete-button-${thisRoom.id}`)
+                    const editItemsButton = document.getElementById(`edit-items-button-${thisRoom.id}`)
 
+                    function checkChecked(radio) {
+                        if (radio === thisRoom.setting) {return 'checked="checked"'}
+                    }
                     editButton.addEventListener('click', () => {
-                        clearElems('interface')
-                        interface.innerHTML = 'edit!'
+                        interface.innerHTML =  `
+                            <form id="form">
+                                <p>Edit: ${thisRoom.name}</p>
+                                <label class="input-styles">Room Name:</label>
+                                <input type="text" value="${thisRoom.name}"class="input-styles-inp" id="input-name"><br />
+                                <label class="input-styles">Choose a setting:</label><br />
+                                <div class="setting-div">
+                                    <label class="input-styles">Fantasy</label>
+                                    <input type="radio" ${checkChecked('fantasy')} name="setting" value="fantasy" id="radio-fantasy">
+                                    <label class="input-styles">Dungeon</label>
+                                    <input type="radio" ${checkChecked('dungeon')} name="setting" value="fantasy" id="radio-dungeon">
+                                    <label class="input-styles">Abandoned</label>
+                                    <input type="radio" ${checkChecked('abandoned')} name="setting" value="fantasy" id="radio-abandoned">
+                                    <label class="input-styles">Haunted</label>
+                                    <input type="radio" ${checkChecked('haunted')} name="setting" value="fantasy" id="radio-haunted">
+                                    <label class="input-styles">Generic</label>
+                                    <input type="radio" ${checkChecked('generic')} name="setting" value="fantasy" id="radio-generic">
+                                </div><br />
+                                <label class="input-styles">Choose a time limit in minutes (60 max):</label>
+                                <input type="text" value="${thisRoom.time_limit} "maxlength="2" class="input-styles-inp-num" id="input-time-limit"><br />
+                                <label class="input-styles">Room completion message:</label><br />
+                                <textarea value="${thisRoom.completed_message} class="input-styles-inp-success" id="input-completed-message" cols="50" rows="5" maxlength="255"></textarea><br />
+                                <label class="input-styles">Number of attempts allowed (10 max):</label>
+                                <input type="text" value="${thisRoom.attempts_allowed} maxlength="2" class="input-styles-inp-num" id="input-attempts-allowed"><br />  
+                                <label class="input-styles">Number of objects (50 max):</label>
+                                <input type="text" value="${thisRoom.obj_room} maxlength="2" class="input-styles-inp-num" id="input-obj-room"><br />
+                                <label class="input-styles">Number of objects to exit room (3 max):</label>
+                                <input type="text" value="${thisRoom.obj_exit} maxlength="1" class="input-styles-inp-num" id="input-obj-exit"><br />  
+                                <label class="input-styles">Number or phrase required to exit the room:</label>
+                                <input type="text" value="${thisRoom.lock} class="input-styles-inp" id="input-lock"><br /><br />  
+                                <input type="submit" value="Create" class="input-styles-button" id="submit-button">
+                            </form>`
                     })
                     deleteButton.addEventListener('click', () => {
-                        clearElems('interface')
-                        interface.innerHTML = 'delete!'
+                        interface.innerHTML =`delete-button-${r.id}`
                     })
                     editItemsButton.addEventListener('click', () => {
-                        clearElems('interface')
-                        interface.innerHTML = 'edit items!'
+                        interface.innerHTML = `edit-items-button-${r.id}`
                     })
                 })
             })
