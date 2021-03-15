@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :items
-  resources :rooms
+  # resources :items
+  # resources :rooms
   # resources :users 
   # resources :sessions
-  post '/items', to: 'items#create'
-  post '/users', to: 'users#create'
+  post '/rooms/new', to: 'rooms#create'
+  get '/rooms', to: 'rooms#index'
+  post '/items/new', to: 'items#create'
+  post '/users/new', to: 'users#create'
   post '/login', to: 'sessions#login'
   get '/logout', to: 'sessions#logout'
 

@@ -26,14 +26,14 @@ class ItemsController < ApplicationController
   end
 
   # PATCH/PUT /items/1
-  # def update
-  #   item = Item.find(params[:id])
-  #   if item.update(item_params)
-  #     render json: ItemSerializer.new(item)
-  #   else
-  #     render json: {errors: item.errors.full_messages}
-  #   end
-  # end
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      render json: ItemSerializer.new(item)
+    else
+      render json: {errors: item.errors.full_messages}
+    end
+  end
 
   # # DELETE /items/1
   # def destroy

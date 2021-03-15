@@ -14532,3 +14532,1026 @@ Processing by ItemsController#show as JSON
 Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1116)
 
 
+Started POST "/rooms" for ::1 at 2021-03-15 11:02:25 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:02:25.921104"], ["updated_at", "2021-03-15 15:02:25.921104"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:02:35 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"qwewq", "description"=>"qwewqee", "looked_message"=>"wqe", "take"=>true, "take_message"=>"qwe", "closed"=>true, "closed_message"=>"wqe", "talk"=>true, "talk_message"=>"qwe", "locked"=>true, "locked_message"=>"wqe", "opened_message"=>"wqe", "item"=>{"name"=>"qwewq", "description"=>"qwewqee", "looked_message"=>"wqe", "take"=>true, "take_message"=>"qwe", "closed"=>true, "closed_message"=>"wqe", "talk"=>true, "talk_message"=>"qwe", "locked"=>true, "locked_message"=>"wqe", "opened_message"=>"wqe", "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "take_message", "closed", "closed_message", "talk", "talk_message", "locked", "locked_message", "opened_message", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "qwewq"], ["description", "qwewqee"], ["looked_message", "wqe"], ["take", 1], ["take_message", "qwe"], ["closed", 1], ["closed_message", "wqe"], ["talk", 1], ["talk_message", "qwe"], ["locked", 1], ["locked_message", "wqe"], ["opened_message", "wqe"], ["room_id", 1], ["created_at", "2021-03-15 15:02:35.546137"], ["updated_at", "2021-03-15 15:02:35.546137"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 3062)
+
+
+Started GET "/items/70" for ::1 at 2021-03-15 11:02:36 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"70", "item"=>{}}
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 70], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1116)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:04:11 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:04:11.744881"], ["updated_at", "2021-03-15 15:04:11.744881"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:04:15 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"123", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"123", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213"], ["description", "123"], ["looked_message", "213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:04:15.450318"], ["updated_at", "2021-03-15 15:04:15.450318"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 1.7ms | Allocations: 2961)
+
+
+Started GET "/items/71" for ::1 at 2021-03-15 11:04:17 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"71", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 71], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 71], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 1082)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:08:24 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:08:24.011894"], ["updated_at", "2021-03-15 15:08:24.011894"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:08:27 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123213", "description"=>"123213", "looked_message"=>"123213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123213", "description"=>"123213", "looked_message"=>"123213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123213"], ["description", "123213"], ["looked_message", "123213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:08:27.821465"], ["updated_at", "2021-03-15 15:08:27.821465"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2961)
+
+
+Started GET "/items/72" for ::1 at 2021-03-15 11:08:28 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"72", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 72], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:10:28 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:10:28.112454"], ["updated_at", "2021-03-15 15:10:28.112454"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:10:32 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"1213", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"1213", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1213"], ["description", "213"], ["looked_message", "213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:10:32.604697"], ["updated_at", "2021-03-15 15:10:32.604697"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 2961)
+
+
+Started GET "/items/73" for ::1 at 2021-03-15 11:10:33 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"73", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started GET "/items/73" for ::1 at 2021-03-15 11:10:34 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"73", "item"=>{}}
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started GET "/items/73" for ::1 at 2021-03-15 11:10:38 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"73", "item"=>{}}
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 73], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:11:00 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 2], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:11:00.219614"], ["updated_at", "2021-03-15 15:11:00.219614"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:11:04 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"qwe", "description"=>"weq", "looked_message"=>"qwe", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"qwe", "description"=>"weq", "looked_message"=>"qwe", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "qwe"], ["description", "weq"], ["looked_message", "qwe"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:11:04.741468"], ["updated_at", "2021-03-15 15:11:04.741468"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 2961)
+
+
+Started GET "/items/74" for ::1 at 2021-03-15 11:11:05 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"74", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 74], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:11:19 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 2], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:11:19.732614"], ["updated_at", "2021-03-15 15:11:19.732614"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:11:24 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"wqe", "description"=>"wqe", "looked_message"=>"wqe", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"wqe", "description"=>"wqe", "looked_message"=>"wqe", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "wqe"], ["description", "wqe"], ["looked_message", "wqe"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:11:24.565541"], ["updated_at", "2021-03-15 15:11:24.565541"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 2961)
+
+
+Started GET "/items/75" for ::1 at 2021-03-15 11:11:25 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"75", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 75], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 75], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:12:39 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:12:39.796586"], ["updated_at", "2021-03-15 15:12:39.796586"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:12:42 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"wqe", "description"=>"wqe", "looked_message"=>"qwe", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"wqe", "description"=>"wqe", "looked_message"=>"qwe", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "wqe"], ["description", "wqe"], ["looked_message", "qwe"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:12:42.662974"], ["updated_at", "2021-03-15 15:12:42.662974"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.9ms | Allocations: 2961)
+
+
+Started GET "/items/76" for ::1 at 2021-03-15 11:12:43 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"76", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 76], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:13:21 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 2], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:13:21.292690"], ["updated_at", "2021-03-15 15:13:21.292690"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:13:27 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"2134", "description"=>"324", "looked_message"=>"234", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"2134", "description"=>"324", "looked_message"=>"234", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2134"], ["description", "324"], ["looked_message", "234"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:13:27.078034"], ["updated_at", "2021-03-15 15:13:27.078034"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 2961)
+
+
+Started GET "/items/77" for ::1 at 2021-03-15 11:13:27 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"77", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 77], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 77], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:14:35 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"", "obj_exit"=>"1", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"", "obj_exit"=>"1", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_exit", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_exit", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:14:35.797025"], ["updated_at", "2021-03-15 15:14:35.797025"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2912)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:14:45 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:14:45.933272"], ["updated_at", "2021-03-15 15:14:45.933272"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:14:50 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"ere", "description"=>"ere", "looked_message"=>"ere", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"ere", "description"=>"ere", "looked_message"=>"ere", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "ere"], ["description", "ere"], ["looked_message", "ere"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:14:50.596779"], ["updated_at", "2021-03-15 15:14:50.596779"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 2961)
+
+
+Started GET "/items/78" for ::1 at 2021-03-15 11:14:51 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"78", "item"=>{}}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 78], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 78], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1082)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:17:30 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:17:30.702762"], ["updated_at", "2021-03-15 15:17:30.702762"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.8ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:17:33 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"123", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"123", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213"], ["description", "123"], ["looked_message", "213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:17:33.568011"], ["updated_at", "2021-03-15 15:17:33.568011"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 2961)
+
+
+Started GET "/items/79" for ::1 at 2021-03-15 11:17:34 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"79", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 79], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:20:04 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:20:04.550742"], ["updated_at", "2021-03-15 15:20:04.550742"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 2.3ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:20:08 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213"], ["description", "213"], ["looked_message", "123"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:20:08.592759"], ["updated_at", "2021-03-15 15:20:08.592759"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 1.6ms | Allocations: 2961)
+
+
+Started GET "/items/80" for ::1 at 2021-03-15 11:20:09 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"80", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 80], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 80], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:21:32 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:21:32.903532"], ["updated_at", "2021-03-15 15:21:32.903532"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2909)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:21:48 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 2], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:21:48.625290"], ["updated_at", "2021-03-15 15:21:48.625290"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:21:52 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213"], ["description", "213"], ["looked_message", "213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:21:52.408622"], ["updated_at", "2021-03-15 15:21:52.408622"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 2961)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:23:31 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:23:31.472301"], ["updated_at", "2021-03-15 15:23:31.472301"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:23:35 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>true, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>true, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2637)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:23:36 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123"], ["description", "123"], ["looked_message", "123"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:23:36.849225"], ["updated_at", "2021-03-15 15:23:36.849225"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2961)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:26:32 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.3ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:26:32.128740"], ["updated_at", "2021-03-15 15:26:32.128740"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:26:34 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123"], ["description", "123"], ["looked_message", "123"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:26:34.782251"], ["updated_at", "2021-03-15 15:26:34.782251"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 2961)
+
+
+Started GET "/items/83" for ::1 at 2021-03-15 11:26:36 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"83", "item"=>{}}
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 83], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 83], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:33:16 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:33:16.270088"], ["updated_at", "2021-03-15 15:33:16.270088"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.2ms | Allocations: 3381)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:33:18 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"123", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123"], ["description", "123"], ["looked_message", "123"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:33:18.717119"], ["updated_at", "2021-03-15 15:33:18.717119"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 2994)
+
+
+Started GET "/items/84" for ::1 at 2021-03-15 11:33:20 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"84", "item"=>{}}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 84], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 84], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1118)
+
+
+Started PATCH "/items/84/edit" for ::1 at 2021-03-15 11:33:23 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/items/84/edit"):
+  
+Started POST "/rooms" for ::1 at 2021-03-15 11:34:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:34:23.999966"], ["updated_at", "2021-03-15 15:34:23.999966"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 34ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 15896)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:34:26 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"213", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"213", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123"], ["description", "213"], ["looked_message", "123"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:34:26.717815"], ["updated_at", "2021-03-15 15:34:26.717815"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 10852)
+
+
+Started GET "/items/85" for ::1 at 2021-03-15 11:34:28 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"85", "item"=>{}}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 85], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 85], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1223)
+
+
+Started PATCH "/items/85/edit" for ::1 at 2021-03-15 11:34:32 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/items/85/edit"):
+  
+Started POST "/rooms" for ::1 at 2021-03-15 11:35:28 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:35:28.926426"], ["updated_at", "2021-03-15 15:35:28.926426"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 2908)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:35:31 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123"], ["description", "213"], ["looked_message", "213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:35:31.622271"], ["updated_at", "2021-03-15 15:35:31.622271"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2961)
+
+
+Started GET "/items/86" for ::1 at 2021-03-15 11:35:33 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"86", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 86], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 86], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started PATCH "/items/86/edit" for ::1 at 2021-03-15 11:35:40 -0400
+  
+ActionController::RoutingError (No route matches [PATCH] "/items/86/edit"):
+  
+Started POST "/rooms" for ::1 at 2021-03-15 11:35:47 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"2", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 2], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:35:47.195464"], ["updated_at", "2021-03-15 15:35:47.195464"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2908)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:35:50 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"2313", "description"=>"123", "looked_message"=>"23", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"2313", "description"=>"123", "looked_message"=>"23", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2313"], ["description", "123"], ["looked_message", "23"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:35:50.974072"], ["updated_at", "2021-03-15 15:35:50.974072"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 2961)
+
+
+Started GET "/items/87" for ::1 at 2021-03-15 11:35:51 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"87", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 87], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 87], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:38:40 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:38:40.309966"], ["updated_at", "2021-03-15 15:38:40.309966"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:38:45 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"1`2", "description"=>"`12", "looked_message"=>"1", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"1`2", "description"=>"`12", "looked_message"=>"1", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1`2"], ["description", "`12"], ["looked_message", "1"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:38:45.815144"], ["updated_at", "2021-03-15 15:38:45.815144"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 2961)
+
+
+Started GET "/items/88" for ::1 at 2021-03-15 11:38:46 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"88", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 88], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 88], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:39:32 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:39:32.646927"], ["updated_at", "2021-03-15 15:39:32.646927"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:39:41 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213"], ["description", "213"], ["looked_message", "123"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:39:41.069062"], ["updated_at", "2021-03-15 15:39:41.069062"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 2962)
+
+
+Started GET "/items/89" for ::1 at 2021-03-15 11:39:41 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"89", "item"=>{}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:46:in `set_item'
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 89], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1081)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:52:45 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (1.6ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:52:45.123404"], ["updated_at", "2021-03-15 15:52:45.123404"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 3.4ms | Allocations: 3381)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:52:48 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"", "description"=>"", "looked_message"=>"", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"", "description"=>"", "looked_message"=>"", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (1.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 3548)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:52:52 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>true, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>true, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2637)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:52:54 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>true, "take_message"=>"213", "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"213", "looked_message"=>"123", "take"=>true, "take_message"=>"213", "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (1.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "take_message", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213"], ["description", "213"], ["looked_message", "123"], ["take", 1], ["take_message", "213"], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:52:54.220029"], ["updated_at", "2021-03-15 15:52:54.220029"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 2982)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:53:30 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:53:30.034314"], ["updated_at", "2021-03-15 15:53:30.034314"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:53:32 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"213", "description"=>"213", "looked_message"=>"231", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"213", "description"=>"213", "looked_message"=>"231", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "213"], ["description", "213"], ["looked_message", "231"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:53:32.963219"], ["updated_at", "2021-03-15 15:53:32.963219"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 2961)
+
+
+Started POST "/rooms" for ::1 at 2021-03-15 11:54:05 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 15:54:05.275732"], ["updated_at", "2021-03-15 15:54:05.275732"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.9ms | Allocations: 2909)
+
+
+Started POST "/items" for ::1 at 2021-03-15 11:54:08 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"213", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123"], ["description", "213"], ["looked_message", "213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 15:54:08.236875"], ["updated_at", "2021-03-15 15:54:08.236875"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 2961)
+
+
+Started POST "/rooms/new" for ::1 at 2021-03-15 12:00:58 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (1.5ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 16:00:58.956372"], ["updated_at", "2021-03-15 16:00:58.956372"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 22ms (Views: 0.4ms | ActiveRecord: 3.4ms | Allocations: 13852)
+
+
+Started POST "/rooms/new" for ::1 at 2021-03-15 12:01:10 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 16:01:10.686333"], ["updated_at", "2021-03-15 16:01:10.686333"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 2909)
+
+
+Started POST "/items/new" for ::1 at 2021-03-15 12:01:16 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"123", "description"=>"123", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"123", "description"=>"123", "looked_message"=>"213", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "123"], ["description", "123"], ["looked_message", "213"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 16:01:16.471230"], ["updated_at", "2021-03-15 16:01:16.471230"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 10706)
+
+
+Started POST "/rooms/new" for ::1 at 2021-03-15 12:10:27 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"11", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"11", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mRoom Create (1.7ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 11], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 16:10:27.163416"], ["updated_at", "2021-03-15 16:10:27.163416"]]
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18:in `create'
+Completed 200 OK in 24ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 13821)
+
+
+Started POST "/items/new" for ::1 at 2021-03-15 12:10:41 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"21312", "description"=>"123213", "looked_message"=>"123213", "take"=>true, "take_message"=>"132123", "closed"=>true, "closed_message"=>"213213", "talk"=>true, "talk_message"=>"123213", "locked"=>true, "locked_message"=>"123", "opened_message"=>"213", "item"=>{"name"=>"21312", "description"=>"123213", "looked_message"=>"123213", "take"=>true, "take_message"=>"132123", "closed"=>true, "closed_message"=>"213213", "talk"=>true, "talk_message"=>"123213", "locked"=>true, "locked_message"=>"123", "opened_message"=>"213", "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "take_message", "closed", "closed_message", "talk", "talk_message", "locked", "locked_message", "opened_message", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "21312"], ["description", "123213"], ["looked_message", "123213"], ["take", 1], ["take_message", "132123"], ["closed", 1], ["closed_message", "213213"], ["talk", 1], ["talk_message", "123213"], ["locked", 1], ["locked_message", "123"], ["opened_message", "213"], ["room_id", 1], ["created_at", "2021-03-15 16:10:41.480259"], ["updated_at", "2021-03-15 16:10:41.480259"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 19ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 10766)
+
+
+Started POST "/items/new" for ::1 at 2021-03-15 12:11:13 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"wer", "description"=>"wer", "looked_message"=>"wer", "take"=>true, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"wer", "description"=>"wer", "looked_message"=>"wer", "take"=>true, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2685)
+
+
+Started POST "/items/new" for ::1 at 2021-03-15 12:11:18 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"room_id"=>1, "name"=>"wer", "description"=>"wer", "looked_message"=>"wer", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "item"=>{"name"=>"wer", "description"=>"wer", "looked_message"=>"wer", "take"=>false, "take_message"=>nil, "closed"=>false, "closed_message"=>nil, "talk"=>false, "talk_message"=>nil, "locked"=>false, "locked_message"=>nil, "opened_message"=>nil, "room_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "description", "looked_message", "take", "closed", "talk", "locked", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "wer"], ["description", "wer"], ["looked_message", "wer"], ["take", 0], ["closed", 0], ["talk", 0], ["locked", 0], ["room_id", 1], ["created_at", "2021-03-15 16:11:18.168618"], ["updated_at", "2021-03-15 16:11:18.168618"]]
+  ↳ app/controllers/items_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:21:in `create'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2961)
+
+
