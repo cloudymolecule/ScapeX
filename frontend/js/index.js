@@ -662,7 +662,59 @@ document.addEventListener("DOMContentLoaded", () => {
                             return response.json()
                         })
                         .then(function(object) {
-                            console.log(object)
+                            class Item {
+                                constructor(
+                                    id,
+                                    name,
+                                    description,
+                                    looked_message,
+                                    take,
+                                    take_message,
+                                    closed,
+                                    closed_message,
+                                    talk,
+                                    talk_message,
+                                    locked,
+                                    locked_message,
+                                    opened_message,
+                                    room_id
+                                ) {
+                                    this.id = id
+                                    this.name = name
+                                    this.description = description
+                                    this.looked_message = looked_message
+                                    this.take = take
+                                    this.take_message = take_message
+                                    this.closed = closed
+                                    this.closed_message = closed_message
+                                    this.talk = talk
+                                    this.talk_message = talk_message
+                                    this.locked = locked
+                                    this.locked_message = locked_message
+                                    this.opened_message = opened_message
+                                    this.room_id = room_id
+                                }
+                            }
+                            object.data.forEach(i => { 
+                                const thisItem = new Item(
+                                    i.id,
+                                    i.attributes.name,
+                                    i.attributes.description,
+                                    i.attributes.looked_message,
+                                    i.attributes.take,
+                                    i.attributes.take_message,
+                                    i.attributes.closed,
+                                    i.attributes.closed_message,
+                                    i.attributes.talk,
+                                    i.attributes.talk_message,
+                                    i.attributes.locked,
+                                    i.attributes.locked_message,
+                                    i.attributes.opened_message,
+                                    i.relationships.room.data.id
+                                )
+                                
+                            })
+                            
                         })
                         .catch(function(error) {
                             console.log(error.message)

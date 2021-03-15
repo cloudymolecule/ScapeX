@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    items = Item.find_by(room_id: params[:id])
+    items = Room.find_by(id: params[:id]).items
     render json: ItemSerializer.new(items)
   end
 
