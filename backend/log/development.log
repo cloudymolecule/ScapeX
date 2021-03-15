@@ -15555,3 +15555,201 @@ Processing by ItemsController#create as JSON
 Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 2961)
 
 
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:24:05 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+Completed 500 Internal Server Error in 28548ms (ActiveRecord: 0.4ms | Allocations: 53798)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `index'
+app/controllers/rooms_controller.rb:8:in `index'
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:27:55 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (1.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 110ms (Views: 89.8ms | ActiveRecord: 4.4ms | Allocations: 95766)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:33:11 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 46ms (Views: 41.8ms | ActiveRecord: 2.6ms | Allocations: 85859)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:40:52 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (3.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 67ms (Views: 58.3ms | ActiveRecord: 5.5ms | Allocations: 86374)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:41:13 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 46.8ms | ActiveRecord: 1.9ms | Allocations: 85860)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:42:08 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 1.6ms | Allocations: 85859)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:42:20 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 2.0ms | Allocations: 85839)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:42:35 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 1.7ms | Allocations: 85839)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:42:47 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 43ms (Views: 39.9ms | ActiveRecord: 2.0ms | Allocations: 85838)
+
+
+Started GET "/rooms" for ::1 at 2021-03-15 12:43:07 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (2.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 79ms (Views: 64.0ms | ActiveRecord: 2.7ms | Allocations: 97702)
+
+
+Started GET "/rooms" for ::1 at 2021-03-15 12:44:26 -0400
+Processing by RoomsController#index as HTML
+  [1m[36mRoom Load (2.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 73ms (Views: 70.9ms | ActiveRecord: 2.1ms | Allocations: 85454)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:44:29 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 82ms (Views: 68.5ms | ActiveRecord: 2.6ms | Allocations: 87740)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:44:42 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (5.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 60ms (Views: 51.6ms | ActiveRecord: 5.6ms | Allocations: 85839)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:45:36 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 1.9ms | Allocations: 85860)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:46:48 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 43ms (Views: 40.2ms | ActiveRecord: 1.9ms | Allocations: 85859)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:48:30 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 2.1ms | Allocations: 85840)
+
+
+Started POST "/rooms/new" for ::1 at 2021-03-15 12:51:21 -0400
+Processing by RoomsController#create as JSON
+  Parameters: {"user_id"=>1, "name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts_allowed"=>"", "times_completed"=>0, "attempts"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "room"=>{"name"=>"", "setting"=>"fantasy", "time_limit"=>"", "completed_message"=>"", "attempts"=>0, "attempts_allowed"=>"", "times_completed"=>0, "obj_room"=>"1", "obj_exit"=>"", "lock"=>"", "user_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:21:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:21:in `create'
+  [1m[36mRoom Create (0.5ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "setting", "completed_message", "attempts", "times_completed", "obj_room", "lock", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", ""], ["setting", "fantasy"], ["completed_message", ""], ["attempts", 0], ["times_completed", 0], ["obj_room", 1], ["lock", ""], ["user_id", 1], ["created_at", "2021-03-15 16:51:21.043800"], ["updated_at", "2021-03-15 16:51:21.043800"]]
+  ↳ app/controllers/rooms_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:21:in `create'
+Completed 200 OK in 29ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 10971)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:53:13 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 55ms (Views: 51.4ms | ActiveRecord: 2.2ms | Allocations: 86064)
+
+
+Started GET "/1/rooms" for ::1 at 2021-03-15 12:53:28 -0400
+Processing by RoomsController#index as JSON
+  Parameters: {"id"=>"1", "room"=>{}}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:6:in `index'
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `index'
+Completed 200 OK in 45ms (Views: 41.6ms | ActiveRecord: 2.2ms | Allocations: 86060)
+
+

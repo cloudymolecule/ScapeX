@@ -2,6 +2,9 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :update, :destroy]
 
   def index
+    if params[:id]
+      rooms = Room.find_by(user_id: params[:id])
+    end
     rooms = Room.all
 
     render json: RoomSerializer.new(rooms)

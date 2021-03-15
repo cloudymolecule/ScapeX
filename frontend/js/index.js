@@ -475,7 +475,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     mMy.addEventListener('click', () => {
-        clearElems('interface')
+        loggedUser = 1
+        interface.innerHTML = `
+            <p>User Rooms<p>
+            <div id="rooms"></div>
+        `
+        const roomsDiv = document.getElementById('rooms')
         if (loggedUser) {
             let configObj = {
                 method: 'GET',
@@ -490,19 +495,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json()
             })
             .then(function(object) {
-                if (object.error) {
-                    clearElems('corner-top-right')
-                    const error = elementBuilder('p', object.error, null, {'class':'warning'})
-                    cTopRight.appendChild(error)
-                    switchAttr(cTopRight, 'class', 'corner-active')
-                    setTimeout(() => {
-                        clearElems('corner-top-right')
-                        switchAttr(cTopRight, 'class', 'corner-inactive')
-                    }, 6000)
-                } else {
-                    loggedToggle(object.data.attributes.id)
-                    interface.innerText = `You logged in successfully, ${object.data.attributes.username}.`
-                }
+                object.data.forEach(r => {
+                    const room = elementBuilder('div', null, null)
+                    room.innerHTML = `
+                        <p>Room Name: ${r.attributes.name}</p>
+                        <input type="submit" value="Edit" class="input-styles-button" id="edit-button">
+                        <input type="submit" value="Delete" class="input-styles-button" id="delete-button">
+                        <input type="submit" value="Edit Items" class="input-styles-button" id="edit-items-button">`
+                    
+                    const editButton = document.getElementById('edit-button')
+                    const deleteButton = document.getElementById('delete-button')
+                    const editItemsButton = document.getElementById('edit-items-button')
+                    roomsDiv.appendChild(room)
+
+                    editButton.addEventListener('click', () => {
+                        clearElems('interface')
+                        interface.innerHTML = 'edit!'
+                    })
+                    deleteButton.addEventListener('click', () => {
+                        clearElems('interface')
+                        interface.innerHTML = 'delete!'
+                    })
+                    editItemsButton.addEventListener('click', () => {
+                        clearElems('interface')
+                        interface.innerHTML = 'edit items!'
+                    })
+                })
             })
             .catch(function(error) {
                 console.log(error.message)
