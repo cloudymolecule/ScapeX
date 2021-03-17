@@ -735,6 +735,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             })
                             .then(function(object) {
                                 
+                                function checkForNull(value){
+                                    if (value === null) {
+                                        return ""
+                                    } else {
+                                        return value
+                                    }
+                                }
                                 class Item {
                                     constructor(
                                         id,
@@ -754,18 +761,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                         room_obj
                                     ) {
                                         this.id = id
-                                        this.name = name
-                                        this.description = description
-                                        this.looked_message = looked_message
+                                        this.name = checkForNull(name)
+                                        this.description = checkForNull(description)
+                                        this.looked_message = checkForNull(looked_message)
                                         this.take = take
-                                        this.take_message = take_message
+                                        this.take_message = checkForNull(take_message)
                                         this.closed = closed
-                                        this.closed_message = closed_message
+                                        this.closed_message = checkForNull(closed_message)
                                         this.talk = talk
-                                        this.talk_message = talk_message
+                                        this.talk_message = checkForNull(talk_message)
                                         this.locked = locked
-                                        this.locked_message = locked_message
-                                        this.opened_message = opened_message
+                                        this.locked_message = checkForNull(locked_message)
+                                        this.opened_message = checkForNull(opened_message)
                                         this.room_id = room_id
                                         this.room_obj = room_obj
                                     }
@@ -793,7 +800,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                         i.attributes.room.id,
                                         i.attributes.room.obj_room
                                     )
-                                    // roomItems = thisItem.room_obj here
                                     const items = document.getElementById('items')
                                     const itemFormElem =  elementBuilder('form', null, null, {'class':'item-form', 'id':`item-form-${thisItem.id}`})
                                     
