@@ -475,7 +475,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mMy.addEventListener('click', () => {
         loggedUser = 1
-        
         interface.innerHTML = `
             <p>User Rooms<p>
             <div id="rooms"></div>
@@ -654,8 +653,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         
                         
-                        let haha = thisRoom.items
-                        let wow = setInterval(() => {
+                        let rooIt = thisRoom.items
+                        let intervalToPleaseServer = setInterval(() => {
                             makeItems()
                         }, 50)
                       
@@ -678,9 +677,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         })
                         itemsIds.reverse()
                         function makeItems() {
-                            if (haha < thisRoom.obj_room) {
-                                console.log(haha)
-                                haha += 1
+                            if (rooIt < thisRoom.obj_room) {
+                                console.log(rooIt)
+                                rooIt += 1
                                 let formData = {
                                     room_id: thisRoom.id,
                                     name: 'add name',
@@ -705,8 +704,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     body: JSON.stringify(formData)
                                 }
                                 fetch('http://localhost:3000/items/new', configObj3)
-                            } else if (haha > thisRoom.obj_room) {
-                                haha -= 1
+                            } else if (rooIt > thisRoom.obj_room) {
+                                rooIt -= 1
                                 let configObj = {
                                     method: 'GET',
                                     headers: {
@@ -718,349 +717,291 @@ document.addEventListener("DOMContentLoaded", () => {
                                 itemsIds.shift()
                             } else {
                                 console.log('out')
-                                clearTimeout(wow)
+                                // clearTimeout(intervalToPleaseServer)
+                                clearInterval(intervalToPleaseServer)
                             }
                         }
                         
+                        setTimeout(() => {
+                            renderItems()
+                        }, 1500)
 
-                        
-                        
-                        
-                        
-                        
-                        
-                        let configObj = {
-                            method: 'GET',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Accept': 'application/json'
-                            },
-                        }
-                        fetch(`http://localhost:3000/items/${thisRoom.id}/index`, configObj)
-                        .then(function(response) {
-                            return response.json()
-                        })
-                        .then(function(object) {
-                            // savedItems = object.data.length
-                            
-                            class Item {
-                                constructor(
-                                    id,
-                                    name,
-                                    description,
-                                    looked_message,
-                                    take,
-                                    take_message,
-                                    closed,
-                                    closed_message,
-                                    talk,
-                                    talk_message,
-                                    locked,
-                                    locked_message,
-                                    opened_message,
-                                    room_id,
-                                    room_obj
-                                ) {
-                                    this.id = id
-                                    this.name = name
-                                    this.description = description
-                                    this.looked_message = looked_message
-                                    this.take = take
-                                    this.take_message = take_message
-                                    this.closed = closed
-                                    this.closed_message = closed_message
-                                    this.talk = talk
-                                    this.talk_message = talk_message
-                                    this.locked = locked
-                                    this.locked_message = locked_message
-                                    this.opened_message = opened_message
-                                    this.room_id = room_id
-                                    this.room_obj = room_obj
-                                }
+                        function renderItems() {
+
+                            let configObj = {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
                             }
-                            interface.innerHTML = `
-                                    <p>Edit this room's items</p>
-                                    <div id="items" class="items-alternate"></div>`
-                                    // checkEmptyItems()
-                            object.data.forEach(i => { 
-                                const thisItem = new Item(
-                                    i.id,
-                                    i.attributes.name,
-                                    i.attributes.description,
-                                    i.attributes.looked_message,
-                                    i.attributes.take,
-                                    i.attributes.take_message,
-                                    i.attributes.closed,
-                                    i.attributes.closed_message,
-                                    i.attributes.talk,
-                                    i.attributes.talk_message,
-                                    i.attributes.locked,
-                                    i.attributes.locked_message,
-                                    i.attributes.opened_message,
-                                    i.attributes.room.id,
-                                    i.attributes.room.obj_room
-                                )
-                                // roomItems = thisItem.room_obj here
-                                const items = document.getElementById('items')
-                                const itemFormElem =  elementBuilder('form', null, null, {'class':'item-form', 'id':`item-form-${thisItem.id}`})
+                            fetch(`http://localhost:3000/items/${thisRoom.id}/index`, configObj)
+                            .then(function(response) {
+                                return response.json()
+                            })
+                            .then(function(object) {
                                 
-                               
-                                function checkCheckedItem(radio) {
-                                    if (radio === 'can-it-be-taken-yes') {if (thisItem.take === true) {return 'checked="checked"'}}
-                                    if (radio === 'is-it-closed-yes') {if (thisItem.closed === true) {return 'checked="checked"'}}
-                                    if (radio === 'can-it-talk-yes') {if (thisItem.talk === true) {return 'checked="checked"'}}
-                                    if (radio === 'is-it-locked-yes') {if (thisItem.locked === true) {return 'checked="checked"'}}
-
-                                    if (radio === 'can-it-be-taken-no') {if (thisItem.take === false) {return 'checked="checked"'}}
-                                    if (radio === 'is-it-closed-no') {if (thisItem.closed === false) {return 'checked="checked"'}}
-                                    if (radio === 'can-it-talk-no') {if (thisItem.talk === false) {return 'checked="checked"'}}
-                                    if (radio === 'is-it-locked-no') {if (thisItem.locked === false) {return 'checked="checked"'}}
+                                class Item {
+                                    constructor(
+                                        id,
+                                        name,
+                                        description,
+                                        looked_message,
+                                        take,
+                                        take_message,
+                                        closed,
+                                        closed_message,
+                                        talk,
+                                        talk_message,
+                                        locked,
+                                        locked_message,
+                                        opened_message,
+                                        room_id,
+                                        room_obj
+                                    ) {
+                                        this.id = id
+                                        this.name = name
+                                        this.description = description
+                                        this.looked_message = looked_message
+                                        this.take = take
+                                        this.take_message = take_message
+                                        this.closed = closed
+                                        this.closed_message = closed_message
+                                        this.talk = talk
+                                        this.talk_message = talk_message
+                                        this.locked = locked
+                                        this.locked_message = locked_message
+                                        this.opened_message = opened_message
+                                        this.room_id = room_id
+                                        this.room_obj = room_obj
+                                    }
                                 }
-                                function messagesCheck(messageIncluded) {
-                                    if (messageIncluded === "take") {
-                                        if (thisItem.take === true) {
-                                            return `
+                                interface.innerHTML = `
+                                        <p>Edit this room's items</p>
+                                        <div id="items" class="items-alternate"></div>`
+                                        // checkEmptyItems()
+                                object.data.forEach(i => { 
+                                    const thisItem = new Item(
+                                        i.id,
+                                        i.attributes.name,
+                                        i.attributes.description,
+                                        i.attributes.looked_message,
+                                        i.attributes.take,
+                                        i.attributes.take_message,
+                                        i.attributes.closed,
+                                        i.attributes.closed_message,
+                                        i.attributes.talk,
+                                        i.attributes.talk_message,
+                                        i.attributes.locked,
+                                        i.attributes.locked_message,
+                                        i.attributes.opened_message,
+                                        i.attributes.room.id,
+                                        i.attributes.room.obj_room
+                                    )
+                                    // roomItems = thisItem.room_obj here
+                                    const items = document.getElementById('items')
+                                    const itemFormElem =  elementBuilder('form', null, null, {'class':'item-form', 'id':`item-form-${thisItem.id}`})
+                                    
+                                
+                                    function checkCheckedItem(radio) {
+                                        if (radio === 'can-it-be-taken-yes') {if (thisItem.take === true) {return 'checked="checked"'}}
+                                        if (radio === 'is-it-closed-yes') {if (thisItem.closed === true) {return 'checked="checked"'}}
+                                        if (radio === 'can-it-talk-yes') {if (thisItem.talk === true) {return 'checked="checked"'}}
+                                        if (radio === 'is-it-locked-yes') {if (thisItem.locked === true) {return 'checked="checked"'}}
+
+                                        if (radio === 'can-it-be-taken-no') {if (thisItem.take === false) {return 'checked="checked"'}}
+                                        if (radio === 'is-it-closed-no') {if (thisItem.closed === false) {return 'checked="checked"'}}
+                                        if (radio === 'can-it-talk-no') {if (thisItem.talk === false) {return 'checked="checked"'}}
+                                        if (radio === 'is-it-locked-no') {if (thisItem.locked === false) {return 'checked="checked"'}}
+                                    }
+                                    function messagesCheck(messageIncluded) {
+                                        if (messageIncluded === "take") {
+                                            if (thisItem.take === true) {
+                                                return `
+                                                <label class="input-styles">Message when taken:</label>
+                                                <textarea class="input-styles-inp" id="take-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.take_message}</textarea><br />`
+                                            } else {return ""}
+                                        } 
+                                        if (messageIncluded === "closed") {
+                                            if (thisItem.closed === true) {
+                                                return `
+                                                <label class="input-styles">Message when closed:</label>
+                                                <textarea class="input-styles-inp" id="closed-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.closed_message}</textarea><br />
+                                            `
+                                            } else {return ""}
+                                        } 
+                                        if (messageIncluded === "talk") {
+                                            if (thisItem.talk === true) {
+                                                return `
+                                                <label class="input-styles">Can it talk:</label>
+                                                <textarea class="input-styles-inp" id="talk-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.talk_message}</textarea><br />
+                                            `
+                                            } else {return ""}
+                                        } 
+                                        if (messageIncluded === "locked") {
+                                            if (thisItem.locked === true) {
+                                                return `
+                                                <label class="input-styles">Locked Message:</label>
+                                                <textarea class="input-styles-inp" id="locked-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.locked_message}</textarea><br />
+                        
+                                                <label class="input-styles">Opened Message:</label>
+                                                <textarea class="input-styles-inp" id="opened-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.opened_message}</textarea><br />
+                                            `
+                                            } else {return ""}
+                                        } 
+                                    }
+                                    
+                                    itemFormElem.innerHTML = `
+                                        <label class="input-styles">Name:</label>
+                                        <input "type="text" value="${thisItem.name}" class="input-styles-inp" id="name-${thisItem.id}"><br />
+
+                                        <label class="input-styles">Description:</label>
+                                        <input type="text" value="${thisItem.description}" class="input-styles-inp" id="description-${thisItem.id}"><br />
+
+                                        <label class="input-styles">When looked at:</label>
+                                        <input type="text" value="${thisItem.looked_message}" class="input-styles-inp" id="looked-${thisItem.id}"><br />
+
+                                        <label class="input-styles">Can it be taken?:</label>
+                                        <input type="radio" ${checkCheckedItem('can-it-be-taken-no')} name="can-it-be-taken" value="no" id="radio-can-it-be-taken-no-${thisItem.id}">
+                                        <label class="input-styles">no</label>
+                                        <input type="radio" ${checkCheckedItem('can-it-be-taken-yes')} name="can-it-be-taken" value="yes" id="radio-can-it-be-taken-yes-${thisItem.id}">
+                                        <label class="input-styles">yes</label><br />
+                                        <div id="can-it-be-taken-${thisItem.id}">
+                                        ${messagesCheck('take')}
+                                        </div>
+                                        
+                                        <label class="input-styles">Is it closed?:</label>
+                                        <input type="radio" ${checkCheckedItem('is-it-closed-no')} name="is-it-closed" value="no" id="radio-is-it-closed-no-${thisItem.id}">
+                                        <label class="input-styles">no</label>
+                                        <input type="radio" ${checkCheckedItem('is-it-closed-yes')} name="is-it-closed" value="yes" id="radio-is-it-closed-yes-${thisItem.id}">
+                                        <label class="input-styles">yes</label><br />
+                                        <div id="is-it-closed-${thisItem.id}">
+                                        ${messagesCheck('closed')}
+                                        </div>
+                                        
+                                        <label class="input-styles">Can it talk:</label>
+                                        <input type="radio" ${checkCheckedItem('can-it-talk-no')} name="can-it-talk" value="no" id="radio-can-it-talk-no-${thisItem.id}">
+                                        <label class="input-styles">no</label>
+                                        <input type="radio" ${checkCheckedItem('can-it-talk-yes')} name="can-it-talk" value="yes" id="radio-can-it-talk-yes-${thisItem.id}">
+                                        <label class="input-styles">yes</label><br />
+                                        <div id="can-it-talk-${thisItem.id}">
+                                        ${messagesCheck('talk')}
+                                        </div>
+
+                                        <label class="input-styles">Is it locked:</label>
+                                        <input type="radio" ${checkCheckedItem('is-it-locked-no')} name="is-it-locked" value="no" id="radio-is-it-locked-no-${thisItem.id}">
+                                        <label class="input-styles">no</label>
+                                        <input type="radio" ${checkCheckedItem('is-it-locked-yes')} name="is-it-locked" value="yes" id="radio-is-it-locked-yes-${thisItem.id}">
+                                        <label class="input-styles">yes</label><br />
+                                        <div id="is-it-locked-${thisItem.id}">
+                                        ${messagesCheck('locked')}
+                                        </div>
+
+                                        <br />
+                                        <input type="submit" value="Update" class="input-styles-button" id="update-button-${thisItem.id}">`
+                                        
+                                    items.appendChild(itemFormElem)
+                                    
+                                    const updateButton = document.getElementById(`update-button-${thisItem.id}`)
+                                    updateButton.addEventListener('click', function(e) {e.preventDefault()})
+                                    const canItBeTaken = document.getElementById(`can-it-be-taken-${thisItem.id}`)
+                                    const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${thisItem.id}`)
+                                    const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${thisItem.id}`)
+                                    let canItBeTakenYesNo = false
+                                    radioCanItBeTakenYes.addEventListener('change', function(e) {
+                                        canItBeTakenYesNo = true
+                                        clearElems(`can-it-be-taken-${thisItem.id}`)
+                                        const messageDiv = document.createElement('div')
+                                        messageDiv.innerHTML = `
                                             <label class="input-styles">Message when taken:</label>
-                                            <textarea class="input-styles-inp" id="take-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.take_message}</textarea><br />`
-                                        } else {return ""}
-                                    } 
-                                    if (messageIncluded === "closed") {
-                                        if (thisItem.closed === true) {
-                                            return `
+                                            <textarea class="input-styles-inp" id="take-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.take_message}</textarea><br />
+                                        `
+                                        canItBeTaken.appendChild(messageDiv)
+                                    })
+
+                                    radioCanItBeTakenNo.addEventListener('change', function(e) {
+                                        canItBeTakenYesNo = false
+                                        clearElems(`can-it-be-taken-${thisItem.id}`)
+                                    })
+
+                                    const isItClosed = document.getElementById(`is-it-closed-${thisItem.id}`)
+                                    const radioIsItClosedYes = document.getElementById(`radio-is-it-closed-yes-${thisItem.id}`)
+                                    const radioIsItClosedNo = document.getElementById(`radio-is-it-closed-no-${thisItem.id}`)
+                                    let isItClosedYesNo = false
+                                    radioIsItClosedYes.addEventListener('change', function(e) {
+                                        isItClosedYesNo = true
+                                        clearElems(`is-it-closed-${thisItem.id}`)
+                                        const messageDiv = document.createElement('div')
+                                        messageDiv.innerHTML = `
                                             <label class="input-styles">Message when closed:</label>
                                             <textarea class="input-styles-inp" id="closed-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.closed_message}</textarea><br />
                                         `
-                                        } else {return ""}
-                                    } 
-                                    if (messageIncluded === "talk") {
-                                        if (thisItem.talk === true) {
-                                            return `
+                                        isItClosed.appendChild(messageDiv)
+                                    })
+
+                                    radioIsItClosedNo.addEventListener('change', function(e) {
+                                        isItClosedYesNo = false
+                                        clearElems(`is-it-closed-${thisItem.id}`)
+                                    })
+
+                                    const canItTalk = document.getElementById(`can-it-talk-${thisItem.id}`)
+                                    const radioCanItTalkYes = document.getElementById(`radio-can-it-talk-yes-${thisItem.id}`)
+                                    const radioCanItTalkNo = document.getElementById(`radio-can-it-talk-no-${thisItem.id}`)
+                                    let canItTalkYesNo = false
+                                    radioCanItTalkYes.addEventListener('change', function(e) {
+                                        canItTalkYesNo = true
+                                        clearElems(`can-it-talk-${thisItem.id}`)
+                                        const messageDiv = document.createElement('div')
+                                        messageDiv.innerHTML = `
                                             <label class="input-styles">Can it talk:</label>
                                             <textarea class="input-styles-inp" id="talk-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.talk_message}</textarea><br />
                                         `
-                                        } else {return ""}
-                                    } 
-                                    if (messageIncluded === "locked") {
-                                        if (thisItem.locked === true) {
-                                            return `
+                                        canItTalk.appendChild(messageDiv)
+                                    })
+
+                                    radioCanItTalkNo.addEventListener('change', function(e) {
+                                        canItTalkYesNo = false
+                                        clearElems(`can-it-talk-${thisItem.id}`)
+                                    })
+                                    
+                                    const IsItLocked = document.getElementById(`is-it-locked-${thisItem.id}`)
+                                    const radioIsItLockedYes = document.getElementById(`radio-is-it-locked-yes-${thisItem.id}`)
+                                    const radioIsItLockedNo = document.getElementById(`radio-is-it-locked-no-${thisItem.id}`)
+                                    let isItLockedYesNo = false
+                                    radioIsItLockedYes.addEventListener('change', function(e) {
+                                        isItLockedYesNo = true
+                                        clearElems(`is-it-locked-${thisItem.id}`)
+                                        const messageDiv = document.createElement('div')
+                                        messageDiv.innerHTML = `
                                             <label class="input-styles">Locked Message:</label>
                                             <textarea class="input-styles-inp" id="locked-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.locked_message}</textarea><br />
-                    
+
                                             <label class="input-styles">Opened Message:</label>
                                             <textarea class="input-styles-inp" id="opened-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.opened_message}</textarea><br />
                                         `
-                                        } else {return ""}
-                                    } 
-                                }
-                                
-                                itemFormElem.innerHTML = `
-                                    <label class="input-styles">Name:</label>
-                                    <input "type="text" value="${thisItem.name}" class="input-styles-inp" id="name-${thisItem.id}"><br />
+                                        IsItLocked.appendChild(messageDiv)
+                                    })
 
-                                    <label class="input-styles">Description:</label>
-                                    <input type="text" value="${thisItem.description}" class="input-styles-inp" id="description-${thisItem.id}"><br />
-
-                                    <label class="input-styles">When looked at:</label>
-                                    <input type="text" value="${thisItem.looked_message}" class="input-styles-inp" id="looked-${thisItem.id}"><br />
-
-                                    <label class="input-styles">Can it be taken?:</label>
-                                    <input type="radio" ${checkCheckedItem('can-it-be-taken-no')} name="can-it-be-taken" value="no" id="radio-can-it-be-taken-no-${thisItem.id}">
-                                    <label class="input-styles">no</label>
-                                    <input type="radio" ${checkCheckedItem('can-it-be-taken-yes')} name="can-it-be-taken" value="yes" id="radio-can-it-be-taken-yes-${thisItem.id}">
-                                    <label class="input-styles">yes</label><br />
-                                    <div id="can-it-be-taken-${thisItem.id}">
-                                    ${messagesCheck('take')}
-                                    </div>
+                                    radioIsItLockedNo.addEventListener('change', function(e) {
+                                        isItLockedYesNo = false
+                                        clearElems(`is-it-locked-${thisItem.id}`)
+                                    })
                                     
-                                    <label class="input-styles">Is it closed?:</label>
-                                    <input type="radio" ${checkCheckedItem('is-it-closed-no')} name="is-it-closed" value="no" id="radio-is-it-closed-no-${thisItem.id}">
-                                    <label class="input-styles">no</label>
-                                    <input type="radio" ${checkCheckedItem('is-it-closed-yes')} name="is-it-closed" value="yes" id="radio-is-it-closed-yes-${thisItem.id}">
-                                    <label class="input-styles">yes</label><br />
-                                    <div id="is-it-closed-${thisItem.id}">
-                                    ${messagesCheck('closed')}
-                                    </div>
-                                    
-                                    <label class="input-styles">Can it talk:</label>
-                                    <input type="radio" ${checkCheckedItem('can-it-talk-no')} name="can-it-talk" value="no" id="radio-can-it-talk-no-${thisItem.id}">
-                                    <label class="input-styles">no</label>
-                                    <input type="radio" ${checkCheckedItem('can-it-talk-yes')} name="can-it-talk" value="yes" id="radio-can-it-talk-yes-${thisItem.id}">
-                                    <label class="input-styles">yes</label><br />
-                                    <div id="can-it-talk-${thisItem.id}">
-                                    ${messagesCheck('talk')}
-                                    </div>
-
-                                    <label class="input-styles">Is it locked:</label>
-                                    <input type="radio" ${checkCheckedItem('is-it-locked-no')} name="is-it-locked" value="no" id="radio-is-it-locked-no-${thisItem.id}">
-                                    <label class="input-styles">no</label>
-                                    <input type="radio" ${checkCheckedItem('is-it-locked-yes')} name="is-it-locked" value="yes" id="radio-is-it-locked-yes-${thisItem.id}">
-                                    <label class="input-styles">yes</label><br />
-                                    <div id="is-it-locked-${thisItem.id}">
-                                    ${messagesCheck('locked')}
-                                    </div>
-
-                                    <br />
-                                    <input type="submit" value="Update" class="input-styles-button" id="update-button-${thisItem.id}">`
-                                    
-                                
-
-
-
-
-
-                                
-                                
-                                items.appendChild(itemFormElem)
-                                
-                                const updateButton = document.getElementById(`update-button-${thisItem.id}`)
-                                updateButton.addEventListener('click', function(e) {e.preventDefault()})
-                                const canItBeTaken = document.getElementById(`can-it-be-taken-${thisItem.id}`)
-                                const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${thisItem.id}`)
-                                const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${thisItem.id}`)
-                                let canItBeTakenYesNo = false
-                                radioCanItBeTakenYes.addEventListener('change', function(e) {
-                                    canItBeTakenYesNo = true
-                                    clearElems(`can-it-be-taken-${thisItem.id}`)
-                                    const messageDiv = document.createElement('div')
-                                    messageDiv.innerHTML = `
-                                        <label class="input-styles">Message when taken:</label>
-                                        <textarea class="input-styles-inp" id="take-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.take_message}</textarea><br />
-                                    `
-                                    canItBeTaken.appendChild(messageDiv)
-                                })
-
-                                radioCanItBeTakenNo.addEventListener('change', function(e) {
-                                    canItBeTakenYesNo = false
-                                    clearElems(`can-it-be-taken-${thisItem.id}`)
-                                })
-
-                                const isItClosed = document.getElementById(`is-it-closed-${thisItem.id}`)
-                                const radioIsItClosedYes = document.getElementById(`radio-is-it-closed-yes-${thisItem.id}`)
-                                const radioIsItClosedNo = document.getElementById(`radio-is-it-closed-no-${thisItem.id}`)
-                                let isItClosedYesNo = false
-                                radioIsItClosedYes.addEventListener('change', function(e) {
-                                    isItClosedYesNo = true
-                                    clearElems(`is-it-closed-${thisItem.id}`)
-                                    const messageDiv = document.createElement('div')
-                                    messageDiv.innerHTML = `
-                                        <label class="input-styles">Message when closed:</label>
-                                        <textarea class="input-styles-inp" id="closed-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.closed_message}</textarea><br />
-                                    `
-                                    isItClosed.appendChild(messageDiv)
-                                })
-
-                                radioIsItClosedNo.addEventListener('change', function(e) {
-                                    isItClosedYesNo = false
-                                    clearElems(`is-it-closed-${thisItem.id}`)
-                                })
-
-                                const canItTalk = document.getElementById(`can-it-talk-${thisItem.id}`)
-                                const radioCanItTalkYes = document.getElementById(`radio-can-it-talk-yes-${thisItem.id}`)
-                                const radioCanItTalkNo = document.getElementById(`radio-can-it-talk-no-${thisItem.id}`)
-                                let canItTalkYesNo = false
-                                radioCanItTalkYes.addEventListener('change', function(e) {
-                                    canItTalkYesNo = true
-                                    clearElems(`can-it-talk-${thisItem.id}`)
-                                    const messageDiv = document.createElement('div')
-                                    messageDiv.innerHTML = `
-                                        <label class="input-styles">Can it talk:</label>
-                                        <textarea class="input-styles-inp" id="talk-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.talk_message}</textarea><br />
-                                    `
-                                    canItTalk.appendChild(messageDiv)
-                                })
-
-                                radioCanItTalkNo.addEventListener('change', function(e) {
-                                    canItTalkYesNo = false
-                                    clearElems(`can-it-talk-${thisItem.id}`)
                                 })
                                 
-                                const IsItLocked = document.getElementById(`is-it-locked-${thisItem.id}`)
-                                const radioIsItLockedYes = document.getElementById(`radio-is-it-locked-yes-${thisItem.id}`)
-                                const radioIsItLockedNo = document.getElementById(`radio-is-it-locked-no-${thisItem.id}`)
-                                let isItLockedYesNo = false
-                                radioIsItLockedYes.addEventListener('change', function(e) {
-                                    isItLockedYesNo = true
-                                    clearElems(`is-it-locked-${thisItem.id}`)
-                                    const messageDiv = document.createElement('div')
-                                    messageDiv.innerHTML = `
-                                        <label class="input-styles">Locked Message:</label>
-                                        <textarea class="input-styles-inp" id="locked-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.locked_message}</textarea><br />
-
-                                        <label class="input-styles">Opened Message:</label>
-                                        <textarea class="input-styles-inp" id="opened-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.opened_message}</textarea><br />
-                                    `
-                                    IsItLocked.appendChild(messageDiv)
-                                })
-
-                                radioIsItLockedNo.addEventListener('change', function(e) {
-                                    isItLockedYesNo = false
-                                    clearElems(`is-it-locked-${thisItem.id}`)
-                                })
-                                // saveButton.addEventListener('click', () => {
-                                //     console.log(`save ${thisItem.id}`)
-                                    
-                                //     function isThereContent(element) {
-                                //         if (element && element.value) { return element.value } else { return null}
-                                //     }
-
-                                    // let formData = {
-                                    //     room_id: 1,
-                                    //     name: document.getElementById(`name-${i}`).value,
-                                    //     description: document.getElementById(`description-${i}`).value,
-                                    //     looked_message: document.getElementById(`looked-${i}`).value,
-                                    //     take: canItBeTakenYesNo,
-                                    //     take_message: isThereContent(document.getElementById(`take-message${i}`)),
-                                    //     closed: isItClosedYesNo,
-                                    //     closed_message: isThereContent(document.getElementById(`closed-message${i}`)),
-                                    //     talk: canItTalkYesNo,
-                                    //     talk_message: isThereContent(document.getElementById(`talk-message${i}`)),
-                                    //     locked: isItLockedYesNo,
-                                    //     locked_message: isThereContent(document.getElementById(`locked-message${i}`)),
-                                    //     opened_message: isThereContent(document.getElementById(`opened-message${i}`))
-                                    // }
-
-                                    // let configObj = {
-                                    //     method: 'POST',
-                                    //     headers: {
-                                    //         'Content-Type': 'application/json',
-                                    //         'Accept': 'application/json'
-                                    //     },
-                                    //     body: JSON.stringify(formData)
-                                    // }
-
-                                    // fetch('http://localhost:3000/items/new', configObj)
-                                    // .then(function(response) {
-                                    //     return response.json()
-                                    // })
-                                    // .then(function(object) {
-                                    //     if (object.errors) {
-                                    //         clearElems('corner-top-right')
-                                    //         object.errors.forEach(error => {
-                                    //             const errorItems = elementBuilder('p', error, null, {'class':'warning'})
-                                    //             switchAttr(cTopRight, 'class', 'corner-active')
-                                    //             cTopRight.appendChild(errorItems)
-                                    //         })
-                                    //         setTimeout(() => {
-                                    //             clearElems('corner-top-right')
-                                    //             switchAttr(cTopRight, 'class', 'corner-inactive')
-                                    //         }, 8000)
-                                    //     } else {
-                                    //         itemFormElem.className = 'item-form saved'
-                                    //         const savedName = document.getElementById(`name-${i}`).value
-                                    //         itemFormElem.innerHTML = `<p class="items-alternate">Item: ${savedName}</p>`
-                                    //     }
-                                    // })
-                                    // .catch(function(error) {
-                                    //     console.log(error.message)
-                                    // })
-                            // })
                             })
-                            
-                        })
-                        .catch(function(error) {
-                            console.log(error.message)
-                        })
-                        // interface.innerHTML =`delete-button-${r.id}`
+                            .catch(function(error) {
+                                console.log(error.message)
+                            })
+                            // interface.innerHTML =`delete-button-${r.id}`
+
+                    }
+
+
+
+
+
+
                     })
                 })
             })
