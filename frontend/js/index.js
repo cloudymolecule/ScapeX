@@ -321,8 +321,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             items.appendChild(itemFormElem)
 
-                            const saveButton = document.getElementById(`save-button-${i}`)
-                            saveButton.addEventListener('click', function(e) {e.preventDefault()})
+                            const saveButtonItem = document.getElementById(`save-button-${i}`)
+                            // saveButton.addEventListener('click', function(e) {e.preventDefault()})
                             const canItBeTaken = document.getElementById(`can-it-be-taken-${i}`)
                             const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${i}`)
                             const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${i}`)
@@ -405,9 +405,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 isItLockedYesNo = false
                                 clearElems(`is-it-locked-${i}`)
                             })
-                            saveButton.addEventListener('click', () => {
-                                console.log(`save ${i}`)
-                                
+                            saveButtonItem.addEventListener('click', (e) => {
+                                e.preventDefault()
                                 function isThereContent(element) {
                                     if (element && element.value) { return element.value } else { return null}
                                 }
@@ -475,6 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mMy.addEventListener('click', () => {
         loggedUser = 1
+        let itemsCounter = 0
         interface.innerHTML = `
             <p>User Rooms<p>
             <div id="rooms"></div>
@@ -650,9 +650,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     editItemsButton.addEventListener('click', (e) => {
                         e.preventDefault()
-                        
-                        
-                        
                         let rooIt = thisRoom.items
                         let intervalToPleaseServer = setInterval(() => {
                             makeItems()
@@ -678,7 +675,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         itemsIds.reverse()
                         function makeItems() {
                             if (rooIt < thisRoom.obj_room) {
-                                console.log(rooIt)
                                 rooIt += 1
                                 let formData = {
                                     room_id: thisRoom.id,
@@ -716,8 +712,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 fetch(`http://localhost:3000/items/${itemsIds[0]}/delete`, configObj)
                                 itemsIds.shift()
                             } else {
-                                console.log('out')
-                                // clearTimeout(intervalToPleaseServer)
                                 clearInterval(intervalToPleaseServer)
                             }
                         }
@@ -781,6 +775,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <div id="items" class="items-alternate"></div>`
                                         // checkEmptyItems()
                                 object.data.forEach(i => { 
+                                    itemsCounter += 1
                                     const thisItem = new Item(
                                         i.id,
                                         i.attributes.name,
@@ -850,7 +845,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                             } else {return ""}
                                         } 
                                     }
-                                    
                                     itemFormElem.innerHTML = `
                                         <label class="input-styles">Name:</label>
                                         <input "type="text" value="${thisItem.name}" class="input-styles-inp" id="name-${thisItem.id}"><br />
@@ -898,12 +892,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                         </div>
 
                                         <br />
-                                        <input type="submit" value="Update" class="input-styles-button" id="update-button-${thisItem.id}">`
-                                        
+                                        <input type="submit" value="Update" class="input-styles-button" id="update-button-${thisItem.id}">
+                                        <input type="submit" value="Delete" class="input-styles-button" id="delete-button-${thisItem.id}">`
+
                                     items.appendChild(itemFormElem)
                                     
-                                    const updateButton = document.getElementById(`update-button-${thisItem.id}`)
-                                    updateButton.addEventListener('click', function(e) {e.preventDefault()})
+                                    
+
+
                                     const canItBeTaken = document.getElementById(`can-it-be-taken-${thisItem.id}`)
                                     const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${thisItem.id}`)
                                     const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${thisItem.id}`)
@@ -987,6 +983,128 @@ document.addEventListener("DOMContentLoaded", () => {
                                         clearElems(`is-it-locked-${thisItem.id}`)
                                     })
                                     
+
+
+                                    const updateButtonItem = document.getElementById(`update-button-${thisItem.id}`)
+                                    const deleteButtonItem = document.getElementById(`delete-button-${thisItem.id}`)
+
+                                    updateButtonItem.addEventListener('click', function(e) {
+                                        
+                                        e.preventDefault()
+                                        function isThereContent(element) {
+                                            if (element && element.value) { return element.value } else { return null}
+                                        }
+        
+                                        let formData = {
+                                            room_id: 1,
+                                            name: document.getElementById(`name-${thisItem.id}`).value,
+                                            description: document.getElementById(`description-${thisItem.id}`).value,
+                                            looked_message: document.getElementById(`looked-${thisItem.id}`).value,
+                                            take: canItBeTakenYesNo,
+                                            take_message: isThereContent(document.getElementById(`take-message${thisItem.id}`)),
+                                            closed: isItClosedYesNo,
+                                            closed_message: isThereContent(document.getElementById(`closed-message${thisItem.id}`)),
+                                            talk: canItTalkYesNo,
+                                            talk_message: isThereContent(document.getElementById(`talk-message${thisItem.id}`)),
+                                            locked: isItLockedYesNo,
+                                            locked_message: isThereContent(document.getElementById(`locked-message${thisItem.id}`)),
+                                            opened_message: isThereContent(document.getElementById(`opened-message${thisItem.id}`))
+                                        }
+                                        let configObj = {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'Accept': 'application/json'
+                                            },
+                                            body: JSON.stringify(formData)
+                                        }
+        
+                                        fetch('http://localhost:3000/items/new', configObj)
+                                        .then(function(response) {
+                                            return response.json()
+                                        })
+                                        .then(function(object) {
+                                            if (object.errors) {
+                                                clearElems('corner-top-right')
+                                                object.errors.forEach(error => {
+                                                    const errorItems = elementBuilder('p', error, null, {'class':'warning'})
+                                                    switchAttr(cTopRight, 'class', 'corner-active')
+                                                    cTopRight.appendChild(errorItems)
+                                                })
+                                                setTimeout(() => {
+                                                    clearElems('corner-top-right')
+                                                    switchAttr(cTopRight, 'class', 'corner-inactive')
+                                                }, 8000)
+                                            } else {
+                                                itemFormElem.className = 'item-form saved'
+                                                const savedName = document.getElementById(`name-${thisItem.id}`).value
+                                                itemFormElem.innerHTML = `
+                                                    <p class="items-alternate">Item: ${thisItem.id}</p>
+                                                    <input type="submit" value="Delete" class="input-styles-button" id="delete-button-${thisItem.id}">`
+                                            }
+                                        })
+                                        .catch(function(error) {
+                                            console.log(error.message)
+                                        })
+
+                                    })
+                                    deleteButtonItem.addEventListener('click', function(e) {
+                                        e.preventDefault()
+                                        if (itemsCounter === 1) {
+                                            clearElems('corner-top-right')
+                                            const errorDelete = elementBuilder('p', 'Room must have at least one item', null, {'class':'warning'})
+                                            switchAttr(cTopRight, 'class', 'corner-active')
+                                            cTopRight.appendChild(errorDelete)
+                                            setTimeout(() => {
+                                                clearElems('corner-top-right')
+                                                switchAttr(cTopRight, 'class', 'corner-inactive')
+                                            }, 8000)
+                                        } else if (itemsCounter > 1){
+                                            itemsCounter = itemsCounter - 1
+                                            let configObj = {
+                                                method: 'GET',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'Accept': 'application/json'
+                                                },
+                                            }
+                                            fetch(`http://localhost:3000/items/${thisItem.id}/delete`, configObj)
+    
+    
+                                            let formData = {
+                                                obj_room: itemsCounter
+                                            }
+                                            let configObj2 = {
+                                                method: 'PATCH',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'Accept': 'application/json'
+                                                },
+                                                body: JSON.stringify(formData)
+                                            }
+                                            setTimeout(() => {
+                                                fetch(`http://localhost:3000/rooms/${thisItem.room_id}/update`, configObj2)
+                                            }, 50)
+                                            itemFormElem.className = 'item-form saved'
+                                            itemFormElem.innerHTML = `<p class="items-alternate">Item deleted</p>`
+                                        }
+                                        
+
+
+                                        
+
+
+                                        
+                                        
+
+
+
+
+
+
+                                        
+
+                                    })
                                 })
                                 
                             })

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # resources :rooms
   # resources :users 
   # resources :sessions
+  get '/items/:id', to: 'items#show'
   get '/rooms/:id', to: 'rooms#show'
   post '/rooms/new', to: 'rooms#create'
   get '/rooms', to: 'rooms#index'
