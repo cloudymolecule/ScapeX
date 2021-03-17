@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   # resources :rooms
   # resources :users 
   # resources :sessions
+  get '/rooms/:id', to: 'rooms#show'
   post '/rooms/new', to: 'rooms#create'
   get '/rooms', to: 'rooms#index'
   patch '/rooms/:id/update', to: 'rooms#update'
   delete '/rooms/:id/delete', to: 'rooms#destroy'
   get '/:id/rooms', to: 'rooms#index'
   get '/items/:id/index', to: 'items#index'
+  get '/items/:id/delete', to: 'items#destroy'
   post '/items/new', to: 'items#create'
   post '/users/new', to: 'users#create'
   post '/login', to: 'sessions#login'

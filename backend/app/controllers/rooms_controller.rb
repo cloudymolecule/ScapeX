@@ -10,9 +10,10 @@ class RoomsController < ApplicationController
     render json: RoomSerializer.new(rooms)
   end
 
-  # def show
-  #   render json: room
-  # end
+  def show
+    room = Room.find(params[:id])
+    render json: RoomSerializer.new(room)
+  end
 
   # POST /rooms
   def create
@@ -26,6 +27,7 @@ class RoomsController < ApplicationController
 
   # PATCH/PUT /rooms/1
   def update
+    # byebug
     room = Room.find(params[:id])
     if room.update(room_params)
       render json: RoomSerializer.new(room)

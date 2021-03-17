@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
-   
+    # byebug
     item = Item.new(item_params)
     if item.save
       render json: ItemSerializer.new(item)
@@ -34,10 +34,12 @@ class ItemsController < ApplicationController
     end
   end
 
-  # # DELETE /items/1
-  # def destroy
-  #   @item.destroy
-  # end
+  # DELETE /items/1
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    render json: {success: "Item deleted successfully"}
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

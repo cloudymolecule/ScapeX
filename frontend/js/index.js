@@ -475,6 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mMy.addEventListener('click', () => {
         loggedUser = 1
+        
         interface.innerHTML = `
             <p>User Rooms<p>
             <div id="rooms"></div>
@@ -495,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then(function(object) {
                 class Room {
-                    constructor(id, user_id, name, setting, time_limit, completed_message, attempts, attempts_allowed, times_completed, obj_room, obj_exit, lock) {
+                    constructor(id, user_id, name, setting, time_limit, completed_message, attempts, attempts_allowed, times_completed, obj_room, obj_exit, lock, items) {
                         this.id = id
                         this.user_id = user_id
                         this.name = name
@@ -508,6 +509,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         this.obj_room = obj_room
                         this.obj_exit = obj_exit
                         this.lock = lock
+                        this.items = items
                     }
                 }
                 object.data.forEach(r => {
@@ -525,6 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         r.attributes.obj_room,
                         r.attributes.obj_exit,
                         r.attributes.lock,
+                        r.attributes.items.length
                     )
                     
                     roo.innerHTML = `
@@ -542,7 +545,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (radio === thisRoom.setting) {return 'checked="checked"'}
                     }
                     editButton.addEventListener('click', () => {
-                        console.log(thisRoom)
                         interface.innerHTML =  `
                             <form id="form">
                                 <p>Edit: ${thisRoom.name}</p>
@@ -579,7 +581,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             const update = document.getElementById('update-button')
                             update.addEventListener('click', function(e) {
                                 e.preventDefault()
-                                let formData = {
+                                    let formData = {
                                     user_id: 1,//loggedUser, change!
                                     name: document.getElementById('input-name').value,
                                     setting: document.querySelector('input[name="setting"]:checked').value,
@@ -618,7 +620,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                             switchAttr(cTopRight, 'class', 'corner-inactive')
                                         }, 8000)
                                     } else {
-                                        console.log(object)
                                         interface.innerHTML = `Edit success.`
                                     }
                                 })
@@ -650,6 +651,84 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     editItemsButton.addEventListener('click', (e) => {
                         e.preventDefault()
+                        
+                        
+                        
+                        let haha = thisRoom.items
+                        let wow = setInterval(() => {
+                            makeItems()
+                        }, 50)
+                      
+                        let itemsIds = []
+                        let configObj2 = {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                        }
+                        fetch(`http://localhost:3000/items/${thisRoom.id}/index`, configObj2)
+                        .then(function(response) {
+                            return response.json()
+                        })
+                        .then(function(object) {
+                            object.data.forEach(item => {
+                                itemsIds.push(item.id)
+                            })
+                        })
+                        itemsIds.reverse()
+                        function makeItems() {
+                            if (haha < thisRoom.obj_room) {
+                                console.log(haha)
+                                haha += 1
+                                let formData = {
+                                    room_id: thisRoom.id,
+                                    name: 'add name',
+                                    description: 'add description',
+                                    looked_message: 'add looked message',
+                                    take: false,
+                                    take_message: null,
+                                    closed: false,
+                                    closed_message: null,
+                                    talk: false,
+                                    talk_message: null,
+                                    locked: false,
+                                    locked_message: null,
+                                    opened_message: null
+                                }
+                                let configObj3 = {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: JSON.stringify(formData)
+                                }
+                                fetch('http://localhost:3000/items/new', configObj3)
+                            } else if (haha > thisRoom.obj_room) {
+                                haha -= 1
+                                let configObj = {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                }
+                                fetch(`http://localhost:3000/items/${itemsIds[0]}/delete`, configObj)
+                                itemsIds.shift()
+                            } else {
+                                console.log('out')
+                                clearTimeout(wow)
+                            }
+                        }
+                        
+
+                        
+                        
+                        
+                        
+                        
+                        
                         let configObj = {
                             method: 'GET',
                             headers: {
@@ -662,6 +741,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             return response.json()
                         })
                         .then(function(object) {
+                            // savedItems = object.data.length
+                            
                             class Item {
                                 constructor(
                                     id,
@@ -677,7 +758,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     locked,
                                     locked_message,
                                     opened_message,
-                                    room_id
+                                    room_id,
+                                    room_obj
                                 ) {
                                     this.id = id
                                     this.name = name
@@ -693,13 +775,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                     this.locked_message = locked_message
                                     this.opened_message = opened_message
                                     this.room_id = room_id
+                                    this.room_obj = room_obj
                                 }
                             }
                             interface.innerHTML = `
                                     <p>Edit this room's items</p>
                                     <div id="items" class="items-alternate"></div>`
+                                    // checkEmptyItems()
                             object.data.forEach(i => { 
-                                
                                 const thisItem = new Item(
                                     i.id,
                                     i.attributes.name,
@@ -714,9 +797,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     i.attributes.locked,
                                     i.attributes.locked_message,
                                     i.attributes.opened_message,
-                                    i.relationships.room.data.id
+                                    i.attributes.room.id,
+                                    i.attributes.room.obj_room
                                 )
-                                
+                                // roomItems = thisItem.room_obj here
                                 const items = document.getElementById('items')
                                 const itemFormElem =  elementBuilder('form', null, null, {'class':'item-form', 'id':`item-form-${thisItem.id}`})
                                 
@@ -741,7 +825,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                         } else {return ""}
                                     } 
                                     if (messageIncluded === "closed") {
-                                        console.log('here')
                                         if (thisItem.closed === true) {
                                             return `
                                             <label class="input-styles">Message when closed:</label>
@@ -769,6 +852,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         } else {return ""}
                                     } 
                                 }
+                                
                                 itemFormElem.innerHTML = `
                                     <label class="input-styles">Name:</label>
                                     <input "type="text" value="${thisItem.name}" class="input-styles-inp" id="name-${thisItem.id}"><br />
@@ -818,6 +902,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <br />
                                     <input type="submit" value="Update" class="input-styles-button" id="update-button-${thisItem.id}">`
                                     
+                                
+
+
+
+
+
+                                
+                                
                                 items.appendChild(itemFormElem)
                                 
                                 const updateButton = document.getElementById(`update-button-${thisItem.id}`)

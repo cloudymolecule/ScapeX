@@ -1,5 +1,5 @@
 body {
-    background: black;
+    background: rgb(0, 0, 0);
 }
 
 .grid {
@@ -293,6 +293,14 @@ background-color:transparent
 }
 
 .items-alternate>form>p:nth-child(even){
+background-color:transparent
+}
+
+.items-alternate>form>div>label:nth-child(odd){
+    background-color:transparent
+}
+
+.items-alternate>form>div>label:nth-child(even){
 background-color:transparent
 }
 
