@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const roomsDiv = document.createElement('div')
     mTop.addEventListener('click', () => {
         clearElems('interface')
+        let roomsSortedByAttempts = []
         let configObj = {
             method: 'GET',
             headers: {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(function(object) {
             object.data.forEach(r => {
-                const thisRoom = new Room(
+                let thisRoom = new Room(
                     r.id,
                     r.relationships.user.data.id,
                     r.attributes.name,
@@ -30,22 +30,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     r.attributes.lock,
                     r.attributes.items
                 )
+                roomsSortedByAttempts.push(thisRoom)
+                
+            })
+            roomsSortedByAttempts.sort(function(a, b) {
+                return b.attempts - a.attempts
+            })
+            roomsSortedByAttempts.forEach(room => {
                 const roo = elementBuilder('div', null, null)
                 roo.innerHTML = `
-                    <p>Room Name: ${thisRoom.name} - Setting: ${thisRoom.setting}</p>
-                    <p>Time limit: ${thisRoom.time_limit} - Attempts allowed: ${thisRoom.attempts_allowed}</p>
-                    <input type="submit" value="Play" class="input-styles-button" id="play-button-${thisRoom.id}">`
-                roomsDiv.appendChild(roo)
-                const playButton = document.getElementById('play-button-${thisRoom.id')
+                    <p>Room Name: ${room.name} - Setting: ${room.setting}</p>
+                    <p>Time limit: ${room.time_limit} - Attempts allowed: ${room.attempts_allowed}</p>
+                    <input type="submit" value="Play" class="input-styles-button" id="play-button-${room.id}">`
+                interface.appendChild(roo)
+                const playButton = document.getElementById(`play-button-${room.id}`)
                 playButton.addEventListener("click", (e) => {
                     e.preventDefault()
-                    
+                    letsPlay()
                 })
             })
-            interface.appendChild(roomsDiv)
-        })
-        .catch(function(error) {
-            console.log(error.message)
         })
     })
 })
