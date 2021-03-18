@@ -21,23 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json()
             })
             .then(function(object) {
-                class Room {
-                    constructor(id, user_id, name, setting, time_limit, completed_message, attempts, attempts_allowed, times_completed, obj_room, obj_exit, lock, items) {
-                        this.id = id
-                        this.user_id = user_id
-                        this.name = name
-                        this.setting = setting
-                        this.time_limit = time_limit
-                        this.completed_message = completed_message
-                        this.attempts = attempts
-                        this.attempts_allowed = attempts_allowed
-                        this.times_completed = times_completed
-                        this.obj_room = obj_room
-                        this.obj_exit = obj_exit
-                        this.lock = lock
-                        this.items = items
-                    }
-                }
+                
                 object.data.forEach(r => {
                     const roo = elementBuilder('div', null, null)
                     const thisRoom = new Room(
@@ -269,41 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                         return value
                                     }
                                 }
-                                class Item {
-                                    constructor(
-                                        id,
-                                        name,
-                                        description,
-                                        looked_message,
-                                        take,
-                                        take_message,
-                                        closed,
-                                        closed_message,
-                                        talk,
-                                        talk_message,
-                                        locked,
-                                        locked_message,
-                                        opened_message,
-                                        room_id,
-                                        room_obj
-                                    ) {
-                                        this.id = id
-                                        this.name = checkForNull(name)
-                                        this.description = checkForNull(description)
-                                        this.looked_message = checkForNull(looked_message)
-                                        this.take = take
-                                        this.take_message = checkForNull(take_message)
-                                        this.closed = closed
-                                        this.closed_message = checkForNull(closed_message)
-                                        this.talk = talk
-                                        this.talk_message = checkForNull(talk_message)
-                                        this.locked = locked
-                                        this.locked_message = checkForNull(locked_message)
-                                        this.opened_message = checkForNull(opened_message)
-                                        this.room_id = room_id
-                                        this.room_obj = room_obj
-                                    }
-                                }
                                 interface.innerHTML = `
                                         <p>Edit this room's items</p>
                                         <div id="items" class="items-alternate"></div>`
@@ -312,18 +261,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                     itemsCounter += 1
                                     const thisItem = new Item(
                                         i.id,
-                                        i.attributes.name,
-                                        i.attributes.description,
-                                        i.attributes.looked_message,
+                                        checkForNull(i.attributes.name),
+                                        checkForNull(i.attributes.description),
+                                        checkForNull(i.attributes.looked_message),
                                         i.attributes.take,
-                                        i.attributes.take_message,
+                                        checkForNull(i.attributes.take_message),
                                         i.attributes.closed,
-                                        i.attributes.closed_message,
+                                        checkForNull(i.attributes.closed_message),
                                         i.attributes.talk,
-                                        i.attributes.talk_message,
+                                        checkForNull(i.attributes.talk_message),
                                         i.attributes.locked,
-                                        i.attributes.locked_message,
-                                        i.attributes.opened_message,
+                                        checkForNull(i.attributes.locked_message),
+                                        checkForNull(i.attributes.opened_message),
                                         i.attributes.room.id,
                                         i.attributes.room.obj_room
                                     )
@@ -429,10 +378,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <input type="submit" value="Delete" class="input-styles-button" id="delete-button-${thisItem.id}">`
 
                                     items.appendChild(itemFormElem)
-                                    
-                                    
-
-
                                     const canItBeTaken = document.getElementById(`can-it-be-taken-${thisItem.id}`)
                                     const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${thisItem.id}`)
                                     const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${thisItem.id}`)
@@ -443,8 +388,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                         const messageDiv = document.createElement('div')
                                         messageDiv.innerHTML = `
                                             <label class="input-styles">Message when taken:</label>
-                                            <textarea class="input-styles-inp" id="take-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.take_message}</textarea><br />
-                                        `
+                                            <textarea class="input-styles-inp" id="take-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.take_message}</textarea><br />`
+                                        
                                         canItBeTaken.appendChild(messageDiv)
                                     })
 

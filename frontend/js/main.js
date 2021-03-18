@@ -1,3 +1,4 @@
+//main menu
 const mRegister = document.getElementById('menu-register')
 const mCreate = document.getElementById('menu-create')
 const mMy = document.getElementById('menu-my')
@@ -58,5 +59,74 @@ function loggedToggle(user = false) {
         switchAttr(mRegister, 'class', 'menu-element-off')          
         switchAttr(mCreate, 'class', 'menu-element')
         switchAttr(mMy, 'class', 'menu-element')
+    }
+}
+
+//classes
+class Room {
+    constructor(
+        id,
+        user_id, 
+        name, 
+        setting, 
+        time_limit, 
+        completed_message, 
+        attempts, 
+        attempts_allowed, 
+        times_completed, 
+        obj_room, 
+        obj_exit, 
+        lock, 
+        items
+    ) {
+        this.id = id
+        this.user_id = user_id
+        this.name = name
+        this.setting = setting
+        this.time_limit = time_limit
+        this.completed_message = completed_message
+        this.attempts = attempts
+        this.attempts_allowed = attempts_allowed
+        this.times_completed = times_completed
+        this.obj_room = obj_room
+        this.obj_exit = obj_exit
+        this.lock = lock
+        this.items = items
+    }
+}
+
+class Item {
+    constructor(
+        id,
+        name,
+        description,
+        looked_message,
+        take,
+        take_message,
+        closed,
+        closed_message,
+        talk,
+        talk_message,
+        locked,
+        locked_message,
+        opened_message,
+        room_id,
+        room_obj
+    ) {
+        this.id = id
+        this.name = name
+        this.description = description
+        this.looked_message = looked_message
+        this.take = take
+        this.take_message = take_message
+        this.closed = closed
+        this.closed_message = closed_message
+        this.talk = talk
+        this.talk_message = talk_message
+        this.locked = locked
+        this.locked_message = locked_message
+        this.opened_message = opened_message
+        this.room_id = room_id
+        this.room_obj = room_obj
     }
 }
