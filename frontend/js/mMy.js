@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let itemsCounter = 0
         interface.innerHTML = `
             <p>User Rooms<p>
-            <div id="rooms"></div>
-        `
+            <div id="rooms"></div>`
         const roomsDiv = document.getElementById('rooms')
         if (loggedUser) {
+            
             let configObj = {
                 method: 'GET',
                 headers: {
@@ -119,16 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 })
                                 .then(function(object) {
                                     if (object.errors) {
-                                        clearElems('corner-top-right')
-                                        object.errors.forEach(error => {
-                                            const errorUpdate = elementBuilder('p', error, null, {'class':'warning'})
-                                            switchAttr(cTopRight, 'class', 'corner-active')
-                                            cTopRight.appendChild(errorUpdate)
-                                        })
-                                        setTimeout(() => {
-                                            clearElems('corner-top-right')
-                                            switchAttr(cTopRight, 'class', 'corner-inactive')
-                                        }, 8000)
+                                        errorsDisplay(object.errors)
                                     } else {
                                         interface.innerHTML = `Edit success.`
                                     }

@@ -117,8 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <div id="is-it-locked-${i}"></div>
                                     <br />
                                     <input type="submit" value="Save" class="input-styles-button" id="save-button-${i}">`
-                                    
-
 
                             items.appendChild(itemFormElem)
 

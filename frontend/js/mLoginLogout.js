@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const submitButton = document.getElementById('submit-button')
 
         if (!loggedUser) {
-
             submitButton.addEventListener('click', () => {
                 let formData = {
                     input: document.getElementById('input-name').value,
