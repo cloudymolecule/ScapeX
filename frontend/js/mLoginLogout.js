@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             object.data.attributes.rooms)
                         
                         loggedToggle(user)
+                        console.log(loggedUser)
                         interface.innerText = `You logged in successfully, ${user.username}.`
                     }
                 })

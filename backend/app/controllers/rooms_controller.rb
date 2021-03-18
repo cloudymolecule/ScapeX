@@ -1,10 +1,14 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :update, :destroy]
+  # before_action :set_room, only: [:show, :update, :destroy]
 
   def index
     if params[:id]
-      rooms = Room.find_by(user_id: params[:id])
+      byebug
+      user = User.find(params[:id])
+      rooms = user.rooms
+     
     else
+      byebug
       rooms = Room.all
     end
     render json: RoomSerializer.new(rooms)
@@ -45,9 +49,9 @@ class RoomsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      room = Room.find(params[:id])
-    end
+    # def set_room
+    #   room = Room.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def room_params

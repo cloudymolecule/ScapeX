@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     mPlay.addEventListener('click', () => {
-        clearElems('interface')
-        interface.innerHTML = 'escape some rooms! :)'
+        if (!loggedUser) {
+            console.log(loggedUSer)
+        } else {
+            interface.innerHTML = 'Please log in first'
+        }
     })
 })
