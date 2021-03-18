@@ -37,8 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (object.errors) {
                         errorsDisplay(object.errors)
                     } else {
-                        loggedToggle(object.data.attributes.id)
-                        interface.innerText = `You logged in successfully, ${object.data.attributes.username}.`
+                        let user = new User(object.data.attributes.username, object.data.attributes.email, object.data.id)
+                        console.log(object)
+                        loggedToggle(user.id)
+                        interface.innerText = `You logged in successfully, ${user.username}.`
                     }
                 })
                 .catch(function(error) {
