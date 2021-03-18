@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/users/:id/', to: 'users#show'
+  get '/rooms/index/', to: 'rooms#index'
   get '/items/:id', to: 'items#show'
   get '/rooms/:id', to: 'rooms#show'
   post '/rooms/new', to: 'rooms#create'

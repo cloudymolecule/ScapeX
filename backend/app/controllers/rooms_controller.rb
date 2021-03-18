@@ -4,9 +4,9 @@ class RoomsController < ApplicationController
   def index
     if params[:id]
       rooms = Room.find_by(user_id: params[:id])
+    else
+      rooms = Room.all
     end
-    rooms = Room.all
-
     render json: RoomSerializer.new(rooms)
   end
 

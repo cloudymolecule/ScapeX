@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     mCreate.addEventListener('click', () => {
-        if (!loggedUser) { //change!
+        if (loggedUser) {
             interface.innerHTML = `
                 <form id="form">
                     <p>Create Escape Room</p>

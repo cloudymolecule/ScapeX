@@ -154,9 +154,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         return response.json()
                     })
                     .then(function(object) {
-                    object.data.forEach(item => {
-                            itemsIds.push(item.id)
-                        })
+                        object.data.forEach(item => {
+                                itemsIds.push(item.id)
+                            })
                     })
                     itemIds = itemsIds.reverse()
                     function makeItems() {
