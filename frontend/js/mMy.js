@@ -503,16 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         })
                                         .then(function(object) {
                                             if (object.errors) {
-                                                clearElems('corner-top-right')
-                                                object.errors.forEach(error => {
-                                                    const errorItems = elementBuilder('p', error, null, {'class':'warning'})
-                                                    switchAttr(cTopRight, 'class', 'corner-active')
-                                                    cTopRight.appendChild(errorItems)
-                                                })
-                                                setTimeout(() => {
-                                                    clearElems('corner-top-right')
-                                                    switchAttr(cTopRight, 'class', 'corner-inactive')
-                                                }, 8000)
+                                                errorsDisplay(object.errors)
                                             } else {
                                                 itemFormElem.className = 'item-form saved'
                                                 const savedName = document.getElementById(`name-${thisItem.id}`).value
@@ -529,14 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     deleteButtonItem.addEventListener('click', function(e) {
                                         e.preventDefault()
                                         if (itemsCounter === 1) {
-                                            clearElems('corner-top-right')
-                                            const errorDelete = elementBuilder('p', 'Room must have at least one item', null, {'class':'warning'})
-                                            switchAttr(cTopRight, 'class', 'corner-active')
-                                            cTopRight.appendChild(errorDelete)
-                                            setTimeout(() => {
-                                                clearElems('corner-top-right')
-                                                switchAttr(cTopRight, 'class', 'corner-inactive')
-                                            }, 8000)
+                                            errorsDisplay(['Room must have at least one item'])
                                         } else if (itemsCounter > 1){
                                             itemsCounter = itemsCounter - 1
                                             let configObj = {
@@ -566,38 +550,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                             itemFormElem.className = 'item-form saved'
                                             itemFormElem.innerHTML = `<p class="items-alternate">Item deleted</p>`
                                         }
-                                        
-
-
-                                        
-
-
-                                        
-                                        
-
-
-
-
-
-
-                                        
-
                                     })
                                 })
-                                
                             })
                             .catch(function(error) {
                                 console.log(error.message)
                             })
-                            // interface.innerHTML =`delete-button-${r.id}`
-
-                    }
-
-
-
-
-
-
+                        }
                     })
                 })
             })

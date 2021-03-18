@@ -4,10 +4,7 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])    
             render json: UserSerializer.new(user)
         else
-            render json: {
-                error: "Error while logging in, try again.",
-                status: 400
-            }
+            render json: {errors: ["Error while logging in, try again."]} 
         end
     end
 end

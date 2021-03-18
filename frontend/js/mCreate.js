@@ -67,16 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(function(object) {
                     if (object.errors) {
-                        clearElems('corner-top-right')
-                        object.errors.forEach(error => {
-                            const errorRoom = elementBuilder('p', error, null, {'class':'warning'})
-                            switchAttr(cTopRight, 'class', 'corner-active')
-                            cTopRight.appendChild(errorRoom)
-                        })
-                        setTimeout(() => {
-                            clearElems('corner-top-right')
-                            switchAttr(cTopRight, 'class', 'corner-inactive')
-                        }, 8000)
+                        errorsDisplay(object.errors)
                     } else {                                
                         let currentRoom = object.data.attributes.id
                         //add room success message
@@ -132,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             items.appendChild(itemFormElem)
 
                             const saveButtonItem = document.getElementById(`save-button-${i}`)
-                            // saveButton.addEventListener('click', function(e) {e.preventDefault()})
                             const canItBeTaken = document.getElementById(`can-it-be-taken-${i}`)
                             const radioCanItBeTakenYes = document.getElementById(`radio-can-it-be-taken-yes-${i}`)
                             const radioCanItBeTakenNo = document.getElementById(`radio-can-it-be-taken-no-${i}`)
@@ -143,11 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
                                     <label class="input-styles">Message when taken:</label>
-                                    <textarea class="input-styles-inp" id="take-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
-                                `
+                                    <textarea class="input-styles-inp" id="take-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />`
                                 canItBeTaken.appendChild(messageDiv)
                             })
-
                             radioCanItBeTakenNo.addEventListener('change', function(e) {
                                 canItBeTakenYesNo = false
                                 clearElems(`can-it-be-taken-${i}`)
@@ -163,11 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
                                     <label class="input-styles">Message when closed:</label>
-                                    <textarea class="input-styles-inp" id="closed-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
-                                `
+                                    <textarea class="input-styles-inp" id="closed-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />`
                                 isItClosed.appendChild(messageDiv)
                             })
-
                             radioIsItClosedNo.addEventListener('change', function(e) {
                                 isItClosedYesNo = false
                                 clearElems(`is-it-closed-${i}`)
@@ -183,11 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 const messageDiv = document.createElement('div')
                                 messageDiv.innerHTML = `
                                     <label class="input-styles">Can it talk:</label>
-                                    <textarea class="input-styles-inp" id="talk-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
-                                `
+                                    <textarea class="input-styles-inp" id="talk-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />`
                                 canItTalk.appendChild(messageDiv)
                             })
-
                             radioCanItTalkNo.addEventListener('change', function(e) {
                                 canItTalkYesNo = false
                                 clearElems(`can-it-talk-${i}`)
@@ -206,20 +190,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <textarea class="input-styles-inp" id="locked-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
 
                                     <label class="input-styles">Opened Message:</label>
-                                    <textarea class="input-styles-inp" id="opened-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />
-                                `
+                                    <textarea class="input-styles-inp" id="opened-message${i}" cols="20" rows="2" maxlength="255"></textarea><br />`
                                 IsItLocked.appendChild(messageDiv)
                             })
-
                             radioIsItLockedNo.addEventListener('change', function(e) {
                                 isItLockedYesNo = false
                                 clearElems(`is-it-locked-${i}`)
                             })
                             saveButtonItem.addEventListener('click', (e) => {
                                 e.preventDefault()
-                                function isThereContent(element) {
-                                    if (element && element.value) { return element.value } else { return null}
-                                }
+                                function isThereContent(element) {if (element && element.value) { return element.value } else { return null}}
 
                                 let formData = {
                                     room_id: 1,
@@ -252,16 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 })
                                 .then(function(object) {
                                     if (object.errors) {
-                                        clearElems('corner-top-right')
-                                        object.errors.forEach(error => {
-                                            const errorItems = elementBuilder('p', error, null, {'class':'warning'})
-                                            switchAttr(cTopRight, 'class', 'corner-active')
-                                            cTopRight.appendChild(errorItems)
-                                        })
-                                        setTimeout(() => {
-                                            clearElems('corner-top-right')
-                                            switchAttr(cTopRight, 'class', 'corner-inactive')
-                                        }, 8000)
+                                        errorsDisplay(object.errors)
                                     } else {
                                         itemFormElem.className = 'item-form saved'
                                         const savedName = document.getElementById(`name-${i}`).value

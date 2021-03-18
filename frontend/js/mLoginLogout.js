@@ -1,27 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const mRegister = document.getElementById('menu-register')
-    const mCreate = document.getElementById('menu-create')
-    const mMy = document.getElementById('menu-my')
-    function loggedToggle(user = false) {
-        if (loggedUser) {
-            loggedUser = user
-            mLoginLogout.innerText = 'Login'
-            switchAttr(mRegister, 'class', 'menu-element')
-            switchAttr(mCreate, 'class', 'menu-element-off')           
-            switchAttr(mMy, 'class', 'menu-element-off')
-            
-        } else if (!loggedUser) {
-            loggedUser = user
-            clearElems('interface')
-            mLoginLogout.innerText = 'Logout'
-            switchAttr(mRegister, 'class', 'menu-element-off')          
-            switchAttr(mCreate, 'class', 'menu-element')
-            switchAttr(mMy, 'class', 'menu-element')
-        }
-    }
-    
-
-    const mLoginLogout = document.getElementById('menu-login-logout')
     mLoginLogout.addEventListener('click', () => {
         interface.innerHTML = `
             <p>Log in to your ScapeX account</p>
@@ -58,15 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     return response.json()
                 })
                 .then(function(object) {
-                    if (object.error) {
-                        clearElems('corner-top-right')
-                        const error = elementBuilder('p', object.error, null, {'class':'warning'})
-                        cTopRight.appendChild(error)
-                        switchAttr(cTopRight, 'class', 'corner-active')
-                        setTimeout(() => {
-                            clearElems('corner-top-right')
-                            switchAttr(cTopRight, 'class', 'corner-inactive')
-                        }, 6000)
+                    if (object.errors) {
+                        errorsDisplay(object.errors)
                     } else {
                         loggedToggle(object.data.attributes.id)
                         interface.innerText = `You logged in successfully, ${object.data.attributes.username}.`

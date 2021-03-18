@@ -1,4 +1,5 @@
 //main menu
+const mLoginLogout = document.getElementById('menu-login-logout')
 const mRegister = document.getElementById('menu-register')
 const mCreate = document.getElementById('menu-create')
 const mMy = document.getElementById('menu-my')
@@ -62,7 +63,23 @@ function loggedToggle(user = false) {
     }
 }
 
+//error handling
+function errorsDisplay(errors){
+    clearElems('corner-top-right')
+    errors.forEach(err => {
+        const error = elementBuilder('p', err, null, {'class':'warning'})
+        switchAttr(cTopRight, 'class', 'corner-active')
+        cTopRight.appendChild(error)
+    })
+    setTimeout(() => {
+        clearElems('corner-top-right')
+        switchAttr(cTopRight, 'class', 'corner-inactive')
+    }, 8000)
+}
+
 //classes
+
+
 class Room {
     constructor(
         id,
@@ -130,3 +147,4 @@ class Item {
         this.room_obj = room_obj
     }
 }
+

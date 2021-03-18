@@ -42,16 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(function(object) {
                     if (object.errors) {
-                        clearElems('corner-top-right')
-                        object.errors.forEach(error => {
-                            const errorRegis = elementBuilder('p', error, null, {'class':'warning'})
-                            switchAttr(cTopRight, 'class', 'corner-active')
-                            cTopRight.appendChild(errorRegis)
-                        })
-                        setTimeout(() => {
-                            clearElems('corner-top-right')
-                            switchAttr(cTopRight, 'class', 'corner-inactive')
-                        }, 8000)
+                        errorsDisplay(object.errors)
                     } else {
                         loggedToggle(object.data.attributes.id)
                         interface.innerHTML = `Account created successfully, welcome ${object.data.attributes.username}.`
