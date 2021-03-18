@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         if (messageIncluded === "talk") {
                                             if (thisItem.talk === true) {
                                                 return `
-                                                <label class="input-styles">Can it talk:</label>
+                                                <label class="input-styles">What does it say?:</label>
                                                 <textarea class="input-styles-inp" id="talk-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.talk_message}</textarea><br />
                                             `
                                             } else {return ""}
@@ -418,7 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                         clearElems(`can-it-talk-${thisItem.id}`)
                                         const messageDiv = document.createElement('div')
                                         messageDiv.innerHTML = `
-                                            <label class="input-styles">Can it talk:</label>
+                                            <label class="input-styles">What does it say?:</label>
                                             <textarea class="input-styles-inp" id="talk-message${thisItem.id}" cols="20" rows="2" maxlength="255">${thisItem.talk_message}</textarea><br />
                                         `
                                         canItTalk.appendChild(messageDiv)

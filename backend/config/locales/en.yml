@@ -29,5 +29,58 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
+# en:
+#   hello: "Hello world"
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+        username: "Username"
+        password: "Password"
+      room:
+        name: "Escape room name"
+        setting: "Setting"
+        time_limit: "Time limit"
+        completed_message: "Completed message"
+        attempts_allowed: "Attempts allowed"
+        obj_room: "Room items"
+        obj_exit: "Req. completion items"
+        lock: "Room lock"
+      item:
+        name: "Name"
+        description: "Description"
+        looked_message: "Message when looked at"
+        take_message: "Message when taken"
+        closed_message: "Message when closed"
+        talk_message: "Mesage when spoken to"
+        locked_message: "Message when locked"
+        opened_message: "Message when opened"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "is required"
+            username:
+              blank: "is required"
+            password:
+              blank: "is required"
+        room:
+          attributes:
+            name:
+              blank: "is required"
+            setting: 
+              blank: "must be chosen"
+            time_limit:
+              blank: "must be chosen"
+            completed_message:
+              blank: "must be chosen" 
+            attempts_allowed: 
+              blank: "must be chosen"
+            obj_room: 
+              blank: "are required"
+            obj_exit: 
+              blank: "are required"
+            lock:
+              blank: "is required"
