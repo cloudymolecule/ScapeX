@@ -149,6 +149,13 @@ textarea.visited {
     gap: 20px;
 }
 
+.item-form {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 .setting-div {
     width: 5%;
     margin-left:auto;

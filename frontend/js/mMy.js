@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         let intervalToPleaseServer = setInterval(() => {
                             makeItems()
                         }, 50)
-                    
+                        interface.innerHTML = 'Please wait...'
                         let itemsIds = []
                         let configObj2 = {
                             method: 'GET',
@@ -480,7 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             opened_message: isThereContent(document.getElementById(`opened-message${thisItem.id}`))
                                         }
                                         let configObj = {
-                                            method: 'POST',
+                                            method: 'PATCH',
                                             headers: {
                                                 'Content-Type': 'application/json',
                                                 'Accept': 'application/json'
@@ -488,7 +488,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             body: JSON.stringify(formData)
                                         }
         
-                                        fetch('http://localhost:3000/items/new', configObj)
+                                        fetch(`http://localhost:3000/items/${thisItem.id}/update`, configObj)
                                         .then(function(response) {
                                             return response.json()
                                         })
@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                 itemFormElem.className = 'item-form saved'
                                                 const savedName = document.getElementById(`name-${thisItem.id}`).value
                                                 itemFormElem.innerHTML = `
-                                                    <p class="items-alternate">Item: ${thisItem.id}</p>
+                                                    <p class="items-alternate">Item updated</p>
                                                     <input type="submit" value="Delete" class="input-styles-button" id="delete-button-${thisItem.id}">`
                                             }
                                         })
