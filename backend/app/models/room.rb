@@ -25,4 +25,9 @@ class Room < ApplicationRecord
 
     validates :obj_exit, numericality: {greater_than_or_equal_to: 0 }
     validates :obj_exit, numericality: {less_than_or_equal_to: 3 }
+    validates :obj_exit, numericality: {less_than_or_equal_to: :obj_room}
+
+
+
+    
 end
