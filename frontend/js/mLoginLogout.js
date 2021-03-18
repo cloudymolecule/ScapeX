@@ -37,9 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (object.errors) {
                         errorsDisplay(object.errors)
                     } else {
-                        let user = new User(object.data.attributes.username, object.data.attributes.email, object.data.id)
-                        console.log(object)
-                        loggedToggle(user.id)
+                        const user = new User(
+                            object.data.attributes.username, 
+                            object.data.attributes.email, 
+                            object.data.id, 
+                            object.data.attributes.rooms)
+                        
+                        loggedToggle(user)
                         interface.innerText = `You logged in successfully, ${user.username}.`
                     }
                 })

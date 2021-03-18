@@ -44,8 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (object.errors) {
                         errorsDisplay(object.errors)
                     } else {
-                        loggedToggle(object.data.attributes.id)
-                        interface.innerHTML = `Account created successfully, welcome ${object.data.attributes.username}.`
+                        const user = new User(
+                            object.data.attributes.username, 
+                            object.data.attributes.email, 
+                            object.data.id, 
+                            object.data.attributes.rooms)
+                        loggedToggle(user)
+                        interface.innerHTML = `Account created successfully, welcome ${user.username}.`
                     }
                 })
                 .catch(function(error) {

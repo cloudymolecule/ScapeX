@@ -149,9 +149,12 @@ class Item {
 }
 
 class User {
-    constructor(username, email, id) {
+    constructor(username, email, id, rooms) {
     this.username = username
     this.email = email
     this.id = id
+    this.rooms = rooms
     }
 }
+
+

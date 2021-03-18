@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             submitButton.addEventListener('click', (e) => {
                 e.preventDefault()
                 let formData = {
-                    user_id: 1,//loggedUser, change!
+                    user_id: loggedUser.id,//loggedUser, change!
                     name: document.getElementById('input-name').value,
                     setting: document.querySelector('input[name="setting"]:checked').value,
                     time_limit: document.getElementById('input-time-limit').value,
